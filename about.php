@@ -25,9 +25,9 @@ I would also love to use the open source <a href="http://class.stanford.edu">Sta
 use outside of Stanford.  My technical approach is very much influenced by Stanford's "don't build it if you don't have to" approach - 
 but I am going to take it even further than they have taken it.  I am going to 
 <a href="http://www.youtube.com/watch?v=F7IZZXQ89Oc" target="_new">turn it up to 11</a> - at least in my use of 
-standards and open content.  I also am taking inspiration from the excellent Coursera 
+standards and open content.  I also am taking pedagogy and technical inspiration from the excellent Coursera 
 <a href="https://www.coursera.org/course/interactivepython" target="_new">Interactive Programming in Python</a> 
-taught by Joe Warren, Scott Rixner, John Greiner, and Stephen Wong of Rice University. I would suggest that after 
+course taught by Joe Warren, Scott Rixner, John Greiner, and Stephen Wong of Rice University. I would suggest that after 
 students complete my course, if they are interested in more programming, that they would take the Rice course.
 </p>
 <p>

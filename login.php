@@ -41,7 +41,7 @@ try {
                 $X_firstName = mysql_real_escape_string($firstName);
                 $X_lastName = mysql_real_escape_string($lastName);
                 $X_userEmail = mysql_real_escape_string($userEmail);
-                $sql = "SELECT id, email, first, last, avatar FROM Users WHERE identity='$X_identity'";
+                $sql = "SELECT id, email, first, last, avatar, avatarlink FROM Users WHERE identity='$X_identity'";
                 $result = mysql_query($sql);
                 if ( $result === FALSE ) {
                     error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
@@ -52,12 +52,14 @@ try {
                 $row = mysql_fetch_row($result);
                 $theid = false;
                 $avatar = false;
+                $avatarlink = false;
                 if ( $row !== FALSE ) { // Lets update!
+                    $theid = $row[0];
+                    $avatar = $row[4];
+                    $avatarlink = $row[5];
                     if ( $row[1] != $userEmail || $row[2] != $firstName || $row[3] != $lastName ) {
-                        $theid = $row[0];
-                        $avatar = $row[4];
                         $sql = "UPDATE Users SET email='$X_userEmail', first='$X_firstName', ".
-                                "last='$X_lastName', emailsha=SHA1('$X_userEmail') WHERE id='$theid'";
+                                "last='$X_lastName', emailsha=SHA1('$X_userEmail'), modified_at=NOW() WHERE id='$theid'";
                         $result = mysql_query($sql);
                         if ( $result === FALSE ) {
                             error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
@@ -69,9 +71,9 @@ try {
                         }
                     }
                 } else { // Lets Insert!
-                    $sql = "INSERT INTO Users (identity, email, first, last, identitysha, emailsha) VALUES ".
-                            "('$X_identity', '$X_userEmail', '$X_firstName', '$X_lastName', ".
-                            "SHA1('$X_identity'), SHA1('$X_userEmail') )";
+                    $sql = "INSERT INTO Users (identity, email, first, last, identitysha, emailsha, created_at, modified_at) ".
+                            "VALUES ('$X_identity', '$X_userEmail', '$X_firstName', '$X_lastName', ".
+                            "SHA1('$X_identity'), SHA1('$X_userEmail'), NOW(), NOW() )";
                     $result = mysql_query($sql);
                     if ( $result === FALSE ) {
                         error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
@@ -87,10 +89,11 @@ try {
                 $_SESSION["success"] = "Welcome ".htmlentities($firstName)." ".
                         htmlentities($lastName)." (".htmlentities($userEmail).")";
                 $_SESSION["id"] = $theid;
-                $_SESSION["email"] = $emailName;
+                $_SESSION["email"] = $userEmail;
                 $_SESSION["first"] = $firstName;
                 $_SESSION["last"] = $lastName;
                 if ( $avatar !== false && strlen($avatar) > 0 ) $_SESSION["avatar"] = $avatar;
+                if ( $avatarlink !== false && strlen($avatarlink) > 0 ) $_SESSION["avatarlink"] = $avatarlink;
                 header('Location: profile.php');
                 return;
             }
