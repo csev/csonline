@@ -1,3 +1,14 @@
+<div style="height: 400px"></div>
+<hr>
+<center>
+<small>
+I need to be very clear that this is <b>not</b> an official activity of the University of Michigan
+or School of Information in any way.  If you get a badge, certificate, or something else from 
+Dr. Chuck Online - it is from Dr. Chuck and no one and nothing else.  Just a crazy independent faculty member
+doing that research thing that we do and teaching a course and givin' badges signed by him.
+Kind of like <a href="http://www.opencontent.org/wiki/index.php?title=Intro_Open_Ed_Syllabus" target="_new">this</a>.
+</small>
+</center>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 

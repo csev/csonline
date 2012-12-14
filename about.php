@@ -4,7 +4,6 @@
 <?php require_once("head.php"); ?>
 </head>
 <body style="padding: 0px 10px 0px 10px">
-<h1>
 <?php require_once("nav.php"); ?>
 <p>
 The purpose of me building my own MOOC infrastructure is too explore some of the areas of teaching and learning 
@@ -33,8 +32,15 @@ students complete my course, if they are interested in more programming, that th
 </p>
 <p>
 My goal once I gain experience with this approach and my prototype pieces work successfully is to make it so that this 
-class can be a MOOC in any MOOC or LMS platform including Coursera, Clas2Go, CourseSites, Sakai, Moodle, Blackboard, 
-Joule, or Canvas.  All the software I write will be open source and all the content I build will be Creative Commons Attribution.
+class can be a MOOC in any MOOC or LMS platform including 
+Coursera, 
+Class2Go, 
+CourseSites, 
+Sakai, 
+Moodle, 
+Blackboard, 
+Joule, or 
+Canvas.  All the software I write will be open source and all the content I build will be Creative Commons Attribution.
 I want this all to be used as examples and remixed.
 </p>
 <p>
@@ -60,7 +66,7 @@ for Informatics: Exploring Data</a>.  I keep most of my cool stuff in
 <p>
 This experiment is hosted on servers provided to me at no charge by the 
 <a href="http://www.si.umich.edu/" target="_new">University of Michigan School of Information</a>
-and I am very thankful for that.
+and I am very thankful for that. 
 </p>
 <p>
 Charles Severance - 

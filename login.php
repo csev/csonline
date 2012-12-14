@@ -3,11 +3,12 @@
 require 'lightopenid/openid.php';
 $ipaddress = $_SERVER['REMOTE_ADDR'];
 $errormsg = false;
+$success = false;
+session_start();
 try {
     $openid = new LightOpenID('online.dr-chuck.com');
     if(!$openid->mode) {
         if(isset($_GET['login'])) {
-            // $openid->identity = 'http://specs.openid.net/auth/2.0/server';
             $openid->identity = 'https://www.google.com/accounts/o8/id';
             $openid->required = array('contact/email', 'namePerson/first', 'namePerson/last');
             $openid->optional = array('namePerson/friendly');
@@ -16,26 +17,84 @@ try {
 ?>
 <?php
     } else {
-	if($openid->mode == 'cancel') {
+        if($openid->mode == 'cancel') {
             $errormsg = "You have canceled authentication. That's OK but we cannot log you in.  Sorry.";
             error_log('Google-Cancel:'.$ipaddress);
-	} else if ( ! $openid->validate() ) {
+        } else if ( ! $openid->validate() ) {
             $errormsg = 'You were not logged in by Google.  It may be due to a technical problem.';
             error_log('Google-Fail:'.$ipaddress);
-    	} else {
-         	$identity = $openid->identity;
-      	 	$userAttributes = $openid->getAttributes();
-		// echo("\n<pre>\n");print_r($userAttributes);echo("\n</pre>\n");
-		$firstName = isset($userAttributes['namePerson/first']) ? $userAttributes['namePerson/first'] : false;
-		$lastName = isset($userAttributes['namePerson/last']) ? $userAttributes['namePerson/last'] : false;
-		$userEmail = isset($userAttributes['contact/email']) ? $userAttributes['contact/email'] : false;
-		if ( $firstName === false || $lastName === false || $userEmail === false ) {
-         	    error_log('Google-Missing:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
-                    $errormsg = "You do not have a first name, last name, and email in Google or you did not share it with us.";
-		} else {
-         	    error_log('Google-Success:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
-		}
-	}
+        } else {
+            $identity = $openid->identity;
+            $userAttributes = $openid->getAttributes();
+            // echo("\n<pre>\n");print_r($userAttributes);echo("\n</pre>\n");
+            $firstName = isset($userAttributes['namePerson/first']) ? $userAttributes['namePerson/first'] : false;
+            $lastName = isset($userAttributes['namePerson/last']) ? $userAttributes['namePerson/last'] : false;
+            $userEmail = isset($userAttributes['contact/email']) ? $userAttributes['contact/email'] : false;
+            if ( $firstName === false || $lastName === false || $userEmail === false ) {
+                error_log('Google-Missing:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
+                $_SESSION["error"] = "You do not have a first name, last name, and email in Google or you did not share it with us.";
+                header('Location: index.php');
+                return;
+            } else {
+                require_once("db.php");
+                $X_identity = mysql_real_escape_string($identity);
+                $X_firstName = mysql_real_escape_string($firstName);
+                $X_lastName = mysql_real_escape_string($lastName);
+                $X_userEmail = mysql_real_escape_string($userEmail);
+                $sql = "SELECT id, email, first, last, avatar FROM Users WHERE identity='$X_identity'";
+                $result = mysql_query($sql);
+                if ( $result === FALSE ) {
+                    error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
+                    $_SESSION["error"] = "Internal database error, sorry";
+                    header('Location: index.php');
+                    return;
+                }
+                $row = mysql_fetch_row($result);
+                $theid = false;
+                $avatar = false;
+                if ( $row !== FALSE ) { // Lets update!
+                    if ( $row[1] != $userEmail || $row[2] != $firstName || $row[3] != $lastName ) {
+                        $theid = $row[0];
+                        $avatar = $row[4];
+                        $sql = "UPDATE Users SET email='$X_userEmail', first='$X_firstName', ".
+                                "last='$X_lastName', emailsha=SHA1('$X_userEmail') WHERE id='$theid'";
+                        $result = mysql_query($sql);
+                        if ( $result === FALSE ) {
+                            error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
+                            $_SESSION["error"] = "Internal database error, sorry";
+                            header('Location: index.php');
+                            return;
+                        } else {
+                            error_log('User-Update:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
+                        }
+                    }
+                } else { // Lets Insert!
+                    $sql = "INSERT INTO Users (identity, email, first, last, identitysha, emailsha) VALUES ".
+                            "('$X_identity', '$X_userEmail', '$X_firstName', '$X_lastName', ".
+                            "SHA1('$X_identity'), SHA1('$X_userEmail') )";
+                    $result = mysql_query($sql);
+                    if ( $result === FALSE ) {
+                        error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
+                        $_SESSION["error"] = "Internal database error, sorry";
+                        header('Location: index.php');
+                        return;
+                    } else {
+                        $theid = mysql_insert_id();
+                        error_log('User-Insert:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.$theid);
+                    }
+                }
+
+                $_SESSION["success"] = "Welcome ".htmlentities($firstName)." ".
+                        htmlentities($lastName)." (".htmlentities($userEmail).")";
+                $_SESSION["id"] = $theid;
+                $_SESSION["email"] = $emailName;
+                $_SESSION["first"] = $firstName;
+                $_SESSION["last"] = $lastName;
+                if ( $avatar !== false && strlen($avatar) > 0 ) $_SESSION["avatar"] = $avatar;
+                header('Location: profile.php');
+                return;
+            }
+        }
     }
 } catch(ErrorException $e) {
     $errormsg = $e->getMessage();
@@ -54,6 +113,11 @@ try {
 if ( $errormsg !== false ) {
     echo('<div style="margin-top: 10px;" class="alert alert-error">');
     echo($errormsg);
+    echo("</div>\n");
+}
+if ( $success !== false ) {
+    echo('<div style="margin-top: 10px;" class="alert alert-success">');
+    echo($success);
     echo("</div>\n");
 }
 ?>
