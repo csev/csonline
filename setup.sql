@@ -1,0 +1,12 @@
+CREATE TABLE Users (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
+  email VARCHAR(1024), 
+  first VARCHAR(1024), 
+  last VARCHAR(1024), 
+  homepage VARCHAR(1024), 
+  twitter VARCHAR(1024), 
+  avatar VARCHAR(1024), 
+  lat VARCHAR(128), 
+  lng VARCHAR(128) 
+);
+

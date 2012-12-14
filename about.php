@@ -58,6 +58,11 @@ for Informatics: Exploring Data</a>.  I keep most of my cool stuff in
 <a href="https://github.com/csev/csonline" target="_new">on GitHub</a>.
 </p>
 <p>
+This experiment is hosted on servers provided to me at no charge by the 
+<a href="http://www.si.umich.edu/" target="_new">University of Michigan School of Information</a>
+and I am very thankful for that.
+</p>
+<p>
 Charles Severance - 
 Thu Dec 13 18:54:33 EST 2012
 </p>

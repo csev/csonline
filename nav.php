@@ -13,11 +13,15 @@
       <li <?php active("courses.php"); ?>><a href="courses.php">My Courses</a></li>
       <li <?php active("profile.php"); ?>><a href="profile.php">My Profile</a></li>
 <? } ?>
-      <li <?php active("why.php"); ?>><a href="about.php">About</a></li>
+      <li <?php active("open.php"); ?>><a href="open.php">Open Content</a></li>
+      <li <?php active("about.php"); ?>><a href="about.php">About</a></li>
+      <li class="divider-vertical"></li>
+      <li class="divider-vertical"></li>
+      <li><a href="http://www.coursera.org/">Go to Coursera</a></a>
+      <li><a href="http://class.stanford.edu/">Stanford Online</a></a>
     </ul>
     <span class="pull-right">
-    <a class="btn btn-primary" href="http://www.coursera.org/">Go to Coursera</a>
-    <a class="btn btn-primary disabled" href="#">Login (Coming Soon)</a>
+    <a class="btn btn-primary" href="login.php">Login</a>
     </span>
   </div>
 </div>
