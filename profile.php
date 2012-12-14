@@ -7,8 +7,8 @@
 <?php require_once("nav.php"); ?>
 <p>
 This profile page is under construction.  
-If I did not need sleep once, 
-it would let you pick an avatar, 
+If I did not need sleep, 
+it would already let you pick an avatar so it would be your picture in the upper right, 
 indicate your Twitter handle, 
 indicate your geographic location, 
 privacy desires, 
