@@ -7,7 +7,8 @@
 <h1>
 <?php require_once("nav.php"); ?>
 <p>
-This site is under construction.
+This site is under construction.  But if you switch the language to Swedish, 
+it is like shopping at IKEA.
 </p>
 </p>
 <?php require_once("footer.php"); ?>

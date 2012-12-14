@@ -17,7 +17,9 @@ on Coursera and love seeing how others teach and learn with Coursera.   I am rea
 <a href="https://www.coursera.org/course/insidetheinternet">Internet History, Technology, and Security</a> course on 
 Coursera starting March 1, 2013.  The technology I use here will not be as slick as Coursera because I am one person
 putting this all togther with no financial support or an army of grad students - I am lashing open source stuff 
-together to make my own MOOC.
+together to make my own MOOC.  I would love to get some funding either from inside University of Michigan or from outside
+but I don't have enough spare time to go begging for funds and writing proposals and waiting.  This is about doing.
+I do need some resources - so if you have resources to give - contact me.
 </p>
 <p>
 I would also love to use the open source <a href="http://class.stanford.edu">Stanford Class2Go</a> but it is not quite ready for
@@ -32,13 +34,28 @@ students complete my course, if they are interested in more programming, that th
 <p>
 My goal once I gain experience with this approach and my prototype pieces work successfully is to make it so that this 
 class can be a MOOC in any MOOC or LMS platform including Coursera, Clas2Go, CourseSites, Sakai, Moodle, Blackboard, 
-Joule, or Canvas.
+Joule, or Canvas.  All the software I write will be open source and all the content I build will be Creative Commons Attribution.
+I want this all to be used as examples and remixed.
 </p>
 <p>
-The technology I am using Moodle, Piazza, YouTube, and Sakai, as well as several IMS Learning Tools Interoperability-based tools.
+The technology I am using includes
+<a href="http://www.moodle.org" target="_new">Moodle</a>, 
+<a href="http://www.piazza.com" target="_new">Piazza</a>, 
+<a href="http://www.youtube.com" target="_new">YouTube</a>, 
+<a href="http://openbadges.org/en-US/" target="new">Mozilla Open Badges<a/>,
+<a href="http://translate.google.com/manager/website/suggestions" target="_new">Google WebSite Translation</a>,
+<a href="http://twitter.github.com/bootstrap/" target="_new">Twitter Bootstrap</a>,
+and 
+<a href="http://www.sakaiproject.org/" target="_new">Sakai</a>, 
+as well as using
+<a href="http://developers.imsglobal.org" target="_new">IMS Learning Tools Interoperability</a> to implement my 
+service-oriented mashup of functionality.
+</p>
+<p>
 My first course is based on my free/open book titled <a href="http://www.pythonlearn.com" target="_new">Python 
 for Informatics: Exploring Data</a>.  I keep most of my cool stuff in 
-<a href="https://github.com/csev" target="_new">GitHub</a> - and even this site is up there.
+<a href="https://github.com/csev" target="_new">GitHub</a> - and even this site is 
+<a href="https://github.com/csev/csonline" target="_new">on GitHub</a>.
 </p>
 <p>
 Charles Severance - 

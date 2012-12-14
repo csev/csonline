@@ -33,6 +33,9 @@ can opt out of any mail from our system.
     <button class="btn">Login with Google</button>
     <input class="btn" type="button" onclick="location.href='index.php'; return false;" value="Do Not Log In"/>
 </form>
+<p>
+If you are still worried about this - you can take a look at the source code to this 
+online registration system <a href="https://github.com/csev/csonline" target="_new">on Github</a>.
 <?php
     } elseif($openid->mode == 'cancel') {
         echo 'User has canceled authentication!';
