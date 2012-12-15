@@ -6,6 +6,6 @@ $title_twitter = "https://twitter.com/" . (isset($_SESSION["twitter"]) ? $_SESSI
 <h1>
 <div id="google_translate_element" style="float: right; vertical-align:middle;"></div>
 <span>
-<a href="<?php echo($title_twitter); ?>" target="_new"><img src="<?php echo($title_avatar); ?>" height="60" width="60"></a>
-Dr. Chuck Online 
-<span style="color: grey;font-size: 14px; vertical-align: middle">MOOCs, Standards, and Open Educational Resources (Beta)</span></span></h1>
+<a href="<?php echo($title_twitter); ?>" target="_new"><img src="<?php echo($title_avatar); ?>" height="40" width="40"></a>
+<span class="hidden-phone">Dr. Chuck Online </span>
+<span class="hidden-phone hidden-tablet" style="color: grey;font-size: 14px; vertical-align: middle">MOOCs, Standards, and OERs</span></span></h1>

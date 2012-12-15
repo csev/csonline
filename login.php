@@ -133,9 +133,15 @@ if ( $success !== false ) {
 <p>
 We here at Dr. Chuck Online use Google Accounts as our sole login.  
 We do this because we want real people participating
-in the class with real identities.  And when we give badges to people, we want to do our best to 
-give the badges to real human beings.   We do not want to spend a lot of time verifying identity 
+in the class with real identities.  
+We do not want to spend a lot of time verifying identity 
 so we let Google to that hard work.  :)
+</p>
+<p>
+<form action="?login" method="post">
+    <button class="btn">Login with Google</button>
+    <input class="btn" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
+</form>
 </p>
 <p>
 So you must have a Google account and we will require your
@@ -144,17 +150,12 @@ will ask you for your password.  When you press login below, you will be directe
 authentication system where you will be given the option to share your information with Dr. Chuck Online.
 </p>
 <p>
-We will never share your data and will only send you E-Mail related to course communication and we will
-try to limit that to 1-3 times per week.  Every mail we send will have a mail deactivation link so you 
-can opt out of any mail from our system.  If you think this site abuses your identity or E-Mail information
-let me know - this is just one profession named Chuck - it is not a big company. It even sounds weird to 
-say "we".
-</p>
-<p>
-<form action="?login" method="post">
-    <button class="btn">Login with Google</button>
-    <input class="btn" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
-</form>
+We will never share your data and will only send you E-Mail related to course 
+communication and we will try to limit that to 1-3 times per week.  
+Every mail we send will have a mail deactivation link so you can opt out 
+of any mail from our system.  If you think this site abuses your identity or E-Mail information
+let me know - this is just one profession named Chuck - it is not 
+a big company. It even sounds weird to say "we".
 </p>
 <p>
 If you are still worried about this software and its interaction with Google, you 

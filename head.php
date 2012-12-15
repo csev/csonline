@@ -1,4 +1,5 @@
     <meta name="google-translate-customization" content="502d2c1a267d1206-8efe060c714e194c-g94a06c6c571083ae-11"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Le styles -->
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
