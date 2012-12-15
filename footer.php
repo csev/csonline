@@ -3,12 +3,14 @@
 <center>
 <small>
 I need to be very clear that this is <b>not</b> an official activity of the University of Michigan
-or School of Information in any way.  If you get a badge, certificate, or something else from 
+or School of Information in any way.  
+If you get a badge, certificate, or something else from 
 Dr. Chuck Online - it is from 
 <a href="http://www.dr-chuck.com/" target="_new">Dr. Chuck</a>
 and no one and nothing else.  Just a crazy independent faculty member
-doing that research thing that we do and teaching a course and givin' badges digitally signed by dr-chuck.com.
-Kind of like <a href="http://www.opencontent.org/wiki/index.php?title=Intro_Open_Ed_Syllabus" target="_new">this</a>.
+doing that research thing that we do and teaching a course and givin' badges digitally signed by 
+my personal web site.
+Kind of like <a href="http://www.opencontent.org/wiki/index.php?title=Intro_Open_Ed_Syllabus" target="_new">this guy</a>.
 </small>
 </center>
 <script type="text/javascript">

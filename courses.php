@@ -5,9 +5,11 @@
 </head>
 <body style="padding: 0px 10px 0px 10px">
 <?php require_once("nav.php"); ?>
-<h3>DRC124 - Python for Informatics</h3>
+<img src="MOOCMap-v4.jpg" align="right" class="img-rounded box-shadow hidden-phone hidden-tablet" style="margin-right: 10px"/>
+<h3>DCO142 - Python for Informatics</h3>
 <p>
-The MOOC starts January 14, 2013.  Registration should begin about December 20, 2012 when I get this software working.
+The MOOC starts January 14, 2013.  Registration should begin about December 18, 2012 
+when I get this software working.
 I expect the course will take 10 weeks and should take 1-4 hours per week.
 </p>
 <p>
