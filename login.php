@@ -90,7 +90,9 @@ try {
                     }
                 }
 
-                $_SESSION["success"] = "Welcome ".htmlentities($firstName)." ".
+                $welcome = "Welcome ";
+                if ( ! $didInsert ) $welcome .= "back ";
+                $_SESSION["success"] = $welcome.htmlentities($firstName)." ".
                         htmlentities($lastName)." (".htmlentities($userEmail).")";
                 $_SESSION["id"] = $theid;
                 $_SESSION["email"] = $userEmail;
