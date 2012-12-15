@@ -7,6 +7,7 @@
 <?php require_once("head.php"); ?>
 </head>
 <body style="padding: 0px 10px 0px 10px">
+<div class="container">
 <?php require_once("nav.php"); ?>
 <p>
 This site is under construction.  But if you switch the language to Swedish, 
@@ -31,4 +32,5 @@ Just keep checking back.
 <p>
 Dr. Chuck - Thu Dec 13 23:39:57 EST 2012
 <?php require_once("footer.php"); ?>
+</div>
 </body>

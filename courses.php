@@ -7,6 +7,7 @@
 <?php require_once("head.php"); ?>
 </head>
 <body style="padding: 0px 10px 0px 10px">
+<div class="container">
 <?php require_once("nav.php"); ?>
 <img src="MOOCMap-8.jpg" 
 alt="logo" cite="Image from Caitlin Holman"
@@ -31,4 +32,5 @@ run it in the command line interface of your operating system.
 I want you to have real and useful data analysis skills after you finish this class.
 </p>
 <?php require_once("footer.php"); ?>
+</div>
 </body>

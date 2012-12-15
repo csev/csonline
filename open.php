@@ -4,6 +4,7 @@
 <?php require_once("head.php"); ?>
 </head>
 <body style="padding: 0px 10px 0px 10px">
+<div class="container">
 <?php require_once("nav.php"); ?>
 <p>
 If you are a teacher and interested in reusing my materials, this is my plan:
@@ -32,4 +33,5 @@ Charles Severance -
 Thu Dec 13 18:54:33 EST 2012
 </p>
 <?php require_once("footer.php"); ?>
+</div>
 </body>
