@@ -15,7 +15,7 @@ my personal web site.
 Kind of like <a href="http://www.opencontent.org/wiki/index.php?title=Intro_Open_Ed_Syllabus" target="_new">this guy</a>.
 </span>
 The contents of this web site (other than the end-user produced content) are Copyright Creative Commons
-Attribution by Charles R. Severance.
+Attribution by <a href="http://www.dr-chuck.com/" target="_new">Charles R. Severance</a>.
 </small>
 </center>
 </div>

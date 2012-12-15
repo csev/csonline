@@ -93,7 +93,7 @@ function initialize() {
   var myLatlng = new google.maps.LatLng(<? echo($defaultLat.", ".$defaultLng); ?>);
 
   var myOptions = {
-     zoom: 6,
+     zoom: 2,
      center: myLatlng,
      mapTypeId: google.maps.MapTypeId.ROADMAP
      }
@@ -188,7 +188,8 @@ function radio($var, $num, $val) {
 <p>
 <form method="POST" class="form-rorizontal">
   <div class="control-group pull-right">
-    <button type="submit" class="btn btn-primary">Save Profile Data</button>
+    <button type="submit" class="btn btn-primary hidden-phone">Save Profile Data</button>
+    <button type="submit" class="btn btn-primary visible-phone">Save</button>
   </div>
   <div class="control-group">
     <div class="controls">
@@ -196,17 +197,17 @@ function radio($var, $num, $val) {
         mail you will always have an option to unsubscribe from our mail from within the message.
         <label class="radio">
              <?php radio('subscribe',0,$subscribe) ?> >
-                Do not send me any E-Mail at all
+                Keep the mail level as low as possible.   Preferably never.
         </label>
         <label class="radio">
              <?php radio('subscribe',1,$subscribe) ?> >
-                Send me announcement mail only - usually one to three mail messages per week.
+                Send me announcement mail - usually one to three mail messages per week.
         </label>
         <label class="radio">
              <?php radio('subscribe',2,$subscribe) ?> >
-                Send me class-related mail from within the classes I am taking.
+                Send me announcements class-related mail from within the classes I am taking.
         </label>
-        <hr>
+        <hr class="hidden-phone"/>
   <div class="control-group">
     <label class="control-label" for="twitter">Twitter Handle (Optional)</label>
     <div class="controls">
@@ -215,11 +216,11 @@ function radio($var, $num, $val) {
       >
       <span id="spinner" style="display:none">
       <img id="spinner" height="20" width="20" src="spinner.gif"/>
-      Retrieving new Twitter profile picture
+      <span class="hidden-phone">Retrieving new Twitter profile picture</span>
       </span>
     </div>
   </div>
-<hr>
+<hr class="hidden-phone"/>
 <p>
 Choose a profile picture.  We support Twitter profile pictures if you give us your Twitter handle.
 We use your e-mail address to find a profile photo on 
@@ -277,7 +278,7 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
         to create one at <a href="http://www.gravatar.com" target="_new">www.gravatar.com</a>.');
 }
 ?>
-  <hr>
+  <hr class="hidden-phone"/>
 <p>
   Move the pointer on the map below until it is at the correct location.
   If you are concerned about 

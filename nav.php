@@ -21,10 +21,10 @@
 ?>
   <div class="navbar-inner">
     <ul class="nav nav-pills">
-      <li <?php active("index.php"); ?>><a href="index.php">Home</a></li>
+      <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Home</span></a></li>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
-      <li <?php active("courses.php"); ?>><a href="courses.php">My Courses</a></li>
-      <li <?php active("profile.php"); ?>><a href="profile.php">My Profile</a></li>
+      <li <?php active("courses.php"); ?>><a href="courses.php"><span class="hidden-phone">My </span>Courses</a></li>
+      <li <?php active("profile.php"); ?>><a href="profile.php"><span class="hidden-phone">My </span>Profile</a></li>
 <? } ?>
       <li <?php active("open.php"); ?> class="hidden-phone"><a href="open.php">Open Content</a></li>
       <li <?php active("about.php"); ?> class="hidden-phone"><a href="about.php">About</a></li>
@@ -33,9 +33,7 @@
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
     <span style="vertical-align: middle" class="pull-right">
-    <a class="btn btn-primary disabled hidden-phone hidden-tablet <?php in_danger(); ?>" href="profile.php">
-<?php echo($_SESSION["first"]." ".$_SESSION["last"]); ?>
-    </a></span>
+    <a class="btn btn-primary <?php in_danger(); ?>" href="logout.php">Logout</a></span>
 <?php } else { ?>
     <span class="pull-right">
     <a class="btn btn-primary <?php in_danger(); ?>" href="login.php">Login</a>

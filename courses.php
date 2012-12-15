@@ -8,7 +8,9 @@
 </head>
 <body style="padding: 0px 10px 0px 10px">
 <?php require_once("nav.php"); ?>
-<img src="MOOCMap-v4.jpg" align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 25%; margin-right: 10px"/>
+<img src="MOOCMap-8.jpg" 
+alt="logo" cite="Image from Caitlin Holman"
+align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin-right: 10px"/>
 <h3>DCO142 - Python for Informatics</h3>
 <p>
 The MOOC starts January 14, 2013.  Registration should begin about December 18, 2012 
