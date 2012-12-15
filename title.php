@@ -6,6 +6,6 @@ $avatarlink = isset($_SESSION["avatarlink"]) ? $_SESSION["avatarlink"] : 'https:
 <h1>
 <div id="google_translate_element" style="float: right; vertical-align:middle;"></div>
 <span>
-<a href="<?php echo($avatarlink); ?>" target="_new"><img src="<?php echo($avatar); ?>" height="40" width="60"></a>
+<a href="<?php echo($avatarlink); ?>" target="_new"><img src="<?php echo($avatar); ?>" height="60" width="60"></a>
 Dr. Chuck Online 
 <span style="color: grey;font-size: 14px; vertical-align: middle">MOOCs, Standards, and Open Educational Resources (Beta)</span></span></h1>
