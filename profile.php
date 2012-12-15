@@ -187,7 +187,7 @@ function radio($var, $num, $val) {
 ?>
 <p>
 <form method="POST" class="form-rorizontal">
-  <div class="control-group pull-right">
+  <div class="control-group pull-right" style="margin-top: 20px">
     <button type="submit" class="btn btn-primary hidden-phone">Save Profile Data</button>
     <button type="submit" class="btn btn-primary visible-phone">Save</button>
   </div>
@@ -287,7 +287,7 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
   instead of your exact location.<br/>
 </p>
   <div class="control-group pull-right hidden-phone">
-      <button type="submit" class="btn btn-primary">Save Profile Data</button>
+      <button type="submit" style="margin-top: 40px" class="btn btn-primary">Save Profile Data</button>
     </div>
   </div>
 
