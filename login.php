@@ -1,12 +1,14 @@
 <?php
+session_start();
 # Logging in with Google accounts requires setting special identity, so this example shows how to do it.
 require 'lightopenid/openid.php';
+require_once "config.php";
 $ipaddress = $_SERVER['REMOTE_ADDR'];
 $errormsg = false;
 $success = false;
-session_start();
 try {
-    $openid = new LightOpenID('online.dr-chuck.com');
+    // $openid = new LightOpenID('online.dr-chuck.com');
+    $openid = new LightOpenID($CFG->wwwroot);
     if(!$openid->mode) {
         if(isset($_GET['login'])) {
             $openid->identity = 'https://www.google.com/accounts/o8/id';
@@ -128,6 +130,11 @@ if ( $success !== false ) {
     echo('<div style="margin-top: 10px;" class="alert alert-success">');
     echo($success);
     echo("</div>\n");
+}
+if ( $CFG->DEVELOPER ) {
+    echo '<div class="alert alert-danger" style="margin-top: 10px;">'.
+        'Note: Currently this server is running in developer mode.'.
+        "\n</div>\n";
 }
 ?>
 <p>

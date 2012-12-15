@@ -73,6 +73,8 @@ error_log($sql);
     $avatar = $row[2];
     $lat = $row[3];
     $lng = $row[4];
+    // See if we are checking a twitter
+    $twitter = isset($_GET['twittercheck']) ? $_GET['twittercheck'] : $twitter;
 }
 
 ?>
@@ -85,12 +87,13 @@ $defaultLng = $lng != 0.0 ? $lng : -83.73981015789798;
 ?>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script type="text/javascript">
-  var map;
-  function initialize() {
+var map;
+
+function initialize() {
   var myLatlng = new google.maps.LatLng(<? echo($defaultLat.", ".$defaultLng); ?>);
 
   var myOptions = {
-     zoom: 8,
+     zoom: 6,
      center: myLatlng,
      mapTypeId: google.maps.MapTypeId.ROADMAP
      }
@@ -103,15 +106,22 @@ $defaultLng = $lng != 0.0 ? $lng : -83.73981015789798;
   title: "Your location"
   });
 
-google.maps.event.addListener(marker, 'dragend', function (event) {
+  google.maps.event.addListener(marker, 'dragend', function (event) {
     document.getElementById("latbox").value = this.getPosition().lat();
     document.getElementById("lngbox").value = this.getPosition().lng();
-});
+  });
 
 }
+
+function twittercheck(text) {
+    $('#spinner').show();
+    location.href='profile.php?twittercheck=' + text;
+}
+
 </script>
 </head>
 <body style="padding: 0px 10px 0px 10px" onload="initialize()">
+<div class="container">
 <?php require_once("nav.php"); ?>
 <?php
 
@@ -173,9 +183,13 @@ function radio($var, $num, $val) {
     if ( $num == $val ) $ret .= ' checked ';
     echo($ret);
 }
+
 ?>
 <p>
-<form method="POST" class="form-horizontal">
+<form method="POST" class="form-rorizontal">
+  <div class="control-group pull-right">
+    <button type="submit" class="btn btn-primary">Save Profile Data</button>
+  </div>
   <div class="control-group">
     <div class="controls">
         We are very careful about sending you mail only when you want mail.  When we send
@@ -196,9 +210,13 @@ function radio($var, $num, $val) {
   <div class="control-group">
     <label class="control-label" for="twitter">Twitter Handle (Optional)</label>
     <div class="controls">
-      <input type="text" id="twitter" name="twitter" 
+      <input type="text" id="twitter" name="twitter" onchange="twittercheck(this.value); return false;"
          <?php echo(' value="'.htmlentities($twitter).'" '); ?>
       >
+      <span id="spinner" style="display:none">
+      <img id="spinner" height="20" width="20" src="spinner.gif"/>
+      Retrieving new Twitter profile picture
+      </span>
     </div>
   </div>
 <hr>
@@ -261,16 +279,22 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
 ?>
   <hr>
 <p>
-  Location is optional - you can leave these fields blank. If you are conncerned about 
+  Move the pointer on the map below until it is at the correct location.
+  If you are concerned about 
   privacy, simply put the 
   location somewhere <i>near</i> where you live.  Perhaps in the same country, state, or city
   instead of your exact location.<br/>
 </p>
+  <div class="control-group pull-right hidden-phone">
+      <button type="submit" class="btn btn-primary">Save Profile Data</button>
+    </div>
+  </div>
+
 <p>
-  <div id="map_canvas" style="width:400px; height:400px"></div>
+  <div id="map_canvas" style="width:400px; max-width: 100%; height:400px"></div>
 </p>
 
-  <div id="latlong" class="control-group">
+  <div id="latlong" style="display:none" class="control-group">
     <p>Latitude: <input size="30" type="text" id="latbox" name="lat" class="disabled"
     <?php echo(' value="'.htmlentities($lat).'" '); ?>
     ></p>
@@ -280,15 +304,11 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
   </div>
 
 
-  <div class="control-group">
-      <button type="submit" class="btn">Save Profile Data</button>
-    </div>
-  </div>
-
 </form>
 </p>
 <p>
 </p>
 <p>
 <?php require_once("footer.php"); ?>
+</div>
 </body>

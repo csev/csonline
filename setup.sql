@@ -1,3 +1,8 @@
+
+# create database csonline default character set utf8;
+# grant all on csonline.* to csonline@'localhost' identified by 'moocsRus';
+# grant all on csonline.* to csonline@'127.0.0.1' identified by 'moocsRus';
+
 CREATE TABLE Users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
   email VARCHAR(999) NOT NULL, 
@@ -16,6 +21,8 @@ CREATE TABLE Users (
   comment VARCHAR(2048), 
   created_at DATETIME NOT NULL,
   modified_at DATETIME NOT NULL,
+  login_at DATETIME NOT NULL,
+  login_ip VARCHAR(999) NOT NULL,
   identity VARCHAR(999) NOT NULL,
   identitysha VARCHAR(64) NOT NULL,
   emailsha VARCHAR(64) NOT NULL

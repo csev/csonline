@@ -1,11 +1,24 @@
 <?php
    require_once("title.php");
+   require_once("config.php");
    function active($arg)
    {
         if ( strpos($_SERVER["PHP_SELF"], $arg) !== false )  echo ' class="active" ';
    }
+
+   if ( $CFG->DEVELOPER ) {
+        echo('<div class="navbar navbar-inverse">'."\n");
+   } else {
+        echo('<div class="navbar">'."\n");
+   }
+
+    function in_danger() {
+        global $CFG;
+        if ( $CFG->DEVELOPER ) {
+            echo(' btn-danger ');
+        }
+    }
 ?>
-<div class="navbar">
   <div class="navbar-inner">
     <ul class="nav nav-pills">
       <li <?php active("index.php"); ?>><a href="index.php">Home</a></li>
@@ -15,19 +28,17 @@
 <? } ?>
       <li <?php active("open.php"); ?> class="hidden-phone"><a href="open.php">Open Content</a></li>
       <li <?php active("about.php"); ?> class="hidden-phone"><a href="about.php">About</a></li>
-      <li class="divider-vertical" class="hidden-phone hidden-tablet"></li>
-      <li class="divider-vertical" class="hidden-phone hidden-tablet"></li>
-      <li><a href="http://www.coursera.org/" target="_new" class="hidden-phone hidden-tablet">Go to Coursera</a></a>
-      <li><a href="http://class.stanford.edu/" target="_new" class="hidden-phone hidden-tablet">Stanford Online</a></a>
+      <li><a href="http://www.coursera.org/" target="_new" class="hidden-phone hidden-tablet">Coursera</a></li>
+      <li><a href="http://class.stanford.edu/" target="_new" class="hidden-phone hidden-tablet">Stanford Online</a></li>
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
     <span style="vertical-align: middle" class="pull-right">
-    <a class="btn btn-primary disabled hidden-phone hidden-tablet" href="profile.php">
+    <a class="btn btn-primary disabled hidden-phone hidden-tablet <?php in_danger(); ?>" href="profile.php">
 <?php echo($_SESSION["first"]." ".$_SESSION["last"]); ?>
     </a></span>
 <?php } else { ?>
     <span class="pull-right">
-    <a class="btn btn-primary" href="login.php">Login</a>
+    <a class="btn btn-primary <?php in_danger(); ?>" href="login.php">Login</a>
     </span>
 <? } ?>
   </div>
