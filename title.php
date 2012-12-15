@@ -1,4 +1,5 @@
 <?php 
+require_once "config.php";
 if ( ! isset($_SESSION) && ! headers_sent() ) session_start(); 
 $title_avatar = isset($_SESSION["avatar"]) ? $_SESSION["avatar"] : $CFG->default_avatar;
 $title_avatar_link = $CFG->default_avatar_link;
