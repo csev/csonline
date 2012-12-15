@@ -41,7 +41,7 @@ try {
                 $X_firstName = mysql_real_escape_string($firstName);
                 $X_lastName = mysql_real_escape_string($lastName);
                 $X_userEmail = mysql_real_escape_string($userEmail);
-                $sql = "SELECT id, email, first, last, avatar, avatarlink FROM Users WHERE identity='$X_identity'";
+                $sql = "SELECT id, email, first, last, avatar, twitter FROM Users WHERE identity='$X_identity'";
                 $result = mysql_query($sql);
                 if ( $result === FALSE ) {
                     error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
@@ -52,11 +52,12 @@ try {
                 $row = mysql_fetch_row($result);
                 $theid = false;
                 $avatar = false;
-                $avatarlink = false;
+                $twitter = false;
+                $didinsert = false;
                 if ( $row !== FALSE ) { // Lets update!
                     $theid = $row[0];
                     $avatar = $row[4];
-                    $avatarlink = $row[5];
+                    $twitter = $row[5];
                     if ( $row[1] != $userEmail || $row[2] != $firstName || $row[3] != $lastName ) {
                         $sql = "UPDATE Users SET email='$X_userEmail', first='$X_firstName', ".
                                 "last='$X_lastName', emailsha=SHA1('$X_userEmail'), modified_at=NOW() WHERE id='$theid'";
@@ -83,6 +84,7 @@ try {
                     } else {
                         $theid = mysql_insert_id();
                         error_log('User-Insert:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.$theid);
+                        $didinsert = true;
                     }
                 }
 
@@ -93,8 +95,12 @@ try {
                 $_SESSION["first"] = $firstName;
                 $_SESSION["last"] = $lastName;
                 if ( $avatar !== false && strlen($avatar) > 0 ) $_SESSION["avatar"] = $avatar;
-                if ( $avatarlink !== false && strlen($avatarlink) > 0 ) $_SESSION["avatarlink"] = $avatarlink;
-                header('Location: profile.php');
+                if ( $twitter !== false && strlen($twitter) > 0 ) $_SESSION["twitter"] = $twitter;
+                if ( $didinsert ) {
+                    header('Location: profile.php');
+                } else {
+                    header('Location: index.php');
+                }
                 return;
             }
         }
