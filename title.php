@@ -8,5 +8,5 @@ $title_twitter = "https://twitter.com/" . (isset($_SESSION["twitter"]) ? $_SESSI
 <span>
 <a href="<?php echo($title_twitter); ?>" target="_new"><img src="<?php echo($title_avatar); ?>" height="40" width="40"></a>
 <span class="hidden-phone">Dr. Chuck Online </span>
-<span class="visible-phone"><small>DrC-Online</small></span>
+<span class="visible-phone"><small>DCO</small></span>
 <span class="hidden-phone hidden-tablet" style="color: grey;font-size: 14px; vertical-align: middle">MOOCs, Standards, and OERs</span></span></h1>

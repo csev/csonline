@@ -33,7 +33,7 @@
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
     <span style="vertical-align: middle" class="pull-right">
-    <a class="btn btn-primary <?php in_danger(); ?>" href="logout.php">Logout</a></span>
+    <a class="btn btn-primary hidden-phone <?php in_danger(); ?>" href="logout.php">Logout</a></span>
 <?php } else { ?>
     <span class="pull-right">
     <a class="btn btn-primary <?php in_danger(); ?>" href="login.php">Login</a>
