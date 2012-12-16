@@ -8,6 +8,8 @@ if ( ! isset($_SESSION['id']) ) {
 
 $subscribe = isset($_POST['subscribe']) ? $_POST['subscribe']+0 : false;
 $twitter = isset($_POST['twitter']) ? $_POST['twitter'] : false;
+$education = isset($_POST['education']) ? $_POST['education']+0 : false;
+$oer = isset($_POST['oer']) ? $_POST['oer']+0 : false;
 $avatar = isset($_POST['avatar']) ? $_POST['avatar']+0 : false;
 $lat = isset($_POST['lat']) ? $_POST['lat']+0.0 : 0.0;
 $lng = isset($_POST['lng']) ? $_POST['lng']+0.0 : 0.0;
@@ -37,6 +39,8 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $X_lng = $lng;
     $sql = "UPDATE Users SET subscribe='$X_subscribe', twitter='$X_twitter', ";
     $sql .= $avatar === false ? " avatar=NULL, " : " avatar='$X_avatar', ";
+    $sql .= $education == 0 ? " education=NULL, " : " education='$education', ";
+    $sql .= $oer == 0 ? " oer=NULL, " : " oer='$oer', ";
     $sql .= $X_lat == 0.0 ? " lat=NULL, " : " lat='$X_lat', ";
     $sql .= $X_lng == 0.0 ? " lng=NULL  " : " lng='$X_lng'  ";
     $sql .= " WHERE id='".$_SESSION['id']."'";
@@ -57,7 +61,7 @@ error_log($sql);
     }
     return;
 } else if ( isset($_SESSION['id']) ) { 
-    $sql = "SELECT subscribe, twitter, avatar, lat, lng FROM Users ".
+    $sql = "SELECT subscribe, twitter, avatar, lat, lng, education, oer FROM Users ".
         "WHERE id='".$_SESSION['id']."'";
     $result = mysql_query($sql);
     if ( $result === FALSE ) {
@@ -73,6 +77,8 @@ error_log($sql);
     $avatar = $row[2];
     $lat = $row[3];
     $lng = $row[4];
+    $education = $row[5];
+    $oer = $row[6];
     // See if we are checking a twitter
     $twitter = isset($_GET['twittercheck']) ? $_GET['twittercheck'] : $twitter;
 }
@@ -186,6 +192,16 @@ function radio($var, $num, $val) {
     echo($ret);
 }
 
+function option($num, $val) {
+    echo(' value="'.$num.'" ');
+    if ( $num == $val ) echo(' selected ');
+}
+
+function checkbox($val) {
+    echo(' value="1" ');
+    if ( $val == 1 ) echo(' checked ');
+}
+
 echo("<h4>");echo($_SESSION["first"]);echo(" "); echo($_SESSION["last"]);
 echo(" (".$_SESSION["email"].")</h4>\n");
 ?>
@@ -285,12 +301,29 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
 }
 ?>
   <hr class="hidden-phone"/>
+What is your current or highest education level?<br/>
+<select name="education">
+  <option value="0">--- Please Select ---</option>
+  <option <?php option(1,$education); ?>>Pre-High School</option>
+  <option <?php option(2,$education); ?>>High School</option>
+  <option <?php option(3,$education); ?>>Community College</option>
+  <option <?php option(4,$education); ?>>Four-Year</option>
+  <option <?php option(5,$education); ?>>Graduate/Professional</option>
+  <option <?php option(6,$education); ?>>Doctorate/MD</option>
+</select>
+  <hr class="hidden-phone"/>
+<label class="checkbox">
+  <input type="checkbox" name="oer" <?php checkbox($oer); ?> >
+  I am a teacher or otherwise interested in Open Educational Resources.
+</label>
+  <hr class="hidden-phone"/>
 <p>
   Move the pointer on the map below until it is at the correct location.
   If you are concerned about 
   privacy, simply put the 
   location somewhere <i>near</i> where you live.  Perhaps in the same country, state, or city
-  instead of your exact location.<br/>
+  instead of your exact location.  
+<br/>
 </p>
   <div class="control-group pull-right hidden-phone">
       <button type="submit" style="margin-top: 40px" class="btn btn-primary">Save Profile Data</button>
@@ -310,6 +343,10 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
     ></p>
   </div>
 
+<p>
+If you don't even want to reveal your country, put yourself
+  in Greenland in the middle of a glacier. :)
+</p>
 
 </form>
 </p>
