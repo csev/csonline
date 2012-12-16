@@ -6,12 +6,15 @@
 CREATE TABLE Users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
   email VARCHAR(999) NOT NULL, 
+  domain_id INT,
   first VARCHAR(1024) NOT NULL, 
   last VARCHAR(1024) NOT NULL, 
   twitter VARCHAR(32), 
   privacy INT,
   subscribe INT,
   role INT,
+  oer INT,
+  education INT,
   lat VARCHAR(128), 
   lng VARCHAR(128),
   homepage VARCHAR(1024), 
@@ -40,6 +43,7 @@ CREATE TABLE Courses (
   title VARCHAR(1024) NOT NULL, 
   start_at DATETIME NOT NULL,
   end_at DATETIME NOT NULL,
+  bypass varchar(32),
   consumer_key VARCHAR(1024) NOT NULL,
   consumer_secret VARCHAR(1024) NOT NULL
 );
@@ -52,6 +56,11 @@ CREATE TABLE Enrolment (
   grade DOUBLE,
   enroll_at DATETIME NOT NULL,
   launch_at DATETIME NOT NULL
+);
+
+CREATE TABLE Domains (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
+  domain VARCHAR(1024) NOT NULL
 );
 
 
