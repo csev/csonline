@@ -34,3 +34,24 @@ alter table Users Add UNIQUE(emailsha);
 CREATE INDEX UsersIdentity ON Users(identity);
 CREATE INDEX UsersEmail ON Users(email);
 
+CREATE TABLE Courses (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
+  code VARCHAR(32) NOT NULL,
+  title VARCHAR(1024) NOT NULL, 
+  start_at DATETIME NOT NULL,
+  end_at DATETIME NOT NULL,
+  consumer_key VARCHAR(1024) NOT NULL,
+  consumer_secret VARCHAR(1024) NOT NULL
+);
+
+CREATE TABLE Enrolment (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
+  course_id INT,
+  user_id INT,
+  role INT,
+  grade DOUBLE,
+  enroll_at DATETIME NOT NULL,
+  launch_at DATETIME NOT NULL
+);
+
+

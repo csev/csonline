@@ -62,21 +62,25 @@ try {
                     $twitter = $row[5];
                     if ( $row[1] != $userEmail || $row[2] != $firstName || $row[3] != $lastName ) {
                         $sql = "UPDATE Users SET email='$X_userEmail', first='$X_firstName', ".
-                                "last='$X_lastName', emailsha=SHA1('$X_userEmail'), modified_at=NOW() WHERE id='$theid'";
-                        $result = mysql_query($sql);
-                        if ( $result === FALSE ) {
-                            error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
-                            $_SESSION["error"] = "Internal database error, sorry";
-                            header('Location: index.php');
-                            return;
-                        } else {
-                            error_log('User-Update:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
-                        }
+                                "last='$X_lastName', emailsha=SHA1('$X_userEmail'), ".
+                                "modified_at=NOW(), login_at=NOW() WHERE id='$theid'";
+                    } else { 
+                        $sql = "UPDATE Users SET login_at=NOW() WHERE id='$theid'";
+                    }
+
+                    $result = mysql_query($sql);
+                    if ( $result === FALSE ) {
+                        error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
+                        $_SESSION["error"] = "Internal database error, sorry";
+                        header('Location: index.php');
+                        return;
+                    } else {
+                        error_log('User-Update:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
                     }
                 } else { // Lets Insert!
-                    $sql = "INSERT INTO Users (identity, email, first, last, identitysha, emailsha, created_at, modified_at) ".
+                    $sql = "INSERT INTO Users (identity, email, first, last, identitysha, emailsha, created_at, modified_at, login_at) ".
                             "VALUES ('$X_identity', '$X_userEmail', '$X_firstName', '$X_lastName', ".
-                            "SHA1('$X_identity'), SHA1('$X_userEmail'), NOW(), NOW() )";
+                            "SHA1('$X_identity'), SHA1('$X_userEmail'), NOW(), NOW(), NOW() )";
                     $result = mysql_query($sql);
                     if ( $result === FALSE ) {
                         error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);

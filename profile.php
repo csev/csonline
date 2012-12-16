@@ -113,7 +113,9 @@ function initialize() {
 
 }
 
-function twittercheck(text) {
+function twittercheck() {
+    text = document.getElementById('twitter').value;
+    $('#check').hide();
     $('#spinner').show();
     location.href='profile.php?twittercheck=' + text;
 }
@@ -184,7 +186,10 @@ function radio($var, $num, $val) {
     echo($ret);
 }
 
+echo("<h4>");echo($_SESSION["first"]);echo(" "); echo($_SESSION["last"]);
+echo(" (".$_SESSION["email"].")</h4>\n");
 ?>
+
 <p>
 <form method="POST" class="form-rorizontal">
   <div class="control-group pull-right" style="margin-top: 20px">
@@ -211,10 +216,11 @@ function radio($var, $num, $val) {
   <div class="control-group">
     <label class="control-label" for="twitter">Twitter Handle (Optional)</label>
     <div class="controls">
-      <input type="text" id="twitter" name="twitter" onchange="twittercheck(this.value); return false;"
+      <input type="text" id="twitter" name="twitter" onchange="twittercheck(); return false;"
          <?php echo(' value="'.htmlentities($twitter).'" '); ?>
       >
-      <span id="spinner" style="display:none">
+      <button type="button" id="check" style="vertical-align: top;" class="btn btn-primary" onclick="twittercheck(); return false;">Check</button>
+      <span id="spinner" style="display:none; vertical-align: top">
       <img id="spinner" height="20" width="20" src="spinner.gif"/>
       <span class="hidden-phone">Retrieving new Twitter profile picture</span>
       </span>
