@@ -52,7 +52,6 @@ The technology I am using includes
 <a href="http://www.moodle.org" target="_new">Moodle</a>, 
 <a href="http://www.piazza.com" target="_new">Piazza</a>, 
 <a href="http://www.youtube.com" target="_new">YouTube</a>, 
-<a href="http://openbadges.org/en-US/" target="new">Mozilla Open Badges<a/>,
 <a href="http://translate.google.com/manager/website/suggestions" target="_new">Google WebSite Translation</a>,
 <a href="http://twitter.github.com/bootstrap/" target="_new">Twitter Bootstrap</a>,
 and 

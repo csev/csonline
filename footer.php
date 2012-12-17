@@ -4,17 +4,14 @@
 <center>
 <small>
 <span class="hidden-phone">
-I need to be very clear that this is <b>not</b> an official activity of the University of Michigan
+I need to be very clear that this is <b>not</b> an official activity of the 
+University of Michigan
 or School of Information in any way.  
-If you get a badge, certificate, or something else from 
-Dr. Chuck Online - it is from 
-<a href="http://www.dr-chuck.com/" target="_new">Dr. Chuck</a>
-and no one and nothing else.  Just a crazy independent faculty member
-doing that research thing that we do and teaching a course and givin' badges digitally signed by 
-my personal web site.
-Kind of like <a href="http://www.opencontent.org/wiki/index.php?title=Intro_Open_Ed_Syllabus" target="_new">this guy</a>.
-</span>
-The contents of this web site (other than the end-user produced content) are Copyright Creative Commons
+There will be no badges nor certificates - just learning for elarning sake 
+and learning about learning.  This is my research into how we loean and you are 
+welcome to participate.
+The contents of this web site (other than the end-user produced content) are 
+Copyright Creative Commons
 Attribution by <a href="http://www.dr-chuck.com/" target="_new">Charles R. Severance</a>.
 </small>
 </center>

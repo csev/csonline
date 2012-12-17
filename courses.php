@@ -24,6 +24,12 @@ Here are your first assignments that you can start right now:
 <li><a href="http://www.py4inf.com/book.php" target="_new">Get the Free Book</a></li>
 <li><a href="http://www.py4inf.com/install.php" target="_new">Install Python 2.7 and a Programmer Text Editor</a></li>
 </ul>
+<hr/>
+<p>
+<b>Alpha:</b> <a href="lms.php" target="_new">Launch Python Playground Course</a>
+(<a href="lms.php?debug=11" target="_new">Launch with LTI Debug</a>)
+</p>
+<p>
 These assignments may seem a little weird - but I really want you to be able to use Python to do real data analysis afterwards
 so I avoid over simplified or overly automated programming environments.  I want you to really learn how your 
 computer works and see the real steps so you 
