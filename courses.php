@@ -9,15 +9,18 @@
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
 <?php require_once("nav.php"); ?>
+<a href="lms.php" target="_new">
 <img src="MOOCMap-8.jpg" 
 alt="logo" cite="Image from Caitlin Holman"
-align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin-right: 10px"/>
+align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
+</a>
 <h3>DCO142 - Python for Informatics</h3>
 <p>
 The MOOC starts January 14, 2013.  Registration should begin about December 18, 2012 
 when I get this software working.
 I expect the course will take 10 weeks and should take 1-4 hours per week.
 </p>
+<!--
 <p>
 Here are your first assignments that you can start right now:
 <ul>
@@ -25,8 +28,12 @@ Here are your first assignments that you can start right now:
 <li><a href="http://www.py4inf.com/install.php" target="_new">Install Python 2.7 and a Programmer Text Editor</a></li>
 </ul>
 <hr/>
+-->
 <p>
-<b>Alpha:</b> <a href="lms.php" target="_new">Launch Python Playground Course</a>
+The Playgound will let you play with and helpme test the software.   I still need to record
+new lecture videos - but the autograder is usable.  See if you can get all 300 points!
+<p>
+<b>Playground:</b> <a href="lms.php" target="_new">Launch Python Playground Course</a>
 (<a href="lms.php?debug=11" target="_new">Launch with LTI Debug</a>)
 </p>
 <p>
