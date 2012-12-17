@@ -7,8 +7,8 @@
 I need to be very clear that this is <b>not</b> an official activity of the 
 University of Michigan
 or School of Information in any way.  
-There will be no badges nor certificates - just learning for elarning sake 
-and learning about learning.  This is my research into how we loean and you are 
+There will be no badges nor certificates - just learning for learning sake 
+and learning about learning.  This is my research into how we learn and you are 
 welcome to participate.
 The contents of this web site (other than the end-user produced content) are 
 Copyright Creative Commons
