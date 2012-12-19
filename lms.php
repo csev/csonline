@@ -7,6 +7,18 @@ if ( ! isset($_SESSION['id']) ) {
         header('Location: login.php');
         return;
 }
+
+require_once("data.php");
+
+if ( isset($_GET['context_id']) && isset($COURSE_LIST[$_GET['context_id']]) ) {
+    $courseinfo = $COURSE_LIST[$_GET['context_id']];
+    $key = $courseinfo['key'];
+    $secret = $courseinfo['secret'];
+    $endpoint = $courseinfo['endpoint'];
+} else {
+    echo("Missing context_id");
+    return;
+}
  
 ?>
 <html>
@@ -47,10 +59,6 @@ require_once("util/lti_util.php");
           $lmsdata[$k] = $_POST[$k];
       }
   }
-
-  $key = "online.dr-chuck.com";
-  $secret = "19869a2f92b8e1f965deadc32850742d";
-  $endpoint = "http://moodle.dr-chuck.com/moodle/local/ltiprovider/tool.php?id=3";
 
   $b64 = base64_encode($key.":::".$secret);
   $outcomes = trim($_REQUEST["outcomes"]);

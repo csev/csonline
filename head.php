@@ -1,20 +1,25 @@
     <meta name="google-translate-customization" content="502d2c1a267d1206-8efe060c714e194c-g94a06c6c571083ae-11"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php 
+require_once("config.php");
+    if ( $CFG->DEVELOPER ) {
+?>
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="static/css/docs.css" rel="stylesheet">
+    <link href="static/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript" src="static/jquery.min.js"></script>
+<?php } else { ?>
     <!-- Le styles -->
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-    <style type="text/css">
-     .dontwrap {
-	width: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-    }
-    </style>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+<?php } ?>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

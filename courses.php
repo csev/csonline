@@ -9,7 +9,7 @@
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
 <?php require_once("nav.php"); ?>
-<a href="lms.php" target="_new">
+<a href="lms.php?context_id=playground" target="_new">
 <img src="MOOCMap-8.jpg" 
 alt="logo" cite="Image from Caitlin Holman"
 align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
@@ -33,8 +33,8 @@ Here are your first assignments that you can start right now:
 The Playgound will let you play with and helpme test the software.   I still need to record
 new lecture videos - but the autograder is usable.  See if you can get all 300 points!
 <p>
-<b>Playground:</b> <a href="lms.php" target="_new">Launch Python Playground Course</a>
-(<a href="lms.php?debug=11" target="_new">Launch with LTI Debug</a>)
+<b>Playground:</b> <a href="lms.php?context_id=playground" target="_new">Launch Python Playground Course</a>
+(<a href="lms.php?context_id=playground&debug=11" target="_new">Launch with LTI Debug</a>)
 </p>
 <p>
 These assignments may seem a little weird - but I really want you to be able to use Python to do real data analysis afterwards
