@@ -17,11 +17,11 @@ If you are a teacher and interested in reusing my materials, this is my plan:
 and make that available - they are not as pretty but with a little cleanup they work.</li>
 <li>All of my recorded videos will be up on YouTube and you can use them any way you like.   If you want to track the 
 videos like I do, I have an IMS Learning Tools Interoperability tool that wraps the videos in an iframe and does tracking.  This
-tool is written in PHP and available open source.  Depending on performance, I may be able to give you a key and let you 
+tool is written in PHP and is open source.  Depending on performance, I may be able to give you a key and let you 
 use my instance of the YouTube tracker.   With a key, you could set up your own videos to be tracked and have the tracking results sent back to your LMS 
 via IMS LTI 1.1.</li>
 <li>My autograder is also an IMS Learning Tools Interoperability tool - it is also PHP 
-and Open Source so you could easily install it yourself.
+and open source so you could easily install it yourself.
 Again for small/medium clases, I can give you a key so you can use my UMich-hosted instance of the autograder for free.
 You can use the autograder directly without a key - but if you want it to pass grades to your LMS automatically, 
 we need to set up a key.
