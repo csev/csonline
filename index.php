@@ -9,28 +9,31 @@
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
 <?php require_once("nav.php"); ?>
+<img src="MOOCMap-8.jpg"
+alt="logo" cite="Image from Caitlin Holman"
+align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
 <p>
-This site is under construction.  But if you switch the language to Swedish, 
-it is like shopping at <a href="http://www.ikea.com/us/en/" target="_new">IKEA</a>. 
+This is very much my own experiment in quickly building a MOOC infrastructure out
+of open source pieces glued together with IMS LTI.
 </p>
 <p>
-Some of the other pages have more stuff in them.
-And you can log in with your Google account and get on the mailing list - of
-course I still have to write software that sends mail from that list.
+Login using your Google Account, set up your profile and then launch into the 
+Playground course and see if you can get all 300 points from the Auto-Grader!
+Show off your Mad Python  Skillz and/or find bugs in my code.   You won't be able to launch 
+into Moodle until you log in.
 </p>
 <p>
-My next task is the profile page and then the courses page to give you a way to enroll
-in the *single* course.   Then I need to to the LTI Launch into my special copy of 
-<a href="http://moodle.dr-chuck.com/moodle/" target="_new">Moodle</a> - and then ....
-<p>
-If you are bored already, you can play a bit with my Python 
-<a href="http://lti-tools.dr-chuck.com/pythonauto/" target="_new">Autograder</a>.
-See if you can do all four problems.
-<p>
-Just keep checking back.
+If you want an extra special challenge, figure out how to <i>game</i> the autograder and
+write a program that matches the final output but does not meet the specs.   Warning, 
+I have code in the autograder to catch you if you don't meet the specs.  Good luck trying to
+defeat my sanity checker.
 </p>
 <p>
-Dr. Chuck - Thu Dec 13 23:39:57 EST 2012
+Comments welcome.
+</p>
+<p>
+Dr. Chuck - 
+Mon Dec 17 19:05:14 EST 2012
 <?php require_once("footer.php"); ?>
 </div>
 </body>

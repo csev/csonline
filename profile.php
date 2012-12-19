@@ -252,7 +252,9 @@ echo(" (".$_SESSION["email"].")</h4>\n");
 <p>
 Choose a profile picture.  We support Twitter profile pictures if you give us your Twitter handle.
 We use your e-mail address to find a profile photo on 
-<a href="http://www.gravatar.com" target="_new">Gravatar</a> or other services.   
+<a href="http://www.gravatar.com" target="_new">Gravatar</a> or other services.   Moodle will use
+your Gravatar image based on your e-mail address.  You can also edit your profile in Moodle
+as well.
 </p>
 <?php
 $avatarpos = 0;
