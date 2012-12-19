@@ -30,7 +30,7 @@ Here are your first assignments that you can start right now:
 <hr/>
 -->
 <p>
-The Playgound will let you play with and helpme test the software.   I still need to record
+The Playgound will let you play with and help me test the software.   I still need to record
 new lecture videos - but the autograder is usable.  See if you can get all 300 points!
 <p>
 <b>Playground:</b> <a href="lms.php" target="_new">Launch Python Playground Course</a>

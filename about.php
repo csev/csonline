@@ -19,7 +19,7 @@ Don't get me wrong.  I <em>love</em> Coursera and love teaching
 on Coursera and love seeing how others teach and learn with Coursera.   I am really looking forward to teaching my 
 <a href="https://www.coursera.org/course/insidetheinternet">Internet History, Technology, and Security</a> course on 
 Coursera starting March 1, 2013.  The technology I use here will not be as slick as Coursera because I am one person
-putting this all togther with no financial support or an army of grad students - I am lashing open source stuff 
+putting this all together with no financial support or an army of grad students - I am lashing open source stuff 
 together to make my own MOOC.  I would love to get some funding either from inside University of Michigan or from outside
 but I don't have enough spare time to go begging for funds and writing proposals and waiting.  This is about doing.
 I do need some resources - so if you have resources to give - contact me.
