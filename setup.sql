@@ -68,8 +68,23 @@ CREATE TABLE Enrollments (
   launch_at DATETIME NOT NULL
 );
 
+// Not yet used - will be used to optimize mail sending order...
 CREATE TABLE Domains (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
   domain VARCHAR(1024) NOT NULL
 );
+
+// Sample course - for now insert by hand
+INSERT into Courses (
+  code, title, 
+  description, 
+  start_at, close_at, duration, bypass, 
+  endpoint, 
+  consumer_key, consumer_secret)
+VALUES
+  ('IMS001', 'Introductory IMS LTI',
+  'This is a course on IMS Learning Tools Interoperability and it is indeed awesome.',
+  '2012-01-01 00:00:00', NULL, 10, NULL,
+  'http://www.imsglobal.org/developers/LTI/test/v1p1/tool.php',
+  '12345', 'secret');
 
