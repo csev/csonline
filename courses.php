@@ -96,6 +96,11 @@ function confirm_unenroll() {
 alt="logo" cite="Image from Caitlin Holman"
 align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
 </a>
+<p>
+This is the list of the courses in this system.  Some of the courses are open enrollment 
+which means you can enroll and launch these courses at any time
+and others only allow enrollment during a particular period.  
+</p>
 <?php
 $result = mysql_query($sql);
 if ( $result === FALSE ) {
@@ -112,11 +117,11 @@ while ( $row = mysql_fetch_row($result) ) {
     $enrolled = $row[12] > 0 && $row[13] > 0;
 
     $launch = false;
-    if ( $enrolled ) {
+    if ( $enrolled && $started ) {
         $launch = 'lms.php?id='.htmlentities($row[0]);
     }
     echo('<h3>');
-    if ( $launch ) echo('<a href="'.$url.'" target="_new">');
+    if ( $launch ) echo('<a href="'.$launch.'" target="_new">');
     echo($row[1].' - '.$row[2]);
     if ( $launch ) echo('</a>');
     echo('</h3>');
@@ -142,8 +147,8 @@ while ( $row = mysql_fetch_row($result) ) {
         if ( $started ) {
             echo('<button type="button" class="btn btn-primary" 
                 onclick="window.open('."'".$launch."', '_blank'); return false;".'">Launch</button>'."\n");
-            echo('<button type="button" class="btn btn-warning btn-small" 
-                onclick="window.open('."'".$launch."&debug=11', '_blank'); return false;".'">Launch w/LTI Debug</button>'."\n");
+            echo("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+            echo('<a href="'.$launch.'&debug=11" target="_new" style="color:white">Launch with LTI Debug</a>');
         }
         echo('<input type="hidden" name="id" value="'.htmlentities($row[0]).'">
             <input type="hidden" name="action" value="unenroll">

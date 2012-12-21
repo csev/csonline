@@ -33,7 +33,7 @@ Comments welcome.
 </p>
 <p>
 Dr. Chuck - 
-Mon Dec 17 19:05:14 EST 2012
+Fri Dec 21 02:14:00 EST 2012
 <?php require_once("footer.php"); ?>
 </div>
 </body>
