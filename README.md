@@ -11,5 +11,5 @@ This is my registration system for my self-hosted MOOC Infrastructure.
 
 You also need to check this out:
 
-git://gitorious.org/lightopenid/lightopenid.git
+[git://gitorious.org/lightopenid/lightopenid.git](git://gitorious.org/lightopenid/lightopenid.git)
 
