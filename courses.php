@@ -1,9 +1,14 @@
 <?php
+    session_start();
+
+if ( ! isset($_SESSION["id"]) ) { 
+    header('Location: index.php');
+    return;
+}
+
 require_once("config.php");
 require_once("sqlutil.php");
 require_once("db.php");
-
-    session_start();
 
 $courserow = false;
 $enrollmentrow = false;
