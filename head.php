@@ -10,7 +10,7 @@ require_once("config.php");
     <link href="static/css/docs.css" rel="stylesheet">
     <link href="static/css/prettify.css" rel="stylesheet">
 
-    <script type="text/javascript" src="static/jquery.min.js"></script>
+    <script type="text/javascript" src="static/javascript/jquery.min.js"></script>
 <?php } else { ?>
     <!-- Le styles -->
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">

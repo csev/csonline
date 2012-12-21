@@ -41,20 +41,30 @@ CREATE TABLE Courses (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
   code VARCHAR(32) NOT NULL,
   title VARCHAR(1024) NOT NULL, 
-  start_at DATETIME NOT NULL,
-  end_at DATETIME NOT NULL,
+  description VARCHAR(4096) NOT NULL, 
+  image VARCHAR(1024) NOT NULL, 
+  start_at DATETIME,
+  close_at DATETIME,
+  duration INT,
   bypass varchar(32),
-  consumer_key VARCHAR(1024) NOT NULL,
-  consumer_secret VARCHAR(1024) NOT NULL
+  endpoint VARCHAR(1024),
+  consumer_key VARCHAR(1024),
+  consumer_secret VARCHAR(1024) 
 );
 
-CREATE TABLE Enrolment (
+CREATE TABLE Enrollments (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
   course_id INT,
   user_id INT,
   role INT,
   grade DOUBLE,
-  enroll_at DATETIME NOT NULL,
+  fame INT,
+  fame_at DATETIME NOT NULL,
+  first SMALLINT,
+  last SMALLINT,
+  location SMALLINT,
+  created_at DATETIME NOT NULL,
+  modified_at DATETIME NOT NULL,
   launch_at DATETIME NOT NULL
 );
 
@@ -62,5 +72,4 @@ CREATE TABLE Domains (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
   domain VARCHAR(1024) NOT NULL
 );
-
 

@@ -9,7 +9,7 @@ University of Michigan
 or School of Information in any way.  
 There will be no badges nor certificates - just learning for learning sake 
 and learning about learning.  This is my research into how we learn and you are 
-welcome to participate.
+welcome to participate.</span>
 The contents of this web site (other than the end-user produced content) are 
 Copyright Creative Commons
 Attribution by <a href="http://www.dr-chuck.com/" target="_new">Charles R. Severance</a>.

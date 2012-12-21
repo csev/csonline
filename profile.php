@@ -96,6 +96,7 @@ $defaultLng = $lng != 0.0 ? $lng : -83.73981015789798;
 var map;
 
 function initialize() {
+  if ( <?php echo($CFG->OFFLINE ? '1' : '0'); ?> == 1 ) return;
   var myLatlng = new google.maps.LatLng(<? echo($defaultLat.", ".$defaultLng); ?>);
 
   var myOptions = {
