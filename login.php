@@ -54,7 +54,7 @@ if ( $CFG->OFFLINE ) {
     }
 }
 
-if ( doLogin ) {
+if ( $doLogin ) {
     if ( $firstName === false || $lastName === false || $userEmail === false ) {
         error_log('Google-Missing:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
         $_SESSION["error"] = "You do not have a first name, last name, and email in Google or you did not share it with us.";
