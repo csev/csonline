@@ -31,7 +31,7 @@ if ( $row === FALSE ) {
 $start_at = false;
 if ( strlen($row[5]) > 8 ) $start_at = strtotime($row[5]);
 
-if ( $start_at !== false && time() < $start_at ) {
+if ( $start_at !== false && start_time() < $start_at ) {
     echo("This course has not yet started...");
     return;
 }

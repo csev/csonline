@@ -99,7 +99,7 @@ align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%;
 <p>
 This is the list of the courses in this system.  Some of the courses are open enrollment 
 which means you can enroll and launch these courses at any time
-and others only allow enrollment during a particular period.  
+and others only allow enrollment during a particular period.   
 </p>
 <?php
 $result = mysql_query($sql);
@@ -110,8 +110,13 @@ if ( $result === FALSE ) {
 }
 
 while ( $row = mysql_fetch_row($result) ) {
-    $start_at = strtotime( $row[5]);
-    $started = time() >= $start_at;
+    $start_at = strtotime($row[5]);
+
+    // Because of our weird time zone, we need to pad start 
+    // times by 24 hours so they make sense in local time zones 
+    // around the world
+    $started = start_time() >= $start_at;
+
     $close_at = false;
     if ( strlen($row[6]) > 10 ) $close_at = strtotime($row[6]);
     $enrolled = $row[12] > 0 && $row[13] > 0;
@@ -167,6 +172,16 @@ while ( $row = mysql_fetch_row($result) ) {
     }
 }
 ?>
+<p>
+This server is configured to be in the 
+<a href="http://en.wikipedia.org/wiki/UTC-12:00" target="_new">UTC-12</a> 
+time zone when working with dates to deal with students from around the world.  
+This time zone is in the middle of the Pacific ocean 
+just <em>before</em> the international date line.
+It means that published deadlines 
+(i.e. must complete an assignment by midnight on 01-February-2013) work in any 
+time zone and most time zones have a bit of extra time.
+</p>
 <?php require_once("footer.php"); ?>
 </div>
 </body>
