@@ -11,5 +11,5 @@ Copy data-dist to data.php and edit with the proper information
 
 You also need to check this out:
 
-git://gitorious.org/lightopenid/lightopenid.git
+[git://gitorious.org/lightopenid/lightopenid.git](git://gitorious.org/lightopenid/lightopenid.git)
 
