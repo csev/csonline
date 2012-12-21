@@ -41,11 +41,6 @@ if ( $row[12] < 1 || $row[13] < 1 ) {
     return;
 }
 
-// Looking good...
-$key = $courseinfo['key'];
-$secret = $courseinfo['secret'];
-$endpoint = $courseinfo['endpoint'];
- 
 ?>
 <html>
 <head>
