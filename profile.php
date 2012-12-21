@@ -154,6 +154,7 @@ function get_twitter_url($handle)
 {
     if ( $handle === false ) return false;
     $x =  get_headers("https://api.twitter.com/1/users/profile_image?screen_name=".urlencode($handle)."&size=bigger");
+    $retval = false;
     foreach ( $x as $header ) {
         if ( strpos($header,"Location:") === 0 ) {
             $pieces = explode(" ",$header);

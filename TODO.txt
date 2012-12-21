@@ -1,0 +1,12 @@
+TO DO LIST
+
+- Grade flow from Moodle back to online
+
+- Work on hall of fame
+
+- Mailing system
+
+- Make profile get images in json...
+
+- Keep me logged in...
+
