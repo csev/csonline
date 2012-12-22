@@ -104,7 +104,9 @@ align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%;
 <p>
 This is the list of the courses in this system.  Some of the courses are open enrollment 
 which means you can enroll and launch these courses at any time
-and others only allow enrollment during a particular period.   
+and others only allow enrollment during a particular period.   Make sure to enable popups
+from these domains as some of the functionality opens in a popup window.  Grades / progress 
+take about 15 minutes to be sent from Moodle back to this page.
 </p>
 <?php
 $result = mysql_query($sql);
@@ -148,6 +150,13 @@ while ( $row = mysql_fetch_row($result) ) {
     }
     if ( $openenrollment ) {
         echo("<br/><b>This course is Open Enrollment.</b> ");
+    }
+    if ( $row[14] > 0.0 ) {
+        echo("<br/><b>Current Grade:</b> ".htmlentities($row[14])." ");
+        echo('<div class="progress progress-success" style="width:60%">
+            <div class="bar" style="width: '.intval(100*$row[14]).'%"></div>
+            </div>');
+
     }
     echo("</p>\n");
 
