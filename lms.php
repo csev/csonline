@@ -16,7 +16,7 @@ $course_id = $_GET['id'] + 0;
 $sql = 'SELECT Courses.id, code, title, description, 
     image, start_at, close_at, duration,
     bypass, endpoint, consumer_key, consumer_secret, 
-    Enrollments.id, role, grade, fame, fame_at
+    Enrollments.id, role, grade, fame, fame_at, token
     FROM Courses JOIN Enrollments 
     ON Courses.id = course_id 
     WHERE Enrollments.user_id = '.$_SESSION['id'].'
@@ -69,9 +69,22 @@ require_once("util/lti_util.php");
       "tool_consumer_info_product_family_code" => "online.dr-chuck.com",
       "tool_consumer_info_version" => "1.1",
       "tool_consumer_instance_guid" => "online.dr-chuck.com",
-      "tool_consumer_instance_description" => "Dr. Chuck Online (LMSng)",
+      "tool_consumer_instance_description" => "Dr. Chuck Online (LMSng)"
       // 'launch_presentation_return_url' => $cur_url
       );
+
+  if ( isset($row[17]) && strlen($row[17]) > 1 ) {
+    $token = $row[17];
+  } else {
+    $bytes = openssl_random_pseudo_bytes(50, $cstrong);
+    $token   = bin2hex($bytes);
+    $sql = "UPDATE Enrollments SET token='$token' WHERE id=".$row[12];
+    // Will log an error
+    $result = run_mysql_query($sql);
+  }
+
+  $lmsdata["lis_result_sourcedid"] = $row[0] . ':' . $row[12] . ':' . $token;
+  $lmsdata["lis_outcome_service_url"] = $CFG->wwwroot . '/services/outcomes.php';
 
   if ( isset($_SESSION['avatar']) ) $lmsdata['user_image'] = $_SESSION["avatar"];
 

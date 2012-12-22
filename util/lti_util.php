@@ -622,7 +622,7 @@ function getOAuthKeyFromHeaders()
     return false;
 }
 
-function handleOAuthBodyPOST($oauth_consumer_key, $oauth_consumer_secret)
+function handleOAuthBodyPOST($oauth_consumer_key, $oauth_consumer_secret, $postdata=false)
 {
     $request_headers = OAuthUtil::get_headers();
     // print_r($request_headers);
@@ -666,7 +666,7 @@ function handleOAuthBodyPOST($oauth_consumer_key, $oauth_consumer_secret)
         throw new Exception("OAuth signature failed: " . $message);
     }
 
-    $postdata = file_get_contents('php://input');
+    if ( $postdata == false ) $postdata = file_get_contents('php://input');
     // echo($postdata);
 
     $hash = base64_encode(sha1($postdata, TRUE));

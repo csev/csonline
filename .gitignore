@@ -26,6 +26,8 @@ ompiled source #
 *.sql
 *.sqlite
 
+*.swp
+
 # OS generated files #
 ######################
 .DS_Store

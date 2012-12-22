@@ -43,6 +43,7 @@ CREATE TABLE Courses (
   title VARCHAR(1024) NOT NULL, 
   description VARCHAR(4096) NOT NULL, 
   image VARCHAR(1024) NOT NULL, 
+  threshold DOUBLE,
   start_at DATETIME,
   close_at DATETIME,
   duration INT,
@@ -58,6 +59,7 @@ CREATE TABLE Enrollments (
   user_id INT,
   role INT,
   grade DOUBLE,
+  token VARCHAR(256),
   fame INT,
   fame_at DATETIME NOT NULL,
   first SMALLINT,
@@ -78,13 +80,13 @@ CREATE TABLE Domains (
 INSERT into Courses (
   code, title, 
   description, 
-  start_at, close_at, duration, bypass, 
+  start_at, close_at, duration, bypass, threshold,
   endpoint, 
   consumer_key, consumer_secret)
 VALUES
   ('IMS001', 'Introductory IMS LTI',
   'This is a course on IMS Learning Tools Interoperability and it is indeed awesome.',
-  '2012-01-01 00:00:00', NULL, 10, NULL,
+  '2012-01-01 00:00:00', NULL, 10, NULL, 1.0,
   'http://www.imsglobal.org/developers/LTI/test/v1p1/tool.php',
   '12345', 'secret');
 
