@@ -21,11 +21,13 @@ software.  Don't expect it to be as polished as
 <a href="http://www.coursera.org/" target="_new">Coursera</a> - the goal here is to explore
 more of the dimensions of <a href="about.php">what it means to be a MOOC</a>.
 </p>
+<?php if ( ! $CFG->OFFLINE ) { ?>
 <div class="hidden-phone visible-tablet" style="width: 560; margin:10px;">
 <center>
 <iframe width="450" height="253" src="http://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
 </center>
 </div>
+<? } ?>
 <p>
 For now we are only testing and playing (and I am recording lectures) - the real 
 course will start January 14, 2013.   You can enroll for it now, but not launch it.
