@@ -5,7 +5,6 @@ require 'lightopenid/openid.php';
 require_once "config.php";
 require_once "cookie.php";
 
-$ipaddress = $_SERVER['REMOTE_ADDR'];
 $errormsg = false;
 $success = false;
 
@@ -42,10 +41,10 @@ if ( $CFG->OFFLINE ) {
         } else {
             if($openid->mode == 'cancel') {
                 $errormsg = "You have canceled authentication. That's OK but we cannot log you in.  Sorry.";
-                error_log('Google-Cancel:'.$ipaddress);
+                error_log('Google-Cancel');
             } else if ( ! $openid->validate() ) {
                 $errormsg = 'You were not logged in by Google.  It may be due to a technical problem.';
-                error_log('Google-Fail:'.$ipaddress);
+                error_log('Google-Fail');
             } else {
                 $identity = $openid->identity;
                 $userAttributes = $openid->getAttributes();
@@ -63,7 +62,7 @@ if ( $CFG->OFFLINE ) {
 
 if ( $doLogin ) {
     if ( $firstName === false || $lastName === false || $userEmail === false ) {
-        error_log('Google-Missing:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
+        error_log('Google-Missing:'.$identity.','.$firstName.','.$lastName.','.$userEmail);
         $_SESSION["error"] = "You do not have a first name, last name, and email in Google or you did not share it with us.";
         header('Location: index.php');
         return;
@@ -76,7 +75,7 @@ if ( $doLogin ) {
         $sql = "SELECT id, email, first, last, avatar, twitter FROM Users WHERE identity='$X_identity'";
         $result = mysql_query($sql);
         if ( $result === FALSE ) {
-            error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
+            error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.mysql_error().','.$sql);
             $_SESSION["error"] = "Internal database error, sorry";
             header('Location: index.php');
             return;
@@ -99,12 +98,12 @@ if ( $doLogin ) {
             }
              $result = mysql_query($sql);
             if ( $result === FALSE ) {
-                error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
+                error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.mysql_error().','.$sql);
                 $_SESSION["error"] = "Internal database error, sorry";
                 header('Location: index.php');
                 return;
             } else {
-                error_log('User-Update:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress);
+                error_log('User-Update:'.$identity.','.$firstName.','.$lastName.','.$userEmail);
             }
         } else { // Lets Insert!
             $sql = "INSERT INTO Users (identity, email, first, last, identitysha, emailsha, created_at, modified_at, login_at) ".
@@ -112,13 +111,13 @@ if ( $doLogin ) {
                     "SHA1('$X_identity'), SHA1('$X_userEmail'), NOW(), NOW(), NOW() )";
             $result = mysql_query($sql);
             if ( $result === FALSE ) {
-                error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.mysql_error().','.$sql);
+                error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.mysql_error().','.$sql);
                 $_SESSION["error"] = "Internal database error, sorry";
                 header('Location: index.php');
                 return;
             } else {
                 $theid = mysql_insert_id();
-                error_log('User-Insert:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$ipaddress.','.$theid);
+                error_log('User-Insert:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.$theid);
                 $didinsert = true;
             }
         }
