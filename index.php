@@ -43,8 +43,13 @@ Show off your Mad Python  Skillz and/or find bugs in my code.   You won't be abl
 into Moodle until you log in.
 Most of my testing is on Chrome, so if you have a problem with a browser, note
 it and try another browser.  
-If you have any technical problems, let me know in the discussion
-forum in Moodle (provided by <a href="http://piazza.com" target="_new">Piazza</a>).
+</p>
+<p>
+If you want to report a significant bug - let me know on Twitter
+<a href="https://twitter.com/drchuck" target="_new">@drchuck</a>.
+If you have non-critical bugs or problems, let me know in the discussion
+forum in Moodle (provided by <a href="http://piazza.com" target="_new">Piazza</a>) in 
+the Python Playground under Courses.
 Be patient, or submit a bug fix - the code is <a href="https://github.com/csev" target="_new">here</a>.
 </p>
 <p>
