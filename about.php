@@ -1,6 +1,5 @@
 <?php
-    require_once("config.php");
-    session_start();
+require_once("start.php");
 ?>
 <!DOCTYPE html>
 <html>

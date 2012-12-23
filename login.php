@@ -3,6 +3,7 @@ session_start();
 # Logging in with Google accounts requires setting special identity, so this example shows how to do it.
 require 'lightopenid/openid.php';
 require_once "config.php";
+require_once "cookie.php";
 
 $ipaddress = $_SERVER['REMOTE_ADDR'];
 $errormsg = false;
@@ -20,12 +21,18 @@ if ( $CFG->OFFLINE ) {
     $lastName = 'Person';
     $userEmail = 'fake_person@notgoogle.com';
     $doLogin = true;
+    $_SESSION["keeplogin"] = "on";
 } else {
     try {
         // $openid = new LightOpenID('online.dr-chuck.com');
         $openid = new LightOpenID($CFG->wwwroot);
         if(!$openid->mode) {
             if(isset($_GET['login'])) {
+                if ( isset($_POST["keeplogin"]) && $_POST["keeplogin"] == "on") {
+                    $_SESSION["keeplogin"] = "on";
+                } else {
+                    $_SESSION["keeplogin"] = "off";
+                }
                 $openid->identity = 'https://www.google.com/accounts/o8/id';
                 $openid->required = array('contact/email', 'namePerson/first', 'namePerson/last');
                 $openid->optional = array('namePerson/friendly');
@@ -126,6 +133,12 @@ if ( $doLogin ) {
         $_SESSION["last"] = $lastName;
         if ( $avatar !== false && strlen($avatar) > 0 ) $_SESSION["avatar"] = $avatar;
         if ( $twitter !== false && strlen($twitter) > 0 ) $_SESSION["twitter"] = $twitter;
+        if ( isset($_SESSION["keeplogin"]) && $_SESSION["keeplogin"] == "on" ) {
+            $guid = MD5($identity);
+            $ct = create_secure_cookie($theid,$guid);
+            setcookie($CFG->cookiename,$ct,time() + (86400 * 45)); // 86400 = 1 day
+        }
+        unset($_SESSION["keeplogin"]);
         if ( $didinsert ) {
             header('Location: profile.php');
         } else {
@@ -170,8 +183,9 @@ so we let Google to that hard work.  :)
 </p>
 <p>
 <form action="?login" method="post">
-    <button class="btn">Login with Google</button>
     <input class="btn" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
+    <button class="btn">Login with Google</button>
+    <input type="checkbox" name="keeplogin"> Keep me logged in
 </form>
 </p>
 <p>

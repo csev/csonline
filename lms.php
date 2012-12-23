@@ -1,10 +1,8 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-require_once("config.php");
+require_once("start.php");
 require_once("sqlutil.php");
 require_once("db.php");
-
-session_start();
 
 if ( isset($_SESSION['id']) === false || isset($_GET['id']) === false ) {
     header('Location: login.php');

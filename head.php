@@ -5,10 +5,10 @@
 require_once("config.php");
 ?>
     <!-- Le styles -->
-    <link href="/static/css/bootstrap.css" rel="stylesheet">
-    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="/static/css/docs.css" rel="stylesheet">
-    <link href="/static/css/prettify.css" rel="stylesheet">
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="static/css/docs.css" rel="stylesheet">
+    <link href="static/css/prettify.css" rel="stylesheet">
 
     <script type="text/javascript" src="/static/javascript/jquery.min.js"></script>
 

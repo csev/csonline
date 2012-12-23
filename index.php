@@ -1,5 +1,5 @@
 <?php
-   session_start();
+   require_once("start.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,9 +9,11 @@
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
 <?php require_once("nav.php"); ?>
+<?php if ( ! $CFG->OFFLINE ) { ?>
 <div class="hidden-phone hidden-tablet" style="width: 560; float: right; margin:10px;">
 <iframe width="450" height="253" src="http://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
 </div>
+<? } ?>
 <p>
 This is very much my own experiment in quickly building a MOOC infrastructure out
 of open source pieces glued together with IMS LTI.  This is very much <b>Beta</b>

@@ -1,12 +1,11 @@
 <?php
-    session_start();
+require_once("start.php");
 
 if ( ! isset($_SESSION["id"]) ) { 
     header('Location: index.php');
     return;
 }
 
-require_once("config.php");
 require_once("sqlutil.php");
 require_once("db.php");
 
