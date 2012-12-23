@@ -5,4 +5,4 @@ session_start();
 session_unset();
 delete_secure_cookie();
 
-// header('Location: index.php');
+header('Location: index.php');
