@@ -7,7 +7,8 @@ $pieces = false;
 $id = false;
 
 // Only do this if we are not already logged in...
-if ( !isset($_SESSION["id"]) && isset($_COOKIE[$CFG->cookiename]) ) {
+if ( !isset($_SESSION["id"]) && isset($_COOKIE[$CFG->cookiename]) && 
+    isset($CFG->cookiepad) && $CFG->cookiepad !== false) {
     $ct = $_COOKIE[$CFG->cookiename];
     // echo("Cookie: $ct \n");
     $pieces = extract_secure_cookie($ct);
