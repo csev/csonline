@@ -1,18 +1,23 @@
 TO DO LIST
 
+- Make a URL routing structure for more bookmarkable urls
+
 - Work on hall of fame
 
 - Mailing system
 
-- Make profile get images in json...
+- Make profile get images in json... 
+    - Actually tabify this whole thing
+    - Add "I am on a slow connection" button
+    - Add "Hide the language translation"
 
-- Keep me logged in...
+- YouTube on main page Behind an image
 
 - Cache headers - talk to Michael
-
-- YouTube Behind an image
 
 Done
 
 - Grade flow from Moodle back to online
+
+- Keep me logged in...  Sun Dec 23 13:20:26 EST 2012
 
