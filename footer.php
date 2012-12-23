@@ -17,7 +17,7 @@ Attribution by <a href="http://www.dr-chuck.com/" target="_new">Charles R. Sever
 </center>
 </div>
 </div>
-<?php if ( $CFG->OFFLINE === true ) { ?>
+<?php if ( $CFG->OFFLINE === false ) { ?>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 

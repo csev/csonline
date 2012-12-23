@@ -1,7 +1,5 @@
 TO DO LIST
 
-- Grade flow from Moodle back to online
-
 - Work on hall of fame
 
 - Mailing system
@@ -9,4 +7,12 @@ TO DO LIST
 - Make profile get images in json...
 
 - Keep me logged in...
+
+- Cache headers - talk to Michael
+
+- YouTube Behind an image
+
+Done
+
+- Grade flow from Moodle back to online
 

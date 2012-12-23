@@ -3,24 +3,14 @@
     <title>Dr. Chuck's Python MOOC</title>
 <?php 
 require_once("config.php");
-    if ( $CFG->DEVELOPER ) {
 ?>
     <!-- Le styles -->
-    <link href="static/css/bootstrap.css" rel="stylesheet">
-    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="static/css/docs.css" rel="stylesheet">
-    <link href="static/css/prettify.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/static/css/docs.css" rel="stylesheet">
+    <link href="/static/css/prettify.css" rel="stylesheet">
 
-    <script type="text/javascript" src="static/javascript/jquery.min.js"></script>
-<?php } else { ?>
-    <!-- Le styles -->
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-<?php } ?>
+    <script type="text/javascript" src="/static/javascript/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
