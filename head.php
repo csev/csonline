@@ -10,7 +10,7 @@ require_once("config.php");
     <link href="static/css/docs.css" rel="stylesheet">
     <link href="static/css/prettify.css" rel="stylesheet">
 
-    <script type="text/javascript" src="/static/javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="static/javascript/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

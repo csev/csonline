@@ -52,7 +52,7 @@ I have clever code in the autograder to catch you if your output matches but
 you don't meet the specs.  Good luck trying to defeat my sanity checker.
 </p>
 <p>
-And just for fun resize your browser and enwatch Twitter Bootstrap's response design in action.
+And just for fun resize your browser and watch Twitter Bootstrap's response design in action.
 </p>
 <p>
 Comments welcome.

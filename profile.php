@@ -44,7 +44,6 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $sql .= $X_lat == 0.0 ? " lat=NULL, " : " lat='$X_lat', ";
     $sql .= $X_lng == 0.0 ? " lng=NULL  " : " lng='$X_lng'  ";
     $sql .= " WHERE id='".$_SESSION['id']."'";
-error_log($sql);
     $result = mysql_query($sql);
     if ( $result === false ) {
         error_log('Fail-SQL:'.mysql_error().','.$sql);
@@ -90,13 +89,14 @@ error_log($sql);
 <?php require_once("head.php"); 
 $defaultLat = $lat != 0.0 ? $lat : 42.279070216140425;
 $defaultLng = $lng != 0.0 ? $lng : -83.73981015789798; 
+
+if ( ! $CFG->OFFLINE ) {
 ?>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script type="text/javascript">
 var map;
 
 function initialize() {
-  if ( <?php echo($CFG->OFFLINE ? '1' : '0'); ?> == 1 ) return;
   var myLatlng = new google.maps.LatLng(<? echo($defaultLat.", ".$defaultLng); ?>);
 
   var myOptions = {
@@ -119,6 +119,13 @@ function initialize() {
   });
 
 }
+<?php } else { // OFFLINE ?>
+<script type="text/javascript">
+var map;
+
+function initialize() { }
+
+<?php } ?>
 
 function twittercheck() {
     text = document.getElementById('twitter').value;
@@ -136,6 +143,8 @@ function twittercheck() {
 
 function get_gravatar_url() 
 {
+    global $CFG;
+    if ( $CFG->OFFLINE ) return false;
     if ( isset($_SESSION["email"])) {
         $email = $_SESSION["email"];
         $gravatarurl = 'http://www.gravatar.com/avatar/';
@@ -152,6 +161,8 @@ function get_gravatar_url()
 
 function get_twitter_url($handle)
 {
+    global $CFG;
+    if ( $CFG->OFFLINE ) return false;
     if ( $handle === false ) return false;
     $x =  get_headers("https://api.twitter.com/1/users/profile_image?screen_name=".urlencode($handle)."&size=bigger");
     $retval = false;
@@ -170,6 +181,8 @@ function get_twitter_url($handle)
 
 function get_avatar_url()
 {
+    global $CFG;
+    if ( $CFG->OFFLINE ) return false;
     if ( isset($_SESSION["email"])) {
         $email = $_SESSION["email"];
         $url = "http://avatars.io/auto/".$email;
@@ -326,6 +339,7 @@ What is your current or highest education level?<br/>
   <input type="checkbox" name="oer" <?php checkbox($oer); ?> >
   I am a teacher or otherwise interested in Open Educational Resources.
 </label>
+<?php if ( ! $CFG->OFFLINE ) { ?>
   <hr class="hidden-phone"/>
 <p>
   Move the pointer on the map below until it is at the correct location.
@@ -357,7 +371,7 @@ What is your current or highest education level?<br/>
 If you don't even want to reveal your country, put yourself
   in Greenland in the middle of a glacier. :)
 </p>
-
+<?php } ?>
 </form>
 </p>
 <p>
