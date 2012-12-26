@@ -1,7 +1,5 @@
 TO DO LIST
 
-- Work on hall of fame
-
 - Mailing system
 
 - Make profile get images in json... 
@@ -20,4 +18,7 @@ Done
 - Grade flow from Moodle back to online
 
 - Keep me logged in...  Sun Dec 23 13:20:26 EST 2012
+
+- Work on hall of fame - Wed Dec 26 01:34:26 EST 2012
+  -- Multiple colors for levels...
 
