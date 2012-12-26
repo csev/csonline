@@ -1,11 +1,5 @@
 <?php
 require_once("start.php");
-
-if ( ! isset($_SESSION["id"]) ) { 
-    header('Location: index.php');
-    return;
-}
-
 require_once("sqlutil.php");
 require_once("db.php");
 
@@ -68,16 +62,21 @@ if ( $courserow !== false && $enrollmentrow !== false
     return;
 }
 
+if ( isset($_SESSION['id']) ) {
     $sql = 'SELECT Courses.id, code, title, description, 
         image, start_at, close_at, duration,
         bypass, endpoint, consumer_key, consumer_secret, 
-        Enrollments.id, role, grade, fame, fame_at
+        Enrollments.id, role, grade, fame, cert_at
         FROM Courses LEFT OUTER JOIN Enrollments 
-        ON Courses.id = course_id ';
-
-    if ( isset($_SESSION['id']) ) {
-        $sql .= ' AND Enrollments.user_id = '.$_SESSION['id'];
-    }
+        ON Courses.id = course_id 
+        AND Enrollments.user_id = '.$_SESSION['id'];
+} else {
+    $sql = 'SELECT Courses.id, code, title, description, 
+        image, start_at, close_at, duration,
+        NULL, NULL, NULL, NULL, 
+        NULL, NULL, NULL, NULL, NULL
+        FROM Courses';
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -110,7 +109,7 @@ take about 15 minutes to be sent from Moodle back to this page.
 <?php
 $result = mysql_query($sql);
 if ( $result === FALSE ) {
-    error_log('Fail-SQL:'.mysql_error().','.$sql);
+    echo('Fail-SQL:'.mysql_error().','.$sql);
     echo("Unable to retrieve courses...");
     return;
 }
@@ -175,11 +174,13 @@ while ( $row = mysql_fetch_row($result) ) {
         echo('" onclick="return confirm_unenroll();">Un-Enroll</button>
             </form>');
     } else if ( $close_at === false || time() <= $close_at ) {
-        echo('<form method="post" action="courses.php">
-            <input type="hidden" name="id" value="'.htmlentities($row[0]).'">
-            <input type="hidden" name="action" value="enroll">');
-        echo('<button type="submit" class="btn btn-primary">Enroll</button>');
-        echo('</form>');
+        if ( $_SESSION['id'] ) {
+            echo('<form method="post" action="courses.php">
+                <input type="hidden" name="id" value="'.htmlentities($row[0]).'">
+                <input type="hidden" name="action" value="enroll">');
+            echo('<button type="submit" class="btn btn-primary">Enroll</button>');
+            echo('</form>');
+        }
     } else {
         echo("<p><b>Enrollment is closed for this class.</b></p>\n");
     }

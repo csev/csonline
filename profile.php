@@ -11,6 +11,7 @@ $twitter = isset($_POST['twitter']) ? $_POST['twitter'] : false;
 $education = isset($_POST['education']) ? $_POST['education']+0 : false;
 $oer = isset($_POST['oer']) ? $_POST['oer']+0 : false;
 $avatar = isset($_POST['avatar']) ? $_POST['avatar']+0 : false;
+$map = isset($_POST['map']) ? $_POST['map']+0 : false;
 $lat = isset($_POST['lat']) ? $_POST['lat']+0.0 : 0.0;
 $lng = isset($_POST['lng']) ? $_POST['lng']+0.0 : 0.0;
 
@@ -41,6 +42,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $sql .= $avatar === false ? " avatar=NULL, " : " avatar='$X_avatar', ";
     $sql .= $education == 0 ? " education=NULL, " : " education='$education', ";
     $sql .= $oer == 0 ? " oer=NULL, " : " oer='$oer', ";
+    $sql .= $map == 0 ? " map=NULL, " : " map='$map', ";
     $sql .= $X_lat == 0.0 ? " lat=NULL, " : " lat='$X_lat', ";
     $sql .= $X_lng == 0.0 ? " lng=NULL  " : " lng='$X_lng'  ";
     $sql .= " WHERE id='".$_SESSION['id']."'";
@@ -60,7 +62,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     }
     return;
 } else if ( isset($_SESSION['id']) ) { 
-    $sql = "SELECT subscribe, twitter, avatar, lat, lng, education, oer FROM Users ".
+    $sql = "SELECT subscribe, twitter, avatar, lat, lng, education, oer, map FROM Users ".
         "WHERE id='".$_SESSION['id']."'";
     $result = mysql_query($sql);
     if ( $result === FALSE ) {
@@ -78,6 +80,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $lng = $row[4];
     $education = $row[5];
     $oer = $row[6];
+    $map = $row[7];
     // See if we are checking a twitter
     $twitter = isset($_GET['twittercheck']) ? $_GET['twittercheck'] : $twitter;
 }
@@ -249,7 +252,9 @@ echo(" (".$_SESSION["email"].")</h4>\n");
              <?php radio('subscribe',2,$subscribe) ?> >
                 Send me announcements class-related mail from within the classes I am taking.
         </label>
-        <hr class="hidden-phone"/>
+      </div>
+  </div>
+<hr class="hidden-phone"/>
   <div class="control-group">
     <label class="control-label" for="twitter">Twitter Handle (Optional)</label>
     <div class="controls">
@@ -333,6 +338,15 @@ What is your current or highest education level?<br/>
   <option <?php option(4,$education); ?>>Four-Year</option>
   <option <?php option(5,$education); ?>>Graduate/Professional</option>
   <option <?php option(6,$education); ?>>Doctorate/MD</option>
+</select>
+  <hr class="hidden-phone"/>
+How would you like to be shown in maps of student achievements.<br/>
+<select name="map">
+  <option value="0">--- Please Select ---</option>
+  <option <?php option(1,$map); ?>>Don't show me at all</option>
+  <option <?php option(2,$map); ?>>Show only my location (below)</option>
+  <option <?php option(3,$map); ?>>Show my first name (<?php echo($_SESSION["first"]); ?>)</option>
+  <option <?php option(4,$map); ?>>Show my first name and Twitter informaiton</option>
 </select>
   <hr class="hidden-phone"/>
 <label class="checkbox">

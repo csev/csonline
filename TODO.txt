@@ -1,7 +1,5 @@
 TO DO LIST
 
-- Make a URL routing structure for more bookmarkable urls
-
 - Work on hall of fame
 
 - Mailing system
@@ -10,6 +8,8 @@ TO DO LIST
     - Actually tabify this whole thing
     - Add "I am on a slow connection" button
     - Add "Hide the language translation"
+
+- Make a URL routing structure for more bookmarkable urls
 
 - YouTube on main page Behind an image
 

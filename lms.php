@@ -14,7 +14,7 @@ $course_id = $_GET['id'] + 0;
 $sql = 'SELECT Courses.id, code, title, description, 
     image, start_at, close_at, duration,
     bypass, endpoint, consumer_key, consumer_secret, 
-    Enrollments.id, role, grade, fame, fame_at, token
+    Enrollments.id, role, grade, fame, cert_at, token
     FROM Courses JOIN Enrollments 
     ON Courses.id = course_id 
     WHERE Enrollments.user_id = '.$_SESSION['id'].'

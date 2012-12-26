@@ -22,8 +22,8 @@
   <div class="navbar-inner">
     <ul class="nav nav-pills">
       <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Home</span></a></li>
+      <li <?php active("courses.php"); ?>><a href="courses.php">Courses</a></li>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
-      <li <?php active("courses.php"); ?>><a href="courses.php"><span class="hidden-phone">My </span>Courses</a></li>
       <li <?php active("profile.php"); ?>><a href="profile.php"><span class="hidden-phone">My </span>Profile</a></li>
 <? } ?>
       <li <?php active("open.php"); ?> class="hidden-phone"><a href="open.php">Open Content</a></li>
