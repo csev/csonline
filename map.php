@@ -40,9 +40,9 @@ $total = $countrow[0];
 <script type="text/javascript">
 $(document).ready( function () {
     $.getJSON('mapjson.php?course_id=<?php echo($course_id); ?>', function(data) {
-        if ( window.console ) console.log(data);
-        origin_lat = 37.39361;
-        origin_lng = -122.099263;
+
+        origin_lat = 42.279070216140425;
+        origin_lng = -83.73981015789798;
         if ( "origin" in data ) origin_lat = data.origin[0];
         if ( "origin" in data ) origin_lng = data.origin[1];
         var myLatlng = new google.maps.LatLng(origin_lat, origin_lng);
@@ -53,7 +53,6 @@ $(document).ready( function () {
         }
         var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
-        console.log(data.markers);
         for ( var i = 0; i < data.markers.length; i++ ) { 
             var row = data.markers[i];
             // if ( i < 3 ) { alert(row); }
@@ -77,7 +76,9 @@ echo("($total)");
 echo('</h3></center>'."\n");
 ?>
 
-<div id="map_canvas" style="margin-left:10px; margin-right:10px; width: 100%; height:600px;"><center><img src="spinner.gif"></div>
+<div id="map_canvas" 
+style="margin-left:10px; margin-right:10px; width: 100%; height:800px;">
+<center><img src="spinner.gif"></div>
 
 
 <?php require_once("footer.php"); ?>
