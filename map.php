@@ -99,6 +99,10 @@ echo('</h3></center>'."\n");
 style="margin-left:10px; margin-right:10px; width: 100%; height:800px;">
 <center><img src="spinner.gif"></div>
 
+<p>
+Each person enrolled in the class controls whether they show up on this or not.  They control 
+how much they show on the map in the Profile page.
+</p>
 
 <?php require_once("footer.php"); ?>
 </div>

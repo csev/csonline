@@ -104,6 +104,9 @@ and others only allow enrollment during a particular period.   Make sure to enab
 from these domains as some of the functionality opens in a popup window.  Grades / progress 
 take about 15 minutes to be sent from Moodle back to this page.
 </p>
+<p>
+<b>Coming Soon:</b> Enrollment / achievement maps!
+</p>
 <?php
 $result = mysql_query($sql);
 if ( $result === FALSE ) {
