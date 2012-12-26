@@ -2,8 +2,8 @@
 require_once("start.php");
 
 if ( ! isset($_SESSION['id']) ) {
-        header('Location: login.php');
-        return;
+    header('Location: login.php');
+    return;
 }
 
 $subscribe = isset($_POST['subscribe']) ? $_POST['subscribe']+0 : false;

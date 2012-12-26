@@ -9,9 +9,14 @@ function retrieve_one_row($sql, $showerror=true)
 
 function run_mysql_query($sql, $showerror=true)
 {
+    global $CFG;
     $result = mysql_query($sql);
     if ( $result === FALSE ) {
         if ( $showerror) error_log('Fail-SQL:'.mysql_error().','.$sql);
+        if ( $CFG->DEVELOPER ) {
+            echo("<pre>\nFAIL-SQL:\n$sql\n\n".mysql_error()."\n</pre>\n");
+            die();
+        }
         return false;
     }
     return $result;
