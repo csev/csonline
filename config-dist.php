@@ -4,8 +4,9 @@ unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 
-// No trailing slash
+// No trailing slash on these urls
 $CFG->wwwroot = 'http://localhost/~csev/csonline';
+$CFG->staticroot = 'http://localhost/~csev/csonline';
 $CFG->analytics = 'UA-999999-15';
 
 $CFG->DEVELOPER = true;

@@ -40,7 +40,6 @@ $total = $countrow[0];
 <script type="text/javascript">
 $(document).ready( function () {
     $.getJSON('mapjson.php?course_id=<?php echo($course_id); ?>', function(data) {
-
         origin_lat = 42.279070216140425;
         origin_lng = -83.73981015789798;
         if ( "origin" in data ) origin_lat = data.origin[0];
@@ -57,15 +56,16 @@ $(document).ready( function () {
             var row = data.markers[i];
             // if ( i < 3 ) { alert(row); }
             var newLatlng = new google.maps.LatLng(row[0], row[1]);
-            var icon = 'static/img/benkeenmarkers/darkgreen_MarkerA.png';
-            if ( row[2] == 1 ) icon = 'static/img/benkeenmarkers/pink_MarkerA.png';
-            if ( row[2] == 2 ) icon = 'static/img/benkeenmarkers/yellow_MarkerA.png';
-            if ( row[2] == 3 ) icon = 'static/img/benkeenmarkers/red_MarkerA.png';
-            if ( row[2] == 4 ) icon = 'static/img/benkeenmarkers/blue_MarkerA.png';
+            var iconpath = '<?php echo($CFG->staticroot); ?>/static/img/benkeenmarkers/';
+            var icon = 'darkgreen_MarkerA.png';
+            if ( row[2] == 1 ) icon = 'pink_MarkerA.png';
+            if ( row[2] == 2 ) icon = 'yellow_MarkerA.png';
+            if ( row[2] == 3 ) icon = 'red_MarkerA.png';
+            if ( row[2] == 4 ) icon = 'blue_MarkerA.png';
             var marker = new google.maps.Marker({
                 position: newLatlng,
                 map: map,
-                icon: icon,
+                icon: iconpath + icon,
                 title: row[3]
             });
         }

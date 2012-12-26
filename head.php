@@ -5,12 +5,12 @@
 require_once("config.php");
 ?>
     <!-- Le styles -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="bootstrap/css/docs.css" rel="stylesheet">
-    <link href="bootstrap/css/prettify.css" rel="stylesheet">
+    <link href="<?php echo($CFG->staticroot); ?>/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo($CFG->staticroot); ?>/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="<?php echo($CFG->staticroot); ?>/bootstrap/css/docs.css" rel="stylesheet">
+    <link href="<?php echo($CFG->staticroot); ?>/bootstrap/css/prettify.css" rel="stylesheet">
 
-    <script type="text/javascript" src="static/javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo($CFG->staticroot); ?>/static/javascript/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
