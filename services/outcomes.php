@@ -12,8 +12,8 @@ require_once("../util/lti_util.php");
 
 // For my application, We only allow application/xml
 $request_headers = OAuthUtil::get_headers();
-$hct = $request_headers['Content-Type'];
-if ( ! isset($hct) ) $hct = $request_headers['Content-type'];
+$hct = false;
+if ( ! isset($request_headers['Content-Type']) ) $hct = $request_headers['Content-type'];
 if (strpos($hct,'application/xml') === false ) {
    header('Content-Type: text/plain');
    // print_r($request_headers);
