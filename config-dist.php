@@ -12,6 +12,8 @@ $CFG->analytics = 'UA-999999-15';
 $CFG->DEVELOPER = true;
 $CFG->OFFLINE = true;   // Loads stuff locally - good for airplanes
 
+$CFG->adminpw = 'set to something secure';
+
 $CFG->database  = 'csonline';
 $CFG->dbhost    = '127.0.0.1';
 $CFG->dbuser    = 'csonline';
@@ -35,6 +37,8 @@ date_default_timezone_set('Etc/GMT-12');
 function start_time() {
     return time() + 24 * 60 * 60;
 }
+
+require_once("lib.php");
 
 // No trailing tag to avoid white space
 
