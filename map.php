@@ -57,9 +57,15 @@ $(document).ready( function () {
             var row = data.markers[i];
             // if ( i < 3 ) { alert(row); }
             var newLatlng = new google.maps.LatLng(row[0], row[1]);
+            var icon = 'static/img/benkeenmarkers/darkgreen_MarkerA.png';
+            if ( row[2] == 1 ) icon = 'static/img/benkeenmarkers/pink_MarkerA.png';
+            if ( row[2] == 2 ) icon = 'static/img/benkeenmarkers/yellow_MarkerA.png';
+            if ( row[2] == 3 ) icon = 'static/img/benkeenmarkers/red_MarkerA.png';
+            if ( row[2] == 4 ) icon = 'static/img/benkeenmarkers/blue_MarkerA.png';
             var marker = new google.maps.Marker({
                 position: newLatlng,
                 map: map,
+                icon: icon,
                 title: row[3]
             });
         }
