@@ -204,7 +204,7 @@ a big company. It even sounds weird to say "we".
 <p>
 If you are still worried about this software and its interaction with Google, you 
 or someone else can take a look at the source code to this online registration system 
-<a href="https://github.com/csev/csonline" target="_new">on Github</a> to see what 
+<a href="https://github.com/csev/csonline" target="_blank">on Github</a> to see what 
 we are doing.
 </p>
 <?php

@@ -28,8 +28,8 @@
 <? } ?>
       <li <?php active("open.php"); ?> class="hidden-phone"><a href="open.php">Open Content</a></li>
       <li <?php active("about.php"); ?> class="hidden-phone"><a href="about.php">About</a></li>
-      <li><a href="http://www.coursera.org/" target="_new" class="hidden-phone hidden-tablet">Coursera</a></li>
-      <li><a href="http://class.stanford.edu/" target="_new" class="hidden-phone hidden-tablet">Stanford Online</a></li>
+      <li><a href="http://www.coursera.org/" target="_blank" class="hidden-phone hidden-tablet">Coursera</a></li>
+      <li><a href="http://class.stanford.edu/" target="_blank" class="hidden-phone hidden-tablet">Stanford Online</a></li>
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
     <span style="vertical-align: middle" class="pull-right">

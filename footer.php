@@ -12,7 +12,7 @@ and learning about learning.  This is my research into how we learn and you are
 welcome to participate.</span>
 The contents of this web site (other than the end-user produced content) are 
 Copyright Creative Commons
-Attribution by <a href="http://www.dr-chuck.com/" target="_new">Charles R. Severance</a>.
+Attribution by <a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
 </small>
 </center>
 </div>

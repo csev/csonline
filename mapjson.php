@@ -67,9 +67,11 @@ while ( $row = mysql_fetch_row($result) ) {
     if ( $row[0] >= 1.0 ) $level = 4;
     // 2=location, 3=name, 4=twitter
     $map = $row[5];
-    $first = $map >= 3 ? $row[1] : '';
-    $twitter = $map >= 4 ? $row[2] : '';
-    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,$first,$twitter);
+    $first = $map >= 3 || isAdmin() ? $row[1] : '';
+    $twitter = $map >= 4  || isAdmin() ? $row[2] : '';
+    $note = '';
+    if ( isAdmin() && strlen($row[0]) > 0 ) $note = "Grade: ".$row[0];
+    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,htmlentities($first),htmlentities($twitter),htmlentities($note));
     if ( isset($_SESSION["id"]) && $_SESSION["id"] == $row[6] ) {
        $origin_lat = $row[3]+0.0; 
        $origin_lng = $row[4]+0.0; 

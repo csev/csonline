@@ -18,7 +18,7 @@
 This is very much my own experiment in quickly building a MOOC infrastructure out
 of open source pieces glued together with IMS LTI.  This is very much <b>Beta</b>
 software.  Don't expect it to be as polished as 
-<a href="http://www.coursera.org/" target="_new">Coursera</a> - the goal here is to explore
+<a href="http://www.coursera.org/" target="_blank">Coursera</a> - the goal here is to explore
 more of the dimensions of <a href="about.php">what it means to be a MOOC</a>.
 </p>
 <?php if ( ! $CFG->OFFLINE ) { ?>
@@ -46,11 +46,11 @@ it and try another browser.
 </p>
 <p>
 If you want to report a significant bug - let me know on Twitter
-<a href="https://twitter.com/drchuck" target="_new">@drchuck</a>.
+<a href="https://twitter.com/drchuck" target="_blank">@drchuck</a>.
 If you have non-critical bugs or problems, let me know in the discussion
-forum in Moodle (provided by <a href="http://piazza.com" target="_new">Piazza</a>) in 
+forum in Moodle (provided by <a href="http://piazza.com" target="_blank">Piazza</a>) in 
 the Python Playground under Courses.
-Be patient, or submit a bug fix - the code is <a href="https://github.com/csev" target="_new">here</a>.
+Be patient, or submit a bug fix - the code is <a href="https://github.com/csev" target="_blank">here</a>.
 </p>
 <p>
 If you want an extra special challenge, figure out how to <i>game</i> the autograder and

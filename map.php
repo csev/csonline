@@ -38,6 +38,7 @@ $total = $countrow[0];
 <?php require_once("head.php"); ?>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
+var map = null;
 $(document).ready( function () {
     $.getJSON('mapjson.php?course_id=<?php echo($course_id); ?>', function(data) {
         origin_lat = 42.279070216140425;
@@ -50,7 +51,7 @@ $(document).ready( function () {
           center: myLatlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
         for ( var i = 0; i < data.markers.length; i++ ) { 
             var row = data.markers[i];
@@ -62,12 +63,24 @@ $(document).ready( function () {
             if ( row[2] == 2 ) icon = 'yellow_MarkerA.png';
             if ( row[2] == 3 ) icon = 'red_MarkerA.png';
             if ( row[2] == 4 ) icon = 'blue_MarkerA.png';
+            var content = row[5];
+            if ( row[4].length > 0 ) {
+                content = content + ' <a href="http://www.twitter.com/' + row[4] + '" target="_blank">' + row[4] + '</a>';
+            }
             var marker = new google.maps.Marker({
                 position: newLatlng,
                 map: map,
                 icon: iconpath + icon,
+                ourHtml : content,
                 title: row[3]
             });
+            if ( content.length > 0 ) {
+                google.maps.event.addListener(marker, 'click', function() {
+                    var infowindow = new google.maps.InfoWindow();
+                    infowindow.setContent(this.ourHtml);
+                    infowindow.open(map, this);
+                });
+            }
         }
     })
 });

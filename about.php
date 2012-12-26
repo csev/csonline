@@ -26,7 +26,7 @@ on Coursera and love seeing how others teach and learn with Coursera.   I am rea
 <a href="https://www.coursera.org/course/insidetheinternet">Internet History, Technology, and Security</a> course on 
 Coursera starting March 1, 2013.  
 I also am taking pedagogy and technical inspiration from the excellent Coursera 
-<a href="https://www.coursera.org/course/interactivepython" target="_new">Interactive Programming in Python</a> 
+<a href="https://www.coursera.org/course/interactivepython" target="_blank">Interactive Programming in Python</a> 
 course taught by Joe Warren, Scott Rixner, John Greiner, and Stephen Wong of Rice University. I would suggest that after 
 students complete my course, if they are interested in more programming, that they would take the Rice course.
 The technology I use here will never be as slick as Coursera because I am one person
@@ -39,7 +39,7 @@ I do need some resources - so if you have resources to give - contact me.
 I would also love to use the open source <a href="http://class.stanford.edu">Stanford Class2Go</a> but it is not quite ready for
 use outside of Stanford.  My technical approach is very much influenced by Stanford's "don't build it if you don't have to" approach - 
 but I am going to take it even further than they have taken it.  I am going to 
-<a href="http://www.youtube.com/watch?v=F7IZZXQ89Oc" target="_new">turn it up to 11</a> - at least in my use of 
+<a href="http://www.youtube.com/watch?v=F7IZZXQ89Oc" target="_blank">turn it up to 11</a> - at least in my use of 
 standards and open content.  
 </p>
 <p>
@@ -54,33 +54,33 @@ Blackboard,
 GradeCraft,
 Joule, or 
 Canvas.  I picked Moodle first because it has the best 
-<a href="https://moodle.org/plugins/view.php?plugin=local_ltiprovider&moodle_version=10" target="_new">IMS LTI Provider</a> support thanks to 
-<a href="https://twitter.com/jleyvadelgado" target="_new">Juan Levya</a>.
+<a href="https://moodle.org/plugins/view.php?plugin=local_ltiprovider&moodle_version=10" target="_blank">IMS LTI Provider</a> support thanks to 
+<a href="https://twitter.com/jleyvadelgado" target="_blank">Juan Levya</a>.
 All the software I write will be open source and all the content I build will be Creative Commons Attribution.
 I want this all to be used as examples and remixed.
 </p>
 <p>
 The technology I am using includes
-<a href="http://www.moodle.org" target="_new">Moodle</a>, 
-<a href="http://www.piazza.com" target="_new">Piazza</a>, 
-<a href="http://www.youtube.com" target="_new">YouTube</a>, 
-<a href="http://translate.google.com/manager/website/suggestions" target="_new">Google WebSite Translation</a>,
-<a href="http://twitter.github.com/bootstrap/" target="_new">Twitter Bootstrap</a>,
+<a href="http://www.moodle.org" target="_blank">Moodle</a>, 
+<a href="http://www.piazza.com" target="_blank">Piazza</a>, 
+<a href="http://www.youtube.com" target="_blank">YouTube</a>, 
+<a href="http://translate.google.com/manager/website/suggestions" target="_blank">Google WebSite Translation</a>,
+<a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>,
 and 
-<a href="http://www.sakaiproject.org/" target="_new">Sakai</a>, 
+<a href="http://www.sakaiproject.org/" target="_blank">Sakai</a>, 
 as well as using
-<a href="http://developers.imsglobal.org" target="_new">IMS Learning Tools Interoperability</a> to implement my 
+<a href="http://developers.imsglobal.org" target="_blank">IMS Learning Tools Interoperability</a> to implement my 
 service-oriented mashup of functionality.
 </p>
 <p>
-My first course is based on my free/open book titled <a href="http://www.pythonlearn.com" target="_new">Python 
+My first course is based on my free/open book titled <a href="http://www.pythonlearn.com" target="_blank">Python 
 for Informatics: Exploring Data</a>.  I keep most of my cool stuff in 
-<a href="https://github.com/csev" target="_new">GitHub</a> - and even this site is 
-<a href="https://github.com/csev/csonline" target="_new">on GitHub</a>.
+<a href="https://github.com/csev" target="_blank">GitHub</a> - and even this site is 
+<a href="https://github.com/csev/csonline" target="_blank">on GitHub</a>.
 </p>
 <p>
 This experiment is hosted on servers provided to me at no charge by the 
-<a href="http://www.si.umich.edu/" target="_new">University of Michigan School of Information</a>
+<a href="http://www.si.umich.edu/" target="_blank">University of Michigan School of Information</a>
 and I am very thankful for that. 
 </p>
 <p>

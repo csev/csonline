@@ -256,7 +256,7 @@ echo(" (".$_SESSION["email"].")</h4>\n");
   </div>
 <hr class="hidden-phone"/>
   <div class="control-group">
-    <label class="control-label" for="twitter">Twitter Handle (Optional)</label>
+    <label class="control-label" for="twitter">Twitter Name (i.e. drchuck) (Optional)</label>
     <div class="controls">
       <input type="text" id="twitter" name="twitter" onchange="twittercheck(); return false;"
          <?php echo(' value="'.htmlentities($twitter).'" '); ?>
@@ -272,7 +272,7 @@ echo(" (".$_SESSION["email"].")</h4>\n");
 <p>
 Choose a profile picture.  We support Twitter profile pictures if you give us your Twitter handle.
 We use your e-mail address to find a profile photo on 
-<a href="http://www.gravatar.com" target="_new">Gravatar</a> or other services.   Moodle will use
+<a href="http://www.gravatar.com" target="_blank">Gravatar</a> or other services.   Moodle will use
 your Gravatar image based on your e-mail address.  You can also edit your profile in Moodle
 as well.
 </p>
@@ -325,7 +325,7 @@ $_SESSION["urls"] = $urls;
 
 if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
     echo('You seem to have no online profile photo that we can find, you may want 
-        to create one at <a href="http://www.gravatar.com" target="_new">www.gravatar.com</a>.');
+        to create one at <a href="http://www.gravatar.com" target="_blank">www.gravatar.com</a>.');
 }
 ?>
   <hr class="hidden-phone"/>

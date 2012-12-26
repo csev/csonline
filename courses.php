@@ -94,11 +94,9 @@ function confirm_unenroll() {
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
 <?php require_once("nav.php"); ?>
-<a href="lms.php?context_id=playground" target="_new">
 <img src="MOOCMap-8.jpg" 
 alt="logo" cite="Image from Caitlin Holman"
 align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
-</a>
 <p>
 This is the list of the courses in this system.  Some of the courses are open enrollment 
 which means you can enroll and launch these courses at any time
@@ -131,7 +129,7 @@ while ( $row = mysql_fetch_row($result) ) {
         $launch = 'lms.php?id='.htmlentities($row[0]);
     }
     echo('<h3>');
-    if ( $launch ) echo('<a href="'.$launch.'" target="_new">');
+    if ( $launch ) echo('<a href="'.$launch.'" target="_blank">');
     echo($row[1].' - '.$row[2]);
     if ( $launch ) echo('</a>');
     echo('</h3>');
@@ -165,7 +163,7 @@ while ( $row = mysql_fetch_row($result) ) {
             echo('<button type="button" class="btn btn-primary" 
                 onclick="window.open('."'".$launch."', '_blank'); return false;".'">Launch</button>'."\n");
             echo("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-            echo('<a href="'.$launch.'&debug=11" target="_new" style="color:white">Launch with LTI Debug</a>');
+            echo('<a href="'.$launch.'&debug=11" target="_blank" style="color:white">Launch with LTI Debug</a>');
         }
         echo('<input type="hidden" name="id" value="'.htmlentities($row[0]).'">
             <input type="hidden" name="action" value="unenroll">
@@ -188,7 +186,7 @@ while ( $row = mysql_fetch_row($result) ) {
 ?>
 <p>
 This server is configured to be in the 
-<a href="http://en.wikipedia.org/wiki/UTC-12:00" target="_new">UTC-12</a> 
+<a href="http://en.wikipedia.org/wiki/UTC-12:00" target="_blank">UTC-12</a> 
 time zone when working with dates to deal with students from around the world.  
 This time zone is in the middle of the Pacific ocean 
 just <em>before</em> the international date line.
