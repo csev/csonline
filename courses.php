@@ -174,7 +174,7 @@ while ( $row = mysql_fetch_row($result) ) {
         echo('" onclick="return confirm_unenroll();">Un-Enroll</button>
             </form>');
     } else if ( $close_at === false || time() <= $close_at ) {
-        if ( $_SESSION['id'] ) {
+        if ( isset($_SESSION['id']) ) {
             echo('<form method="post" action="courses.php">
                 <input type="hidden" name="id" value="'.htmlentities($row[0]).'">
                 <input type="hidden" name="action" value="enroll">');

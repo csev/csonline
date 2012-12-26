@@ -39,10 +39,13 @@ $sql = "SELECT Enrollments.grade,
     Users.first, Users.twitter, Users.lat, Users.lng, Users.map, Users.id
     FROM Enrollments JOIN Users
     ON Enrollments.user_id = Users.id
-    WHERE Users.map > 1 AND 
+    WHERE 
     Enrollments.course_id = $course_id
-    AND lat IS NOT NULL AND lng IS NOT NULL
-    ORDER BY grade DESC
+    AND lat IS NOT NULL AND lng IS NOT NULL ";
+if ( ! isset($_SESSION['admin']) ) {
+    $sql .= "AND Users.map > 1 ";
+}
+$sql .= "ORDER BY grade DESC
     LIMIT 5000";
 
 // $retval['_sql'] = $sql;
