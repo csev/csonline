@@ -9,7 +9,7 @@ if ( isset($_POST['id']) && isset($_POST['token']) ) {
     $token = $_POST['token'];
 }
 
-if ( isset($_GET[id]) && isset($_GET['token']) ) {
+if ( isset($_GET['id']) && isset($_GET['token']) ) {
     $id = $_GET['id'] + 0;
     $token = $_GET['token'];
 }
