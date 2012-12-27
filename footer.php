@@ -15,8 +15,6 @@ Copyright Creative Commons
 Attribution by <a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
 </small>
 </center>
-</div>
-</div>
 <?php if ( $CFG->OFFLINE === false ) { ?>
 <script type="text/javascript">
 function googleTranslateElementInit() {

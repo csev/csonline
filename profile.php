@@ -365,7 +365,6 @@ How would you like to be shown in maps of student achievements.<br/>
 </p>
   <div class="control-group pull-right hidden-phone">
       <button type="submit" style="margin-top: 40px" class="btn btn-primary">Save Profile Data</button>
-    </div>
   </div>
 
 <p>
@@ -387,10 +386,6 @@ If you don't even want to reveal your country, put yourself
 </p>
 <?php } ?>
 </form>
-</p>
-<p>
-</p>
-<p>
 <?php require_once("footer.php"); ?>
 </div>
 </body>
