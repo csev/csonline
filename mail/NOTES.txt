@@ -9,3 +9,6 @@ Subject: [espc-tech] More info on List-Unsubscribe
 Date: August 31, 2006 3:13:02 PM CDT
 To: jasmine@domain.com
 List-Unsubscribe: <mailto:unsubscribe-espc-tech-12345N@domain.com>, <http://domain.com/member/unsubscribe/?listname=espc-tech@domain.com?id=12345N>
+
+http://www.slideshare.net/bngsudheer/how-to-build-a-bulk-email-sending-application-in-php
+
