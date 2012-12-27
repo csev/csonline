@@ -1,5 +1,4 @@
 <?php
-require_once("../config.php");
 
 function compute_mail_check($identity) {
     global $CFG;
@@ -25,14 +24,14 @@ function mooc_send($to, $subject, $message, $id, $token) {
     if ( substr($msg,-1) != "\n" ) $msg .= "\n";
     $msg .= "\nYou can manage your mail preferences at $manage \n";
 
-    echo $msg;
+    // echo $msg;
 
     $headers = "From: no-reply@$maildomain" . $EOL .
         "Return-Path: <bounced-$id-$token@$maildomain>" . $EOL .
         "List-Unsubscribe: <$unsubscribe_url>" . $EOL .
         'X-Mailer: PHP/' . phpversion();
 
-    echo $headers;
-    // return mail($to,$subject,$msg,$headers);
+    // echo $headers;
+    return mail($to,$subject,$msg,$headers);
 }
 

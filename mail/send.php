@@ -8,5 +8,6 @@ $to = "csev@umich.edu";
 $subject = "Test mail";
 $message = "Hello! This is a simple email message.";
 
-mooc_send($to, $subject, $message, $id, $token);
+$retval = mooc_send($to, $subject, $message, $id, $token);
+var_dump($retval);
 
