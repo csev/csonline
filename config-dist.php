@@ -26,6 +26,7 @@ $CFG->cookiepad = 'Something even trickier';
 $CFG->pophost = "pop.wherever.com";
 $CFG->poplogin = "zippy";
 $CFG->poppw = "zippypw";
+$CFG->mailsecret = 'A fun mail secret';
 
 $CFG->site_title    = 'Dr. Chuck Online';
 $CFG->site_title_phone    = 'DCO';
