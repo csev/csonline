@@ -95,14 +95,16 @@ echo("($total)");
 echo('</h3></center>'."\n");
 ?>
 
+<p>
+Each person enrolled in the class controls whether they show up on 
+this or not.  They control how much they show on the map in the 
+Profile page.  If you want to appear on the map, go to your profile
+and set your location to something other than the default.
+</p>
+
 <div id="map_canvas" 
 style="margin-left:10px; margin-right:10px; width: 100%; height:800px;">
 <center><img src="spinner.gif"></div>
-
-<p>
-Each person enrolled in the class controls whether they show up on this or not.  They control 
-how much they show on the map in the Profile page.
-</p>
 
 <?php require_once("footer.php"); ?>
 </div>
