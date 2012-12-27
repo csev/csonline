@@ -45,7 +45,7 @@ $sql = "SELECT Enrollments.grade,
 if ( ! isset($_SESSION['admin']) ) {
     $sql .= "AND Users.map > 1 ";
 }
-$sql .= "ORDER BY grade DESC
+$sql .= "ORDER BY grade 
     LIMIT 5000";
 
 // $retval['_sql'] = $sql;

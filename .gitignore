@@ -43,3 +43,4 @@ config.php
 data.php
 fun
 cache
+mail
