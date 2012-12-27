@@ -1,0 +1,11 @@
+https://support.google.com/mail/bin/answer.py?hl=en&answer=81126
+
+http://www.dkim.org
+
+http://www.list-unsubscribe.com
+
+From: josh@domain.com
+Subject: [espc-tech] More info on List-Unsubscribe
+Date: August 31, 2006 3:13:02 PM CDT
+To: jasmine@domain.com
+List-Unsubscribe: <mailto:unsubscribe-espc-tech-12345N@domain.com>, <http://domain.com/member/unsubscribe/?listname=espc-tech@domain.com?id=12345N>

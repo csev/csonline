@@ -236,13 +236,13 @@ echo(" (".$_SESSION["email"].")</h4>\n");
         And we might find that Moodle or Piazza sends E-Mail too.  As the code progresses
         we will increasingly make the E-Mail behave.  We will do our best to do your wishes
         here.
-<!--
-        We are very careful about sending you mail only when you want mail.  When we send
-        mail you will always have an option to unsubscribe from our mail from within the message.
--->
+        <label class="radio">
+             <?php radio('subscribe',-1,$subscribe) ?> >
+                No mail will be sent.  
+        </label>
         <label class="radio">
              <?php radio('subscribe',0,$subscribe) ?> >
-                Keep the mail level as low as possible.   Preferably never.
+                Keep the mail level as low as possible.
         </label>
         <label class="radio">
              <?php radio('subscribe',1,$subscribe) ?> >
