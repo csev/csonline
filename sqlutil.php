@@ -13,7 +13,7 @@ function run_mysql_query($sql, $showerror=true)
     $result = mysql_query($sql);
     if ( $result === FALSE ) {
         if ( $showerror) error_log('Fail-SQL:'.mysql_error().','.$sql);
-        if ( $CFG->DEVELOPER || isset($_SESSION['admin']) ) {
+        if ( $CFG->DEVELOPER || isCli() || isset($_SESSION['admin']) ) {
             echo("<pre>\nFAIL-SQL:\n$sql\n\n".mysql_error()."\n</pre>\n");
             die();
         }

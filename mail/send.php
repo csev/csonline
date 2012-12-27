@@ -1,6 +1,8 @@
 <?php
 
 require_once("../config.php");
+if ( ! isCli() ) die("CLI only");
+
 require_once("maillib.php");
 
 $id = 15;
