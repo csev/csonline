@@ -10,5 +10,21 @@ Date: August 31, 2006 3:13:02 PM CDT
 To: jasmine@domain.com
 List-Unsubscribe: <mailto:unsubscribe-espc-tech-12345N@domain.com>, <http://domain.com/member/unsubscribe/?listname=espc-tech@domain.com?id=12345N>
 
+http://productforums.google.com/forum/#!topic/gmail/PYNdbAwgDl0
+Works:
+List-Unsubscribe: <http://domain.tld/unsubscribe/id>,<mailto:unsubscribe-id@domain.tld>
+
 http://www.slideshare.net/bngsudheer/how-to-build-a-bulk-email-sending-application-in-php
 
+http://stackoverflow.com/questions/5303541/set-email-headers-so-bounced-emails-go-to-a-specific-address
+http://stackoverflow.com/questions/7393921/detecting-bounced-messages
+
+Return-Path: <bounced@yourdomain.com>
+
+Note that the userid should be encoded so that it's unguessable. Otherwise, anybody can deactivate your account simply by sending an email to bounce+theomega@example.com.  bounce-XXXXX@yourdomain.com
+
+Message Disposition:
+http://www.ietf.org/rfc/rfc2298.txt
+
+Vacation Messages:
+http://tools.ietf.org/html/rfc5230
