@@ -1,5 +1,6 @@
 <?php
 
+require_once("../config.php");
 require_once("maillib.php");
 
 $id = 15;
