@@ -72,8 +72,8 @@ if ( count($_POST) > 0 ) {
 for($i=0; $i < count($fields); $i++ ) {
     echo('<label for="'.$fields[$i].'">'.ucfirst($fields[$i])."<br/>\n");
     $value = $row[$i];
-    if ( isset($_POST[$field[$i]]) ) {
-        $value = $_POST[$field[$i]];
+    if ( isset($_POST[$fields[$i]]) ) {
+        $value = $_POST[$fields[$i]];
     }
     if ( strlen($value) > 60 ) {
         echo('<textarea rows="10" cols="70" name="'.$fields[$i].'">'.htmlentities($value).'</textarea>'."\n");
