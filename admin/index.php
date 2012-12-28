@@ -10,11 +10,14 @@ require_once("../sqlutil.php");
 </head>
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
+<div style="border-bottom: 1px grey solid; margin-bottom: 5px;">
+<?php require_once("../title.php"); ?>
+</div>
 
 <a href="mail.php" target="_blank">Mail</a> | 
-<a href="crud/index.php?Table=Users" target="_blank">Users</a> |
-<a href="crud/index.php?Table=Courses" target="_blank">Courses</a> |
-<a href="crud/index.php?Table=Enrollments" target="_blank">Enrollments</a>
+<a href="crud/index.php?table=Users" target="_blank">Users</a> |
+<a href="crud/index.php?table=Courses" target="_blank">Courses</a> |
+<a href="crud/index.php?table=Enrollments" target="_blank">Enrollments</a>
 
 <?php
 $sql = "SELECT count(id) FROM Users";

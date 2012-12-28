@@ -10,6 +10,9 @@ require_once "../../sqlutil.php";
 </head>
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
+<div style="border-bottom: 1px grey solid; margin-bottom: 5px;">
+<?php require_once("../../title.php"); ?>
+</div>
 <?php
 if ( isset($_SESSION['error']) ) {
     echo '<p style="color:red">'.$_SESSION['error']."</p>\n";

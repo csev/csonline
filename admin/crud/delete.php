@@ -37,11 +37,23 @@ if ( isset($_POST['delete']) ) {
     return;
 }
 
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<?php require_once("../../head.php"); ?>
+</head>
+<body style="padding: 0px 10px 0px 10px">
+<div class="container">
+<div style="border-bottom: 1px grey solid; margin-bottom: 5px;">
+<?php require_once("../../title.php"); ?>
+</div>
+<?php
 echo "<p>Confirm: Deleting $row[0]</p>\n";
 
 echo('<form method="post"><input type="hidden" ');
 echo('name="id" value="'.$row[1].'">'."\n");
-echo('<input type="submit" value="Delete" name="delete">');
+echo('<input type="submit" value="Delete" name="delete"> ');
 echo('<a href="index.php?table='.$table.'">Cancel</a>');
 echo("\n</form>\n");
 ?>

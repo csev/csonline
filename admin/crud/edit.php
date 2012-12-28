@@ -59,8 +59,11 @@ if ( count($_POST) > 0 ) {
 <head>
 <?php require_once("../../head.php"); ?>
 </head>
-<body>
+<body style="padding: 0px 10px 0px 10px">
 <div class="container">
+<div style="border-bottom: 1px grey solid; margin-bottom: 5px;">
+<?php require_once("../../title.php"); ?>
+</div>
 <h3>Edit User</h3>
 <form method="post">
 <input type="hidden" name="id" value="<?php echo($id); ?>">
