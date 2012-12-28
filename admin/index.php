@@ -2,8 +2,18 @@
 require_once("startadmin.php");
 require_once("../db.php");
 require_once("../sqlutil.php");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<?php require_once("../head.php"); ?>
+</head>
+<body style="padding: 0px 10px 0px 10px">
+<div class="container">
 
-echo('<a href="mail.php" target="_blank">Mail</a>'."\n");
+<a href="mail.php" target="_blank">Mail</a>
+
+<?php
 $sql = "SELECT count(id) FROM Users";
 $countrow = retrieve_one_row($sql);
 if ( $countrow === false || $countrow[0] < 1 ) {
