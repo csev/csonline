@@ -180,13 +180,11 @@ in the class with real identities.
 We do not want to spend a lot of time verifying identity 
 so we let Google to that hard work.  :)
 </p>
-<p>
 <form action="?login" method="post">
     <input class="btn" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
     <button class="btn">Login with Google</button>
     <input type="checkbox" name="keeplogin"> Keep me logged in
 </form>
-</p>
 <p>
 So you must have a Google account and we will require your
 name and email address to login.  We do not need and do not receive your password - only Google

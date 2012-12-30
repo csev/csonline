@@ -190,6 +190,8 @@ function get_avatar_url()
         $email = $_SESSION["email"];
         $url = "http://avatars.io/auto/".$email;
         $x =  get_headers($url);
+        $avatarurl = false;
+        // TODO: Check for error
         foreach ( $x as $header ) {
             if ( strpos($header,"Location:") === 0 ) {
                 $pieces = explode(" ",$header);
@@ -225,7 +227,7 @@ echo(" (".$_SESSION["email"].")</h4>\n");
 ?>
 
 <p>
-<form method="POST" class="form-rorizontal">
+<form method="POST">
   <div class="control-group pull-right" style="margin-top: 20px">
     <button type="submit" class="btn btn-primary hidden-phone">Save Profile Data</button>
     <button type="submit" class="btn btn-primary visible-phone">Save</button>
@@ -263,7 +265,7 @@ echo(" (".$_SESSION["email"].")</h4>\n");
       >
       <button type="button" id="check" style="vertical-align: top;" class="btn btn-primary" onclick="twittercheck(); return false;">Check</button>
       <span id="spinner" style="display:none; vertical-align: top">
-      <img id="spinner" height="20" width="20" src="spinner.gif"/>
+      <img alt="Ajax spinner" height="20" width="20" src="spinner.gif"/>
       <span class="hidden-phone">Retrieving new Twitter profile picture</span>
       </span>
     </div>
@@ -301,7 +303,7 @@ if ( $twitterurl !== false ) {
     radio('avatar',1,$avatarpos);echo('  style="height: 60px">');
     $urls[1] = $twitterurl;
     echo('Use my Twitter profile picture ');
-    echo('<img src="'.htmlentities($twitterurl).'" height="60" width="60"/></label>'."\n");
+    echo('<img src="'.htmlentities($twitterurl).'" height="60" width="60" alt="Twitter profile picture"/></label>'."\n");
 }
 
 if ( $gravatarurl !== false ) {
@@ -309,7 +311,7 @@ if ( $gravatarurl !== false ) {
     radio('avatar',2,$avatarpos);echo('  style="height: 60px">');
     $urls[2] = $gravatarurl;
     echo('Use my Gravatar profile picture ');
-    echo('<img src="'.htmlentities($gravatarurl).'" height="60" width="60"/></label>'."\n");
+    echo('<img src="'.htmlentities($gravatarurl).'" height="60" width="60" alt="Gravatar profile picture"/></label>'."\n");
 }
 
 if ( $avatarurl !== false ) {
@@ -317,7 +319,7 @@ if ( $avatarurl !== false ) {
     radio('avatar',3,$avatarpos);echo('  style="height: 60px">');
     $urls[3] = $avatarurl;
     echo('Use this profile picture ');
-    echo('<img src="'.htmlentities($avatarurl).'" height="60" width="60"/>'."\n");
+    echo('<img src="'.htmlentities($avatarurl).'" height="60" width="60" alt="Avatar picture"/>'."\n");
 }
 
 // Store the most recent list of presented URLs in session
@@ -361,15 +363,12 @@ How would you like to be shown in maps of student achievements.<br/>
   privacy, simply put the 
   location somewhere <i>near</i> where you live.  Perhaps in the same country, state, or city
   instead of your exact location.  
-<br/>
 </p>
   <div class="control-group pull-right hidden-phone">
       <button type="submit" style="margin-top: 40px" class="btn btn-primary">Save Profile Data</button>
   </div>
 
-<p>
   <div id="map_canvas" style="width:400px; max-width: 100%; height:400px"></div>
-</p>
 
   <div id="latlong" style="display:none" class="control-group">
     <p>Latitude: <input size="30" type="text" id="latbox" name="lat" class="disabled"

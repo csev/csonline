@@ -1,7 +1,7 @@
 <div style="height: 400px" class="hidden-phone"></div>
 <div style="height: 50px" class="visible-phone"></div>
 <hr>
-<center>
+<div style="text-align:center;">
 <small>
 <span class="hidden-phone">
 I need to be very clear that this is <b>not</b> an official activity of the 
@@ -14,7 +14,7 @@ The contents of this web site (other than the end-user produced content) are
 Copyright Creative Commons
 Attribution by <a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
 </small>
-</center>
+</div>
 <?php if ( $CFG->OFFLINE === false ) { ?>
 <script type="text/javascript">
 function googleTranslateElementInit() {
