@@ -129,12 +129,13 @@ while ( $row = mysql_fetch_row($result) ) {
 
     $launch = false;
     if ( $enrolled && $started ) {
-        $launch = 'lms.php?id='.htmlentities($row[0]);
+        $launch = 'lms.php?id='.urlencode($row[0]);
     }
     echo('<h3>');
     if ( $launch ) echo('<a href="'.$launch.'" target="_blank">');
     echo($row[1].' - '.$row[2]);
     if ( $launch ) echo('</a>');
+    echo(' (<a href="../map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
     echo('</h3>');
     echo("\n<p>\n");
     echo(htmlentities($row[3]));

@@ -86,7 +86,7 @@ $(document).ready( function () {
 });
 </script>
 </head>
-<body>
+<body style="padding: 0px 10px 0px 10px">
 <div class="container">
 <?php require_once("nav.php"); 
 echo('<center><h3>');
@@ -100,6 +100,8 @@ Each person enrolled in the class controls whether they show up on
 this or not.  They control how much they show on the map in the 
 Profile page.  If you want to appear on the map, go to your profile
 and set your location to something other than the default.
+A green marker indicates an erollment.  A blue market indicates someone
+has completed the course.  The other colors between green and blue indicate progress.
 </p>
 
 <div id="map_canvas" 
