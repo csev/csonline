@@ -16,12 +16,14 @@ Attribution by <a href="http://www.dr-chuck.com/" target="_blank">Charles R. Sev
 </small>
 </div>
 <?php if ( $CFG->OFFLINE === false ) { ?>
+<!--
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
 		gaTrack: true, gaId: '<?php echo($CFG->analytics); ?>'}, 'google_translate_element');
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+-->
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
