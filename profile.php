@@ -342,6 +342,12 @@ What is your current or highest education level?<br/>
   <option <?php option(6,$education); ?>>Doctorate/MD</option>
 </select>
   <hr class="hidden-phone"/>
+<label class="checkbox">
+  <input type="checkbox" name="oer" <?php checkbox($oer); ?> >
+  I am a teacher or otherwise interested in Open Educational Resources.
+</label>
+<?php if ( ! $CFG->OFFLINE ) { ?>
+  <hr class="hidden-phone"/>
 How would you like to be shown in maps of student achievements.<br/>
 <select name="map">
   <option value="0">--- Please Select ---</option>
@@ -350,13 +356,6 @@ How would you like to be shown in maps of student achievements.<br/>
   <option <?php option(3,$map); ?>>Show my first name (<?php echo($_SESSION["first"]); ?>)</option>
   <option <?php option(4,$map); ?>>Show my first name and Twitter informaiton</option>
 </select>
-  <hr class="hidden-phone"/>
-<label class="checkbox">
-  <input type="checkbox" name="oer" <?php checkbox($oer); ?> >
-  I am a teacher or otherwise interested in Open Educational Resources.
-</label>
-<?php if ( ! $CFG->OFFLINE ) { ?>
-  <hr class="hidden-phone"/>
 <p>
   Move the pointer on the map below until it is at the correct location.
   If you are concerned about 
@@ -368,7 +367,7 @@ How would you like to be shown in maps of student achievements.<br/>
       <button type="submit" style="margin-top: 40px" class="btn btn-primary">Save Profile Data</button>
   </div>
 
-  <div id="map_canvas" style="width:400px; max-width: 100%; height:400px"></div>
+  <div id="map_canvas" style="margin: 10px; width:400px; max-width: 100%; height:400px"></div>
 
   <div id="latlong" style="display:none" class="control-group">
     <p>Latitude: <input size="30" type="text" id="latbox" name="lat" class="disabled"
@@ -381,7 +380,8 @@ How would you like to be shown in maps of student achievements.<br/>
 
 <p>
 If you don't even want to reveal your country, put yourself
-  in Greenland in the middle of a glacier. :)
+in Greenland in the middle of a glacier. One person put their location 
+in the middle of a bar.  :)
 </p>
 <?php } ?>
 </form>
