@@ -8,6 +8,7 @@ $only = false;
 $only = "csev@umich.edu";
 
 $course_id = 1;
+$message_id = 1;
 $subject = "Hello from the Python Playground";
 $message = "Hello all,
 

@@ -10,14 +10,16 @@ require_once("../sqlutil.php");
 // Get the message text form the file above
 require_once("../message.php");
 
-if ( $course_id < 1 || strlen($subject) < 1 || strlen($message) < 1 ) {
+if ( $course_id < 1 || strlen($subject) < 1 || 
+    strlen($message) < 1 || $message_id < 1 ) {
     die("Missing message information.");
 }
 
-$sql = "SELECT DISTINCT Users.id,email,identity FROM Users
-    JOIN Enrollments ON Users.id = Enrollments.user_id
+$sql = "SELECT DISTINCT Users.id,Users.email,identity FROM Users
+    JOIN Enrollments ON Users.id = Enrollments.user_id 
     WHERE Enrollments.course_id = $course_id
         AND Users.subscribe >= 0";
+// echo($sql);echo("\n");
 $result = run_mysql_query($sql);
 if ( $result === false ) {
     die($sql." ".mysql_error());
@@ -33,10 +35,23 @@ while ( $row = mysql_fetch_row($result) ) {
         echo("  **** MISSING DATA\n");
         continue;
     }
+
     if ( $only !== false && $only != $to ) {
         echo(" Skipped.\n");
         continue;
     }
+
+    // Don't double send
+    $sql = "SELECT success FROM Delivery 
+                WHERE user_id=$id AND message_id=$message_id AND 
+                email = '".mysql_real_escape_string($to)."'";
+    $successrow = retrieve_one_row($sql);
+    if ( $successrow !== false && $successrow[0] > 0 ) {
+        echo("  **** Already Sent\n");
+        continue;
+    }
+
+    // Actually send
     $retval = false;
     $retval = mooc_send($to, $subject, $message, $id, $token);
     if ( $retval === true ) {
@@ -44,6 +59,16 @@ while ( $row = mysql_fetch_row($result) ) {
     } else {
         echo("  *** ERROR in sending\n");
     }
+
+    // Lets remember this
+    $success = $retval+0;
+    $sql = "INSERT INTO Delivery (message_id,email,user_id,success,send_at)
+        VALUES ( $message_id,'$to',$id,$success,NOW() )";
+    $x = run_mysql_query($sql);
+    if ( $x === false ) {
+        die($sql." ".mysql_error());
+    }
+
     sleep($CFG->maildelay);
 }
 

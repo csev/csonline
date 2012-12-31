@@ -72,7 +72,18 @@ CREATE TABLE Enrollments (
   launch_at DATETIME NOT NULL
 );
 
-// Not yet used - will be used to optimize mail sending order...
+-- Not yet used - will be used to optimize mail sending order...
+CREATE TABLE Delivery (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
+  email VARCHAR(999) NOT NULL,  -- Denormalized to allow for user delete
+  user_id INT,
+  message_id INT,
+  success SMALLINT,
+  note VARCHAR(999),
+  send_at DATETIME NOT NULL
+);
+
+-- Not yet used - will be used to optimize mail sending order...
 CREATE TABLE Domains (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
   domain VARCHAR(1024) NOT NULL

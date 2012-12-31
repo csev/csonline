@@ -1,6 +1,6 @@
 TO DO LIST
 
-- Mailing system
+- More sophisiticated mailing system
 
 - Make profile get images in json... 
     - Actually tabify this whole thing
@@ -21,4 +21,6 @@ Done
 
 - Work on hall of fame - Wed Dec 26 01:34:26 EST 2012
   -- Multiple colors for levels...
+
+-- Basic Mail
 
