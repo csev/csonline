@@ -10,15 +10,16 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 
 require_once("../util/lti_util.php");
 
+/*
 // For my application, We only allow application/xml
 $request_headers = OAuthUtil::get_headers();
-$hct = false;
-if ( ! isset($request_headers['Content-Type']) ) $hct = $request_headers['Content-type'];
+$hct = isset($request_headers['Content-Type']) ? $request_headers['Content-type'] : false;
 if (strpos($hct,'application/xml') === false ) {
    header('Content-Type: text/plain');
    // print_r($request_headers);
    die("Must be content type xml, found ".$hct);
 }
+*/
 
 header('Content-Type: application/xml; charset=utf-8'); 
 
@@ -63,7 +64,7 @@ require_once("../db.php");
 require_once("../sqlutil.php");
 
 $enrollment_token = mysql_real_escape_string($enrollment_token);
-$sql = "SELECT token, consumer_key, consumer_secret FROM
+$sql = "SELECT token, consumer_key, consumer_secret, threshold, cert_at FROM
     Enrollments JOIN Courses 
     ON Enrollments.course_id = Courses.id
     WHERE Courses.id = $course_id AND Enrollments.id = $enrollment_id
@@ -77,6 +78,8 @@ if ( $row === false ) {
 
 $oauth_consumer_key = $row[1];
 $oauth_consumer_secret = $row[2];
+$threshold = $row[3];
+$cert_at = $row[4];
 
 $header_key = getOAuthKeyFromHeaders();
 
@@ -113,7 +116,11 @@ if ( $operation == "replaceResultRequest" ) {
         echo(sprintf($response,uniqid(),'failure', "Score not between 0.0 and 1.0",$message_ref,$body_tag));
         return;
     }
-    $sql = "UPDATE Enrollments SET grade='$score' WHERE id=$enrollment_id";
+    $sql = "UPDATE Enrollments SET grade='$score'";
+    if ( strlen($cert_at) < 1 && $score >= ($threshold-0.000001) ) {
+        $sql .= ", cert_at=NOW()";
+    }
+    $sql .= " WHERE id=$enrollment_id";
     $result = run_mysql_query($sql);
     if ( $result == false ) {
         echo(sprintf($response,uniqid(),'failure', "Could not update score ",$message_ref,$body_tag));

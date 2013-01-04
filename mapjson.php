@@ -36,7 +36,8 @@ if ( $countrow === false || $countrow[0] < 1 ) {
 $retval['total'] = $countrow[0];
 
 $sql = "SELECT Enrollments.grade, 
-    Users.first, Users.twitter, Users.lat, Users.lng, Users.map, Users.id
+    Users.first, Users.twitter, Users.lat, Users.lng, Users.map, Users.id,
+    Enrollments.cert_at
     FROM Enrollments JOIN Users
     ON Enrollments.user_id = Users.id
     WHERE 
@@ -61,17 +62,19 @@ $origin_lat = false;
 $origin_lng = false;
 while ( $row = mysql_fetch_row($result) ) {
     $level = 0;
+    $cert_date = substr($row[7],0,10);
     if ( $row[0] > 0.0 ) $level = 1;
     if ( $row[0] >= 0.5 ) $level = 2;
     if ( $row[0] > 0.899 ) $level = 3;
     if ( $row[0] >= 1.0 ) $level = 4;
+    if ( strlen($cert_date) > 1 ) $level = 4;
     // 2=location, 3=name, 4=twitter
     $map = $row[5];
     $first = $map >= 3 || isAdmin() ? $row[1] : '';
     $twitter = $map >= 4  || isAdmin() ? $row[2] : '';
     $note = '';
     if ( isAdmin() && strlen($row[0]) > 0 ) $note = "Grade: ".$row[0];
-    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,htmlentities($first),htmlentities($twitter),htmlentities($note));
+    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,htmlentities($first),htmlentities($twitter),htmlentities($note), htmlentities($cert_date));
     if ( isset($_SESSION["id"]) && $_SESSION["id"] == $row[6] ) {
        $origin_lat = $row[3]+0.0; 
        $origin_lng = $row[4]+0.0; 

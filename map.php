@@ -67,6 +67,9 @@ $(document).ready( function () {
             if ( row[4].length > 0 ) {
                 content = content + ' <a href="http://www.twitter.com/' + row[4] + '" target="_blank">' + row[4] + '</a>';
             }
+            if ( row[6].length > 0 ) {
+                content = content + ' (' + row[6] + ')';
+            }
             var marker = new google.maps.Marker({
                 position: newLatlng,
                 map: map,
