@@ -9,12 +9,12 @@ $tables = Array(
 "Courses" => Array('code', 'title', 'description', 'start_at', 'close_at', 'duration', 
 'threshold', 'bypass', 'endpoint', 'consumer_key', 'consumer_secret'),
 
-"Enrollments" => Array('course_id', 'user_id', 'role', 'grade', 'cert_at', 'token' )
+"Enrollments" => Array('id','course_id', 'user_id', 'role', 'grade', 'cert_at', 'token' )
 );
 
 // First element of array is how many fields to show in the list view
 $tableinfo = Array(
 "Users" => Array(7),
 "Courses" => Array(6),
-"Enrollments" => Array(5)
+"Enrollments" => Array(6)
 );

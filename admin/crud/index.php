@@ -24,21 +24,56 @@ if ( isset($_SESSION['success']) ) {
     unset($_SESSION['success']);
 }
 
-$search = '';
+function do_form($values, $override=Array()) {
+    foreach (array_merge($values,$override) as $key => $value) {
+        if ( $value === false ) continue;
+        if ( is_string($value) && strlen($value) < 1 ) continue;
+        if ( is_int($value) && $value === 0 ) continue;
+        echo('<input type="hidden" name="'.htmlentities($key).
+             '" value="'.htmlentities($value).'">'."\n");
+    }
+}
+
+function do_url($values, $override=Array()) {
+    $retval = '';
+    foreach (array_merge($values,$override) as $key => $value) {
+        if ( $value === false ) continue;
+        if ( is_string($value) && strlen($value) < 1 ) continue;
+        if ( is_int($value) && $value === 0 ) continue;
+        if ( strlen($retval) > 0 ) $retval .= '&';
+        $retval .= urlencode($key) . "=" . urlencode($value);
+    }
+    return $retval;
+}
+$values = Array();
 if ( isset($_GET['search_text']) ) {
     $search = $_GET['search_text'];
     if ( strlen($search) < 1 ) $search = '';
+    $values['search_text'] = $search;
 }
+
 $page_start = 0;
 if ( isset($_GET['page_start']) ) {
     $page_start = $_GET['page_start'] + 0;
+    if ( $page_start < 0 ) $page_start = 0;
+    if ( $page_start != 0 ) $values['page_start'] = $page_start;
 }
-if ( $page_start < 0 ) $page_start = 0;
 
 $order_by = '';
 if ( isset($_GET['order_by']) ) { 
     $order_by = $_GET['order_by'];
+    if ( strlen($order_by) < 1 ) $order_by = '';
+    $values['order_by'] = $order_by;
 }
+
+$desc = '';
+if ( isset($_GET['desc']) ) { 
+    $desc = $_GET['desc']+0;
+    $values['desc'] = $desc;
+}
+
+$values['table'] = $table;
+
 ?>
 <?php
 $sql = "SELECT ";
@@ -47,26 +82,27 @@ for($i=0; $i < $info[0]; $i++ ) {
 }
 $sql .= "id FROM $table";
 
-if ( strlen($search) > 0 ) {
+if ( isset($values['search_text']) ) {
     $searchtext = '';
     for($i=0; $i < $info[0]; $i++ ) {
         if ( $i > 0 ) $searchtext .= " OR ";
-        $searchtext .= $fields[$i]." LIKE '%".mysql_real_escape_string($search)."%'";
+        $searchtext .= $fields[$i]." LIKE '%".mysql_real_escape_string($values['search_text'])."%'";
     }
     $sql .= " WHERE " . $searchtext;
 }
 
-if ( strlen($order_by) > 0 ) {
-    $sql .= " ORDER BY ".mysql_real_escape_string($order_by)." ";
+if ( isset($values['order_by']) ) {
+    $sql .= " ORDER BY ".mysql_real_escape_string($values['order_by'])." ";
+    if ( $desc == 1 ) {
+        $sql .= "DESC ";
+    }
 }
 
-if ( $page_start <= 0 ) {
+if ( $page_start < 1 ) {
     $sql .= " LIMIT ".($page_length+1);
 } else {
     $sql .= " LIMIT ".$page_start.", ".($page_length+1);
 }
-
-// echo($sql);echo("<hr>");
 
 $count = 0;
 $result = run_mysql_query($sql);
@@ -86,27 +122,22 @@ echo('<div style="float:right">');
 if ( $page_start > 0 ) {
     echo('<form style="display: inline">');
     echo('<input type="submit" value="Back">');
-    echo('<input type="hidden" name="table" value="'.htmlentities($table).'">');
-    echo('<input type="hidden" value="'.$search.'" name="search_text">');
     $page_back = $page_start - $page_length;
     if ( $page_back < 0 ) $page_back = 0;
-    echo('<input type="hidden" value="'.$page_back.'" name="page_start">');
+    do_form($values,Array('page_start' => $page_back));
     echo("</form>\n");
 }
 if ( $have_more ) {
     echo('<form style="display: inline">');
     echo('<input type="submit" value="Next"> ');
-    echo('<input type="hidden" name="table" value="'.htmlentities($table).'">');
-    echo('<input type="hidden" value="'.$search.'" name="search_text">');
     $page_next = $page_start + $page_length;
-    echo('<input type="hidden" value="'.$page_next.'" name="page_start">');
+    do_form($values,Array('page_start' => $page_next));
     echo("</form>\n");
 }
 echo("</div>\n");
 echo('<form>');
-echo('<input type="hidden" name="table" value="'.htmlentities($table).'">');
 echo('<input type="text" value="'.htmlentities($search).'" name="search_text">');
-echo('<input type="hidden" value="'.$page_start.'" name="page_start">');
+do_form($values,Array('search_text' => false, 'page_start' => false));
 echo('<input type="submit" value="Search">');
 echo("</form>\n");
 
@@ -114,7 +145,24 @@ echo('<table border="1">');
 echo("<tr>\n");
 
 for($i=0; $i < $info[0]; $i++ ) {
-    echo("<th>".ucfirst($fields[$i])."</th>\n");
+    $field = $fields[$i];
+    echo("<th>".ucfirst($field));
+    $override = Array('order_by' => $field, 'desc' => 0);
+    $arrow = '&uarr;';
+    $d = $desc;
+    if ( $field == $order_by || $order_by == '' && $field == 'id' ) {
+        $d = ($desc + 1) % 2;
+        $override['desc'] = $d;
+        $arrow = $desc == 1 ?  '&darr;' : $arrow;
+    }
+    $stuff = do_url($values,$override);
+    echo(' <a href="index.php');
+    if ( strlen($stuff) > 0 ) {
+        echo("?");
+        echo($stuff);
+    }
+    echo('">'.$arrow.'</a> ');
+    echo("</th>\n");
 }
 echo("<th>Action</th>\n");
 echo("</tr>\n"); 
@@ -138,3 +186,7 @@ for ($pos=0; $pos<$count; $pos++ ) {
 </table>
 <a href="add.php?table=<?php echo(htmlentities($table)); ?>">Add New</a>
 
+<div style="height:300px"></div>
+<pre>
+<?php echo($sql); ?>
+</pre>
