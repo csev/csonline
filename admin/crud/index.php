@@ -146,23 +146,24 @@ echo("<tr>\n");
 
 for($i=0; $i < $info[0]; $i++ ) {
     $field = $fields[$i];
-    echo("<th>".ucfirst($field));
-    $override = Array('order_by' => $field, 'desc' => 0);
-    $arrow = '&uarr;';
+    $override = Array('order_by' => $field, 'desc' => 0, 'page_start' => false);
     $d = $desc;
+    $color = "black";
     if ( $field == $order_by || $order_by == '' && $field == 'id' ) {
         $d = ($desc + 1) % 2;
         $override['desc'] = $d;
-        $arrow = $desc == 1 ?  '&darr;' : $arrow;
+        $color = $d == 1 ?  'green' : 'red';
     }
     $stuff = do_url($values,$override);
+    echo('<th>');
     echo(' <a href="index.php');
     if ( strlen($stuff) > 0 ) {
         echo("?");
         echo($stuff);
     }
-    echo('">'.$arrow.'</a> ');
-    echo("</th>\n");
+    echo('" style="color: '.$color.'">');
+    echo(ucfirst($field));
+    echo("</a></th>\n");
 }
 echo("<th>Action</th>\n");
 echo("</tr>\n"); 
