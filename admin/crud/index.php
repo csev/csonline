@@ -77,10 +77,31 @@ $values['table'] = $table;
 ?>
 <?php
 $sql = "SELECT ";
+$joins = '';
+$ons = '';
 for($i=0; $i < $info[0]; $i++ ) {
-    $sql.= $fields[$i].', ';
+    $field = $fields[$i];
+    $ipos = strpos($field,'.');
+    if ( $ipos < 1 ) {
+        $sql.= $table . '.' . $fields[$i].', ';
+    } else { 
+        $tname = substr($field,0,$ipos);
+        $fname = substr($field,$ipos+1);
+        $lastch = substr($tname,-1);
+        $joins .= " JOIN ".$tname;
+        $fkey = strtolower($tname);
+        if ( $lastch == 's' ) {
+            $fkey = substr($fkey,0,strlen($fkey)-1);
+        }
+        if ( strlen($ons) > 0 ) $ons .= " AND ";
+        $ons .=  $table . "." . $fkey . "_id = " . $tname . ".id";
+        $sql.= $fields[$i].', ';
+    }
 }
-$sql .= "id FROM $table";
+$sql .= $table . ".id FROM $table";
+
+if ( strlen($joins) > 0 ) $sql .= $joins;
+if ( strlen($ons) > 0 ) $sql .= " ON " . $ons;
 
 if ( isset($values['search_text']) ) {
     $searchtext = '';
@@ -172,10 +193,19 @@ for ($pos=0; $pos<$count; $pos++ ) {
     $row = $rows[$pos];
     echo("<tr>");
     for($i=0; $i < $info[0]; $i++ ) {
+        $field = $fields[$i];
         echo("<td>");
-        if ( $i == 0 ) echo('<a href="view.php?id='.htmlentities($row[$info[0]]).'&table='.htmlentities($table).'">');
+        $url = false;
+        if ( strpos($field,"_id") > 0 ) {
+            $tname = ucfirst(substr($field,0,strlen($field)-3)) . "s";
+            $url = 'view.php?id='.urlencode($row[$i]).'&table='.urlencode($tname).'" target="_blank';
+        } else if ( $i == 0 ) {
+            $url = 'view.php?id='.urlencode($row[$info[0]]).'&table='.urlencode($table);
+        }
+            
+        if ( $url !== false ) echo('<a href="'.$url.'">');
         echo(htmlentities($row[$i]));
-        if ( $i == 0 ) echo("</a>\n");
+        if ( $url !== false ) echo("</a>\n");
         echo("</td>\n");
     }
     echo("<td>\n");
