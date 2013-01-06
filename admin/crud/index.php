@@ -46,6 +46,7 @@ function do_url($values, $override=Array()) {
     return $retval;
 }
 $values = Array();
+$search = '';
 if ( isset($_GET['search_text']) ) {
     $search = $_GET['search_text'];
     if ( strlen($search) < 1 ) $search = '';
