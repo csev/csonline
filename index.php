@@ -11,7 +11,7 @@
 <?php require_once("nav.php"); ?>
 <?php if ( ! $CFG->OFFLINE ) { ?>
 <div class="hidden-phone hidden-tablet" style="width: 560; float: right; margin:10px;">
-<iframe width="450" height="253" src="http://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
+<iframe width="450" height="253" src="https://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
 </div>
 <? } ?>
 <p>
@@ -24,7 +24,7 @@ more of the dimensions of <a href="about.php">what it means to be a MOOC</a>.
 <?php if ( ! $CFG->OFFLINE ) { ?>
 <div class="hidden-phone visible-tablet" style="width: 560; margin:10px;">
 <center>
-<iframe width="450" height="253" src="http://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
+<iframe width="450" height="253" src="https://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
 </center>
 </div>
 <? } ?>
