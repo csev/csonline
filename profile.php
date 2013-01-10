@@ -319,7 +319,7 @@ if ( $avatarurl !== false ) {
     radio('avatar',3,$avatarpos);echo('  style="height: 60px">');
     $urls[3] = $avatarurl;
     echo('Use this profile picture ');
-    echo('<img src="'.htmlentities($avatarurl).'" height="60" width="60" alt="Avatar picture"/>'."\n");
+    echo('<img src="'.htmlentities($avatarurl).'" height="60" width="60" alt="Avatar picture"/></label>'."\n");
 }
 
 // Store the most recent list of presented URLs in session

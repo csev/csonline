@@ -121,7 +121,7 @@ while ( $row = mysql_fetch_row($result) ) {
     $started = start_time() >= $start_at;
 
     $close_at = false;
-    if ( strlen($row[6]) > 10 ) $close_at = strtotime($row[6]);
+    if ( strlen($row[6]) > 10 && substr($row[6],0,10) != '0000-00-00') $close_at = strtotime($row[6]);
     $enrolled = $row[12] > 0 && $row[13] > 0;
 
     $launch = false;
