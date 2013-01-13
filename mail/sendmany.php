@@ -10,15 +10,21 @@ require_once("../sqlutil.php");
 // Get the message text form the file above
 require_once("../message.php");
 
-if ( $course_id < 1 || strlen($subject) < 1 || 
+if ( strlen($subject) < 1 || 
     strlen($message) < 1 || $message_id < 1 ) {
     die("Missing message information.");
 }
 
-$sql = "SELECT DISTINCT Users.id,Users.email,identity FROM Users
-    JOIN Enrollments ON Users.id = Enrollments.user_id 
-    WHERE Enrollments.course_id = $course_id
-        AND Users.subscribe >= 0";
+if ( $course_id == -1 ) {
+    $sql = "SELECT DISTINCT Users.id,Users.email,identity FROM Users
+        WHERE Users.subscribe >= 0";
+} else {
+    $sql = "SELECT DISTINCT Users.id,Users.email,identity FROM Users
+        JOIN Enrollments ON Users.id = Enrollments.user_id 
+        WHERE Enrollments.course_id = $course_id
+            AND Users.subscribe >= 0";
+}
+
 // echo($sql);echo("\n");
 $result = run_mysql_query($sql);
 if ( $result === false ) {
