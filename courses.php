@@ -66,16 +66,17 @@ if ( isset($_SESSION['id']) ) {
     $sql = 'SELECT Courses.id, code, title, description, 
         image, start_at, close_at, duration,
         bypass, endpoint, consumer_key, consumer_secret, 
-        Enrollments.id, role, grade, fame, cert_at
+        Enrollments.id, role, grade, fame, cert_at, focus
         FROM Courses LEFT OUTER JOIN Enrollments 
         ON Courses.id = course_id 
-        AND Enrollments.user_id = '.$_SESSION['id'];
+        AND Enrollments.user_id = '.$_SESSION['id'].'
+        ORDER BY focus DESC';
 } else {
     $sql = 'SELECT Courses.id, code, title, description, 
         image, start_at, close_at, duration,
         NULL, NULL, NULL, NULL, 
-        NULL, NULL, NULL, NULL, NULL
-        FROM Courses';
+        NULL, NULL, NULL, NULL, NULL, focus
+        FROM Courses ORDER BY focus DESC';
 }
 ?>
 <!DOCTYPE html>
@@ -98,11 +99,22 @@ function confirm_unenroll() {
 alt="logo" cite="Image from Caitlin Holman"
 align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
 <p>
-This is the list of the courses in this system.  Some of the courses are open enrollment 
+<?php
+    if ( isset($_SESSION['id']) ) {
+?>
+This is the list of the courses in this system. 
+Some of the courses are open enrollment 
 which means you can enroll and launch these courses at any time
-and others only allow enrollment during a particular period.   Make sure to enable popups
+and others only allow enrollment during a particular period.   
+Make sure to enable popups
 from these domains as some of the functionality opens in a popup window.  Grades / progress 
 take about 15 minutes to be sent from Moodle back to this page.
+<?php } else { ?>
+</p><p>
+<b>Note:</b>
+You will be allowed to enroll on this page after you login using your Google 
+account and set up your profile.  You can view the enrollment maps without being logged in.
+<?php } ?>
 </p>
 <?php
 $result = mysql_query($sql);
@@ -113,6 +125,8 @@ if ( $result === FALSE ) {
 }
 
 while ( $row = mysql_fetch_row($result) ) {
+    $focus = $row[17];
+    if ( ! isset($_SESSION["id"]) && $focus < 1 ) continue;
     $start_at = strtotime($row[5]);
 
     // Because of our weird time zone, we need to pad start 
@@ -183,7 +197,9 @@ while ( $row = mysql_fetch_row($result) ) {
     } else {
         echo("<p><b>Enrollment is closed for this class.</b></p>\n");
     }
+    echo("<hr/>\n");
 }
+if ( isset($_SESSION['id']) ) {
 ?>
 <p>
 This server is configured to be in the 
@@ -195,6 +211,7 @@ It means that published deadlines
 (i.e. must complete an assignment by midnight on 01-February-2013) work in any 
 time zone and most time zones have a bit of extra time.
 </p>
+<?php } ?>
 <?php require_once("footer.php"); ?>
 </div>
 </body>

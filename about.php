@@ -31,9 +31,7 @@ course taught by Joe Warren, Scott Rixner, John Greiner, and Stephen Wong of Ric
 students complete my course, if they are interested in more programming, that they would take the Rice course.
 The technology I use here will never be as slick as Coursera because I am one person
 putting this all together with no financial support or an army of grad students - I am lashing open source stuff 
-together to make my own MOOC.  I would love to get some funding either from inside University of Michigan or from outside
-but I don't have enough spare time to go begging for funds and writing proposals and waiting.  This is about doing.
-I do need some resources - so if you have resources to give - contact me.
+together to make my own MOOC.  
 </p>
 <p>
 I would also love to use the open source <a href="http://class.stanford.edu">Stanford Class2Go</a> but it is not quite ready for
@@ -85,7 +83,7 @@ and I am very thankful for that.
 </p>
 <p>
 Charles Severance - 
-Fri Dec 21 12:49:16 EST 2012
+Tue Jan 15 20:09:55 EST 2013
 </p>
 <?php require_once("footer.php"); ?>
 </div>

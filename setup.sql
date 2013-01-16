@@ -44,6 +44,7 @@ CREATE TABLE Courses (
   title VARCHAR(1024) NOT NULL, 
   description VARCHAR(4096) NOT NULL, 
   image VARCHAR(1024) NOT NULL, 
+  focus SMALLINT,
   threshold DOUBLE,
   start_at DATETIME,
   close_at DATETIME,

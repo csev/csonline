@@ -258,7 +258,7 @@ echo(" (".$_SESSION["email"].")</h4>\n");
   </div>
 <hr class="hidden-phone"/>
   <div class="control-group">
-    <label class="control-label" for="twitter">Twitter Name (i.e. drchuck) (Optional)</label>
+    <label class="control-label" for="twitter">Twitter Name (i.e. drchuck) with no @ (Optional)</label>
     <div class="controls">
       <input type="text" id="twitter" name="twitter" onchange="twittercheck(); return false;"
          <?php echo(' value="'.htmlentities($twitter).'" '); ?>
