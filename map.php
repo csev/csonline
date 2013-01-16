@@ -4,7 +4,7 @@ require_once("start.php");
 $course_id = isset($_GET['course_id']) ? $_GET['course_id'] + 0 : 0;
 if ( $course_id < 1 ) {
     $_SESSION["error"] = "No course found to map.";
-    header('Location: courses.php');
+    header('Location: index.php');
     return;
 }
 
@@ -17,7 +17,7 @@ $sql = "SELECT code, title, image, threshold FROM Courses WHERE id='$course_id'"
 $courserow = retrieve_one_row($sql);
 if ( $courserow == false ) {
     $_SESSION['error'] = "Unable to retrieve course $course_id";
-    header('Location: courses.php');
+    header('Location: index.php');
     return;
 }
 
@@ -25,7 +25,7 @@ $sql = "SELECT count(id) FROM Enrollments WHERE course_id=$course_id";
 $countrow = retrieve_one_row($sql);
 if ( $countrow === false || $countrow[0] < 1 ) {
     $_SESSION['success'] = "No students enrolled in ".$courserow[0].' - '.$courserow[1];
-    header('Location: courses.php');
+    header('Location: index.php');
     return;
 }
 

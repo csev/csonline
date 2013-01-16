@@ -21,8 +21,10 @@
 ?>
   <div class="navbar-inner">
     <ul class="nav nav-pills">
-      <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Home</span></a></li>
+      <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
+<!--
       <li <?php active("courses.php"); ?>><a href="courses.php">Courses</a></li>
+-->
 <?php if ( isset( $_SESSION["id"]) ) { ?>
       <li <?php active("profile.php"); ?>><a href="profile.php">Profile</a></li>
 <? } ?>

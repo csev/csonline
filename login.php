@@ -181,8 +181,8 @@ We do not want to spend a lot of time verifying identity
 so we let Google to that hard work.  :)
 </p>
 <form action="?login" method="post">
-    <input class="btn" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
-    <button class="btn">Login with Google</button>
+    <input class="btn btn-warning" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
+    <button class="btn btn-primary">Login with Google</button>
     <input type="checkbox" name="keeplogin"> Keep me logged in
 </form>
 <p>

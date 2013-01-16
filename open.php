@@ -9,6 +9,11 @@ require_once("start.php");
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
 <?php require_once("nav.php"); ?>
+<?php if ( ! $CFG->OFFLINE ) { ?>
+<div class="hidden-phone hidden-tablet" style="width: 560; float: right; margin:10px;">
+<iframe width="450" height="253" src="https://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
+</div>
+<? } ?>
 <p>
 If you are a teacher and interested in reusing my materials, this is my plan:
 <ul>
