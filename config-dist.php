@@ -4,6 +4,9 @@ unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 
+// Set to true to block access
+$CFG->upgrading = false;
+
 // No trailing slash on these urls
 $CFG->wwwroot = 'http://localhost/~csev/csonline';
 $CFG->staticroot = 'http://localhost/~csev/csonline';
@@ -47,6 +50,12 @@ function start_time() {
 }
 
 require_once("lib.php");
+
+require_once("lib.php");
+
+if ( $CFG->upgrading ) {
+    require_once("upgrading.php");
+}
 
 // No trailing tag to avoid white space
 
