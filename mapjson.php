@@ -74,7 +74,7 @@ while ( $row = mysql_fetch_row($result) ) {
     $twitter = $map >= 4  || isAdmin() ? $row[2] : '';
     $note = '';
     if ( isAdmin() && strlen($row[0]) > 0 ) $note = "Grade: ".$row[0];
-    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,htmlentities($first),htmlentities($twitter),htmlentities($note), htmlentities($cert_date));
+    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,htmlencode($first),htmlencode($twitter),htmlencode($note), htmlencode($cert_date));
     if ( isset($_SESSION["id"]) && $_SESSION["id"] == $row[6] ) {
        $origin_lat = $row[3]+0.0; 
        $origin_lng = $row[4]+0.0; 

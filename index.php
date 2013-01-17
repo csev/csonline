@@ -144,21 +144,21 @@ while ( $row = mysql_fetch_row($result) ) {
     echo(' (<a href="../map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
     echo('</h3>');
     echo("\n<p>\n");
-    echo(htmlentities($row[3]));
+    echo(htmlencode($row[3]));
     $openenrollment = true;
     if ( ! $started ) {
-        echo("<br/><b>Course Starts:</b> ".htmlentities(substr($row[5],0,10)));
+        echo("<br/><b>Course Starts:</b> ".htmlencode(substr($row[5],0,10)));
         $openenrollment = false;
     }
     if ( $close_at !== false ) {
-        echo("<br/><b>Registration Closes:</b> ".htmlentities(substr($row[6],0,10))." ");
+        echo("<br/><b>Registration Closes:</b> ".htmlencode(substr($row[6],0,10))." ");
         $openenrollment = false;
     }
     if ( $openenrollment ) {
         echo("<br/><b>This course is Open Enrollment.</b> ");
     }
     if ( $row[14] > 0.0 ) {
-        echo("<br/><b>Current Grade:</b> ".htmlentities($row[14])." ");
+        echo("<br/><b>Current Grade:</b> ".htmlencode($row[14])." ");
         echo('<div class="progress progress-success" style="width:60%">
             <div class="bar" style="width: '.intval(100*$row[14]).'%"></div>
             </div>');
@@ -175,7 +175,7 @@ while ( $row = mysql_fetch_row($result) ) {
             echo("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
             echo('<a href="'.$launch.'&debug=11" target="_blank" style="color:white">Launch with LTI Debug</a>');
         }
-        echo('<input type="hidden" name="id" value="'.htmlentities($row[0]).'">
+        echo('<input type="hidden" name="id" value="'.htmlencode($row[0]).'">
             <input type="hidden" name="action" value="unenroll">
             <button type="submit" class="btn btn-warning btn-small');
         if ( $started ) echo(' pull-right');
@@ -184,7 +184,7 @@ while ( $row = mysql_fetch_row($result) ) {
     } else if ( $close_at === false || time() <= $close_at ) {
         if ( isset($_SESSION['id']) ) {
             echo('<form method="post" action="index.php">
-                <input type="hidden" name="id" value="'.htmlentities($row[0]).'">
+                <input type="hidden" name="id" value="'.htmlencode($row[0]).'">
                 <input type="hidden" name="action" value="enroll">');
             echo('<button type="submit" class="btn btn-primary">Join Class</button>');
             echo('</form>');

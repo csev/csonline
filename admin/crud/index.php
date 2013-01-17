@@ -29,8 +29,8 @@ function do_form($values, $override=Array()) {
         if ( $value === false ) continue;
         if ( is_string($value) && strlen($value) < 1 ) continue;
         if ( is_int($value) && $value === 0 ) continue;
-        echo('<input type="hidden" name="'.htmlentities($key).
-             '" value="'.htmlentities($value).'">'."\n");
+        echo('<input type="hidden" name="'.htmlencode($key).
+             '" value="'.htmlencode($value).'">'."\n");
     }
 }
 
@@ -158,7 +158,7 @@ if ( $have_more ) {
 }
 echo("</div>\n");
 echo('<form>');
-echo('<input type="text" value="'.htmlentities($search).'" name="search_text">');
+echo('<input type="text" value="'.htmlencode($search).'" name="search_text">');
 do_form($values,Array('search_text' => false, 'page_start' => false));
 echo('<input type="submit" value="Search">');
 echo("</form>\n");
@@ -205,18 +205,18 @@ for ($pos=0; $pos<$count; $pos++ ) {
         }
             
         if ( $url !== false ) echo('<a href="'.$url.'">');
-        echo(htmlentities($row[$i]));
+        echo(htmlencode($row[$i]));
         if ( $url !== false ) echo("</a>\n");
         echo("</td>\n");
     }
     echo("<td>\n");
-    echo('<a href="edit.php?id='.htmlentities($row[$i]).'&table='.htmlentities($table).'">Edit</a> / ');
-    echo('<a href="delete.php?id='.htmlentities($row[$i]).'&table='.htmlentities($table).'">Delete</a>');
+    echo('<a href="edit.php?id='.htmlencode($row[$i]).'&table='.htmlencode($table).'">Edit</a> / ');
+    echo('<a href="delete.php?id='.htmlencode($row[$i]).'&table='.htmlencode($table).'">Delete</a>');
     echo("</td></tr>\n");
 }
 ?>
 </table>
-<a href="add.php?table=<?php echo(htmlentities($table)); ?>">Add New</a>
+<a href="add.php?table=<?php echo(htmlencode($table)); ?>">Add New</a>
 
 <div style="height:300px"></div>
 <pre>

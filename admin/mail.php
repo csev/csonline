@@ -19,7 +19,7 @@ if ( isset($_GET['course_id']) ) {
             while ( $row = mysql_fetch_row($result) ) {
                 if ( $i > 0 ) echo(", ");
                 $i = $i + 1;
-                echo(htmlentities($row[0]) );
+                echo(htmlencode($row[0]) );
             }
             echo("</p>\n");
         }
@@ -39,7 +39,7 @@ if ( $result !== false ) {
     while ( $row = mysql_fetch_row($result) ) {
         if ( $i > 0 ) echo(", ");
         $i = $i + 1;
-        echo(htmlentities($row[0]) );
+        echo(htmlencode($row[0]) );
     }
     echo("</p>\n");
 }
@@ -55,7 +55,7 @@ if ( $result !== false ) {
     while ( $row = mysql_fetch_row($result) ) {
         if ( $i > 0 ) echo(", ");
         $i = $i + 1;
-        echo(htmlentities($row[0]) );
+        echo(htmlencode($row[0]) );
     }
     echo("</p>\n");
 }

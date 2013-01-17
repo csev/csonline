@@ -76,9 +76,9 @@ for($i=0; $i < count($fields); $i++ ) {
         $value = $_POST[$fields[$i]];
     }
     if ( strlen($value) > 60 ) {
-        echo('<textarea rows="10" cols="70" name="'.$fields[$i].'">'.htmlentities($value).'</textarea>'."\n");
+        echo('<textarea rows="10" cols="70" name="'.$fields[$i].'">'.htmlencode($value).'</textarea>'."\n");
     } else {
-        echo('<input type="text" size="80" name="'.$fields[$i].'" value="'.htmlentities($value).'">'."\n");
+        echo('<input type="text" size="80" name="'.$fields[$i].'" value="'.htmlencode($value).'">'."\n");
     }
     echo("</label>");
 }

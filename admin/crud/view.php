@@ -45,7 +45,7 @@ if ( $row == false ) {
 for($i=0; $i < count($fields); $i++ ) {
     echo('<p><b>'.ucfirst($fields[$i])."</b><br/>\n");
     $value = $row[$i];
-    echo(htmlentities($value));
+    echo(htmlencode($value));
     echo("\n</p>\n");
 }
 ?>

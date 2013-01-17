@@ -261,7 +261,7 @@ echo(" (".$_SESSION["email"].")</h4>\n");
     <label class="control-label" for="twitter">Twitter Name (i.e. drchuck) with no @ (Optional)</label>
     <div class="controls">
       <input type="text" id="twitter" name="twitter" onchange="twittercheck(); return false;"
-         <?php echo(' value="'.htmlentities($twitter).'" '); ?>
+         <?php echo(' value="'.htmlencode($twitter).'" '); ?>
       >
       <button type="button" id="check" style="vertical-align: top;" class="btn btn-primary" onclick="twittercheck(); return false;">Check</button>
       <span id="spinner" style="display:none; vertical-align: top">
@@ -303,7 +303,7 @@ if ( $twitterurl !== false ) {
     radio('avatar',1,$avatarpos);echo('  style="height: 60px">');
     $urls[1] = $twitterurl;
     echo('Use my Twitter profile picture ');
-    echo('<img src="'.htmlentities($twitterurl).'" height="60" width="60" alt="Twitter profile picture"/></label>'."\n");
+    echo('<img src="'.htmlencode($twitterurl).'" height="60" width="60" alt="Twitter profile picture"/></label>'."\n");
 }
 
 if ( $gravatarurl !== false ) {
@@ -311,7 +311,7 @@ if ( $gravatarurl !== false ) {
     radio('avatar',2,$avatarpos);echo('  style="height: 60px">');
     $urls[2] = $gravatarurl;
     echo('Use my Gravatar profile picture ');
-    echo('<img src="'.htmlentities($gravatarurl).'" height="60" width="60" alt="Gravatar profile picture"/></label>'."\n");
+    echo('<img src="'.htmlencode($gravatarurl).'" height="60" width="60" alt="Gravatar profile picture"/></label>'."\n");
 }
 
 if ( $avatarurl !== false ) {
@@ -319,7 +319,7 @@ if ( $avatarurl !== false ) {
     radio('avatar',3,$avatarpos);echo('  style="height: 60px">');
     $urls[3] = $avatarurl;
     echo('Use this profile picture ');
-    echo('<img src="'.htmlentities($avatarurl).'" height="60" width="60" alt="Avatar picture"/></label>'."\n");
+    echo('<img src="'.htmlencode($avatarurl).'" height="60" width="60" alt="Avatar picture"/></label>'."\n");
 }
 
 // Store the most recent list of presented URLs in session
@@ -371,10 +371,10 @@ How would you like to be shown in maps of student achievements.<br/>
 
   <div id="latlong" style="display:none" class="control-group">
     <p>Latitude: <input size="30" type="text" id="latbox" name="lat" class="disabled"
-    <?php echo(' value="'.htmlentities($lat).'" '); ?>
+    <?php echo(' value="'.htmlencode($lat).'" '); ?>
     ></p>
     <p>Longitude: <input size="30" type="text" id="lngbox" name="lng" class="disabled"
-    <?php echo(' value="'.htmlentities($lng).'" '); ?>
+    <?php echo(' value="'.htmlencode($lng).'" '); ?>
     ></p>
   </div>
 

@@ -124,8 +124,8 @@ if ( $doLogin ) {
 
         $welcome = "Welcome ";
         if ( ! $didinsert ) $welcome .= "back ";
-        $_SESSION["success"] = $welcome.htmlentities($firstName)." ".
-                htmlentities($lastName)." (".htmlentities($userEmail).")";
+        $_SESSION["success"] = $welcome.htmlencode($firstName)." ".
+                htmlencode($lastName)." (".htmlencode($userEmail).")";
         $_SESSION["id"] = $theid;
         $_SESSION["email"] = $userEmail;
         $_SESSION["first"] = $firstName;
