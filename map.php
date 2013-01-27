@@ -57,16 +57,18 @@ $(document).ready( function () {
             var row = data.markers[i];
             // if ( i < 3 ) { alert(row); }
             var newLatlng = new google.maps.LatLng(row[0], row[1]);
-            var iconpath = '<?php echo($CFG->staticroot); ?>/static/img/benkeenmarkers/';
-            var icon = 'darkgreen_MarkerA.png';
-            if ( row[2] == 1 ) icon = 'pink_MarkerA.png';
-            if ( row[2] == 2 ) icon = 'yellow_MarkerA.png';
-            if ( row[2] == 3 ) icon = 'red_MarkerA.png';
-            if ( row[2] == 4 ) icon = 'blue_MarkerA.png';
+            var iconpath = '<?php echo($CFG->staticroot); ?>/static/img/icons/';
+            var icon = 'green';
+            if ( row[2] == 1 ) icon = 'pink';
+            if ( row[2] == 2 ) icon = 'yellow';
+            if ( row[2] == 3 ) icon = 'red';
+            if ( row[2] == 4 ) icon = 'blue';
             var content = row[5];
             if ( row[4].length > 0 ) {
                 content = content + ' <a href="http://www.twitter.com/' + row[4] + '" target="_blank">' + row[4] + '</a>';
+                icon = icon + '-dot';
             }
+            icon = icon + '.png';
             if ( row[6].length > 0 ) {
                 content = content + ' (' + row[6] + ')';
             }
@@ -105,6 +107,7 @@ Profile page.  If you want to appear on the map, go to your profile
 and set your location to something other than the default.
 A green marker indicates an erollment.  A blue marker indicates someone
 has completed the course.  The other colors between green and blue indicate progress.
+The icons have a dot when the person has shared their contact information.
 </p>
 
 <div id="map_canvas" 

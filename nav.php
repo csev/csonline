@@ -21,7 +21,7 @@
 ?>
   <div class="navbar-inner">
     <ul class="nav nav-pills">
-      <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Course</span></a></li>
+      <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
 <!--
       <li <?php active("courses.php"); ?>><a href="courses.php">Courses</a></li>
 -->
