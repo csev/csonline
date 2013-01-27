@@ -10,11 +10,10 @@ require_once("start.php");
 <div class="container">
 <?php require_once("nav.php"); ?>
 <?php if ( ! $CFG->OFFLINE ) { ?>
-<div id="mytweets" class="hidden-tablet hidden-phone" style="margin-left: 10px; float:right; width:35%; height:800px;">
-<a class="twitter-timeline" href="https://twitter.com/drchuck" data-widget-id="282172185219567616">Tweets by @drchuck</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class="hidden-phone hidden-tablet" style="width: 560; float: right; margin:10px;">
+<iframe width="450" height="253" src="https://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
 </div>
-<?php } ?>
+<? } ?>
 <p>
 The purpose of me building my own MOOC infrastructure is too explore some of the areas of teaching and learning 
 that I feel are missing from the mainstream MOOC platforms and efforts.  I think that these platforms will eventually address
