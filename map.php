@@ -105,9 +105,14 @@ Each person enrolled in the class controls whether they show up on
 this or not.  They control how much they show on the map in the 
 Profile page.  If you want to appear on the map, go to your profile
 and set your location to something other than the default.
-A green marker indicates an erollment.  A blue marker indicates someone
-has completed the course.  The other colors between green and blue indicate progress.
-The icons have a dot when the person has shared their contact information.
+The icons have a dot when a  person has shared their name or twitter information.
+</p>
+<p>
+The marker colors have the following meaning: green is enrolled, pink is 
+completed at least one assignment, yellow is 50% done, red is 90%, and blue is 100%.
+The icon colors
+are roughly taken from <a href="http://en.wikipedia.org/wiki/Horse_show#Awards" 
+target="_blanks">horse show ribbon</a> colors for the US. 
 </p>
 
 <div id="map_canvas" 
