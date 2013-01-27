@@ -141,7 +141,7 @@ while ( $row = mysql_fetch_row($result) ) {
     if ( $launch ) echo('<a href="'.$launch.'" target="_blank">');
     echo($row[1].' - '.$row[2]);
     if ( $launch ) echo('</a>');
-    echo(' (<a href="../map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
+    echo(' (<a href="map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
     echo('</h3>');
     echo("\n<p>\n");
     echo(htmlencode($row[3]));

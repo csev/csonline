@@ -50,7 +50,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     if ( $result === false ) {
         error_log('Fail-SQL:'.mysql_error().','.$sql);
         $_SESSION["error"] = "Internal database error, sorry ".$sql;
-        header('Location: profile.php');
+        header('Location: index.php');
     } else {
         error_log('Profile-Update:'.$_SESSION['id']);
         $_SESSION["success"] = "Data Updated";
@@ -58,7 +58,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
         unset($_SESSION['avatar']);
         if ( $avatar !== false && strlen($avatar) > 0 ) $_SESSION["avatar"] = $avatar;
         if ( $twitter !== false && strlen($twitter) > 0 ) $_SESSION["twitter"] = $twitter;
-        header('Location: profile.php');
+        header('Location: index.php');
     }
     return;
 } else if ( isset($_SESSION['id']) ) { 

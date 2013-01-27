@@ -21,17 +21,14 @@
 ?>
   <div class="navbar-inner">
     <ul class="nav nav-pills">
-      <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
+      <li <?php active("index.php"); ?>><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Course</span></a></li>
 <!--
       <li <?php active("courses.php"); ?>><a href="courses.php">Courses</a></li>
 -->
 <?php if ( isset( $_SESSION["id"]) ) { ?>
       <li <?php active("profile.php"); ?>><a href="profile.php">Profile</a></li>
 <? } ?>
-      <li <?php active("open.php"); ?> class="hidden-phone"><a href="open.php">Open Content</a></li>
       <li <?php active("about.php"); ?> class="hidden-phone"><a href="about.php">About</a></li>
-      <li><a href="http://www.coursera.org/" target="_blank" class="hidden-phone hidden-tablet">Coursera</a></li>
-      <li><a href="http://class.stanford.edu/" target="_blank" class="hidden-phone hidden-tablet">Stanford Online</a></li>
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
     <span style="vertical-align: middle" class="pull-right">
