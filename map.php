@@ -8,6 +8,8 @@ if ( $course_id < 1 ) {
     return;
 }
 
+$user_id = isset($_GET['user_id']) ? $_GET['user_id'] + 0 : 0;
+
 require_once("sqlutil.php");
 require_once("db.php");
 
@@ -31,6 +33,20 @@ if ( $countrow === false || $countrow[0] < 1 ) {
 
 $total = $countrow[0];
 
+$uservisible = false;
+if ( isset($_SESSION["id"]) ) {
+    $sql = "SELECT Users.map 
+    FROM Users JOIN Enrollments
+    ON Enrollments.user_id = Users.id
+    WHERE
+    Enrollments.course_id = $course_id
+    AND Users.id = ".$_SESSION["id"]."
+    AND Users.map > 1 ";
+
+    $uservisible = retrieve_one_row($sql);
+    if ( $uservisible !== false ) $uservisible = true;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,14 +56,18 @@ $total = $countrow[0];
 <script type="text/javascript">
 var map = null;
 $(document).ready( function () {
-    $.getJSON('mapjson.php?course_id=<?php echo($course_id); ?>', function(data) {
+    $.getJSON('mapjson.php?course_id=<?php echo($course_id); if ( $user_id != 0 ) echo("&user_id=$user_id"); ?>', function(data) {
         origin_lat = 42.279070216140425;
         origin_lng = -83.73981015789798;
-        if ( "origin" in data ) origin_lat = data.origin[0];
-        if ( "origin" in data ) origin_lng = data.origin[1];
+        var zoomval = 3;
+        if ( "origin" in data ) {
+            origin_lat = data.origin[0];
+            origin_lng = data.origin[1];
+            <?php if ( $user_id != 0 ) echo('zoomval = 11;'); ?>
+        }
         var myLatlng = new google.maps.LatLng(origin_lat, origin_lng);
         var mapOptions = {
-          zoom: 3,
+          zoom: zoomval,
           center: myLatlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
@@ -64,14 +84,20 @@ $(document).ready( function () {
             if ( row[2] == 3 ) icon = 'red';
             if ( row[2] == 4 ) icon = 'blue';
             var content = row[5];
+            var adddot = false;
             if ( row[4].length > 0 ) {
                 content = content + ' <a href="http://www.twitter.com/' + row[4] + '" target="_blank">' + row[4] + '</a>';
-                icon = icon + '-dot';
+                adddot = true;
             }
-            icon = icon + '.png';
+            if ( row[3].length > 0 ) {
+                content = content + ' ' + row[3] + ' ';
+                adddot = true;
+            }
             if ( row[6].length > 0 ) {
                 content = content + ' (' + row[6] + ')';
             }
+            if ( adddot ) icon = icon + '-dot';
+            icon = icon + '.png';
             var marker = new google.maps.Marker({
                 position: newLatlng,
                 map: map,
@@ -114,7 +140,20 @@ The icon colors
 are roughly taken from <a href="http://en.wikipedia.org/wiki/Horse_show#Awards" 
 target="_blanks">horse show ribbon</a> colors for the US. 
 </p>
-
+<?php
+if ( isset($_GET['user_id']) ) {
+?>
+<p>
+View map <a href="map.php?course_id=<?php echo($course_id); ?>">zoomed out</a>.
+</p>
+<?php
+} else if ( $uservisible && isset($_SESSION['id']) ) {
+?>
+<p>
+You can use this <a href="map.php?course_id=<?php echo($course_id); echo("&user_id="); echo($_SESSION["id"]); ?>">link</a> 
+to a view the map zoomed on your location.  You can share this URL with your friends or put it on your web site.
+</p>
+<?php } ?>
 <div id="map_canvas" 
 style="margin-left:10px; margin-right:10px; width: 100%; height:800px;">
 <center><img src="spinner.gif"></div>
