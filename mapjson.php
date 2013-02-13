@@ -65,7 +65,7 @@ while ( $row = mysql_fetch_row($result) ) {
     $cert_date = substr($row[7],0,10);
     if ( $row[0] > 0.0 ) $level = 1;
     if ( $row[0] >= 0.5 ) $level = 2;
-    if ( $row[0] > 0.899 ) $level = 3;
+    if ( $row[0] > 0.799 ) $level = 3;
     if ( $row[0] >= 1.0 ) $level = 4;
     if ( strlen($cert_date) > 1 ) $level = 4;
     // 2=location, 3=name, 4=twitter

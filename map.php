@@ -55,6 +55,10 @@ if ( isset($_SESSION["id"]) ) {
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 var map = null;
+var tot_blue = 0;
+var tot_red = 0;
+var tot_yellow = 0;
+var tot_pink = 0;
 $(document).ready( function () {
     $.getJSON('mapjson.php?course_id=<?php echo($course_id); if ( $user_id != 0 ) echo("&user_id=$user_id"); ?>', function(data) {
         origin_lat = 42.279070216140425;
@@ -79,10 +83,22 @@ $(document).ready( function () {
             var newLatlng = new google.maps.LatLng(row[0], row[1]);
             var iconpath = '<?php echo($CFG->staticroot); ?>/static/img/icons/';
             var icon = 'green';
-            if ( row[2] == 1 ) icon = 'pink';
-            if ( row[2] == 2 ) icon = 'yellow';
-            if ( row[2] == 3 ) icon = 'red';
-            if ( row[2] == 4 ) icon = 'blue';
+            if ( row[2] == 1 ) {
+                icon = 'pink';
+                tot_pink++;
+            }
+            if ( row[2] == 2 ) {
+                icon = 'yellow';
+                tot_yellow++;
+            }
+            if ( row[2] == 3 ) {
+                icon = 'red';
+                tot_red++;
+            }
+            if ( row[2] == 4 ) {
+                icon = 'blue';
+                tot_blue++;
+            }
             var content = row[5];
             var adddot = false;
             if ( row[4].length > 0 ) {
@@ -113,6 +129,10 @@ $(document).ready( function () {
                 });
             }
         }
+        if ( tot_blue > 0 ) $("#tot_blue").html("("+tot_blue+")");
+        if ( tot_red > 0 ) $("#tot_red").html("("+tot_red+")");
+        if ( tot_pink > 0 ) $("#tot_pink").html("("+tot_pink+")");
+        if ( tot_yellow > 0 ) $("#tot_yellow").html("("+tot_yellow+")");
     })
 });
 </script>
@@ -134,8 +154,15 @@ and set your location to something other than the default.
 The icons have a dot when a  person has shared their name or twitter information.
 </p>
 <p>
-The marker colors have the following meaning: green is enrolled, pink is 
-completed at least one assignment, yellow is 50% done, red is 90%, and blue is 100%.
+The marker colors have the following meaning: green is enrolled, 
+pink <span id="tot_pink"></span>
+indicates the student completed at least one assignment, 
+yellow <span id="tot_yellow"></span>
+is half done, 
+red <span id="tot_red"></span>
+is almost complete, and 
+blue <span id="tot_blue"></span>
+indicates course completion.
 The icon colors
 are roughly taken from <a href="http://en.wikipedia.org/wiki/Horse_show#Awards" 
 target="_blanks">horse show ribbon</a> colors for the US. 
