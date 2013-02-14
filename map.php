@@ -1,14 +1,29 @@
 <?php
 require_once("start.php");
 
-$course_id = isset($_GET['course_id']) ? $_GET['course_id'] + 0 : 0;
+$course_id = 0;
+$user_id = 0;
+
+if ( isset($_GET['l']) ) {
+    try {
+        $pieces = explode(":",base64_decode($_GET['l']));
+        if ( count($pieces) == 2 ) {
+            $course_id = $pieces[0] + 0;
+            $user_id = $pieces[1] + 0;
+        }
+    } catch (Exception $e ) {
+        // Ignore
+    }
+}
+
+$course_id = isset($_GET['course_id']) ? $_GET['course_id'] + 0 : $course_id;
+$user_id = isset($_GET['user_id']) ? $_GET['user_id'] + 0 : $user_id;
+
 if ( $course_id < 1 ) {
     $_SESSION["error"] = "No course found to map.";
     header('Location: index.php');
     return;
 }
-
-$user_id = isset($_GET['user_id']) ? $_GET['user_id'] + 0 : 0;
 
 require_once("sqlutil.php");
 require_once("db.php");
@@ -168,7 +183,12 @@ are roughly taken from <a href="http://en.wikipedia.org/wiki/Horse_show#Awards"
 target="_blanks">horse show ribbon</a> colors for the US. 
 </p>
 <?php
-if ( isset($_GET['user_id']) ) {
+$location = false;
+if ( isset($_SESSION['id']) ) {
+    $location = base64_encode($course_id.":".$_SESSION['id']);
+}
+
+if ( isset($_GET['user_id']) || isset($_GET['l']) ) {
 ?>
 <p>
 View map <a href="map.php?course_id=<?php echo($course_id); ?>">zoomed out</a>.
@@ -177,8 +197,10 @@ View map <a href="map.php?course_id=<?php echo($course_id); ?>">zoomed out</a>.
 } else if ( $uservisible && isset($_SESSION['id']) ) {
 ?>
 <p>
-You can use this <a href="map.php?course_id=<?php echo($course_id); echo("&user_id="); echo($_SESSION["id"]); ?>">link</a> 
-to a view the map zoomed on your location.  You can share this URL with your friends or put it on your web site.
+You can use this <a href="map.php?l=<?php echo($location); ?>">link</a> 
+to a view the map zoomed in on your location.  
+You can also
+<a href="http://twitter.com/home?status=I am taking <?php echo($courserow[1]); ?> online at <?php echo($CFG->wwwroot); ?>/map.php?l=<?php echo($location); ?>" target="_blank">tweet your location</a>.
 </p>
 <?php } ?>
 <div id="map_canvas" 
