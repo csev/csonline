@@ -354,7 +354,7 @@ How would you like to be shown in maps of student achievements.<br/>
   <option <?php option(1,$map); ?>>Don't show me at all</option>
   <option <?php option(2,$map); ?>>Show only my location with no identifying information</option>
   <option <?php option(3,$map); ?>>Show my first name (<?php echo($_SESSION["first"]); ?>)</option>
-  <option <?php option(4,$map); ?>>Show my first name and Twitter informaiton</option>
+  <option <?php option(4,$map); ?>>Show my first name and Twitter information</option>
 </select>
 <p>
   Move the pointer on the map below until it is at the correct location.
