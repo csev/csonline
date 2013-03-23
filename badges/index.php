@@ -1,4 +1,7 @@
 <?php
+
+// http://www.onlinebadgemaker.com/
+
 require_once("../start.php");
 require_once("../sqlutil.php");
 require_once("../db.php");

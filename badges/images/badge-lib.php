@@ -1,7 +1,6 @@
 <?php
 
-require_once "../../config.php";
-require_once "png-lib.php";
+require_once("../../config.php");
 require_once("../../crypt/aes.class.php");
 require_once("../../crypt/aesctr.class.php");
 require_once("hex2bin.php");
@@ -42,5 +41,6 @@ function getBadgeInfo() {
             WHERE cert_at IS NOT NULL AND email IS NOT NULL';
         $row = retrieve_one_row($sql);
     }
+    if ( count($row) == 4 ) $row[4] = $encrypted;
     return $row;
 }
