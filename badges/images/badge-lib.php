@@ -10,10 +10,9 @@ function getBadgeInfo() {
     if ( isset($_GET['id']) ) {
         $encrypted = basename($_GET['id'],'.png');
     } else {
-        $url = $_SERVER['SCRIPT_URL'];
+        $url = $_SERVER['REQUEST_URI'];
         $pieces = explode('/',$url);
-        print_r($pieces);
-        $encrypted = basename($pieces[2],'.png');
+        $encrypted = basename($pieces[count($pieces)-1],'.png');
     }
     
     $decrypted = AesCtr::decrypt(hex2bin($encrypted), $CFG->encrypt_password, 256);

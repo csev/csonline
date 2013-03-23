@@ -25,12 +25,11 @@ if ( ! isset($_SESSION['id']) ) {
 if ( ! isset($_SESSION['email']) ) return;
 
 $decrypted = $_SESSION['id'].':0';
-
 $encrypted = bin2hex(AesCtr::encrypt($decrypted, $CFG->encrypt_password, 256));
 ?>
 <p>Here is the badge baked especially for for <?php echo(htmlspecialchars($_SESSION['email'])); ?> <br/>
 <a href="images/baker.php?id=<?php echo($encrypted); ?>.png" target="_blank">
-<img src="images/baker.php?id=<?php echo($encrypted); ?>.png"></a>
+<img src="images/baker.php?id=<?php echo($encrypted); ?>.png" width="90"></a>
 <p>
 <a href="#" onclick="OpenBadges.issue(
 ['https://online.dr-chuck.com/badges/assert.php?id=<?php echo($encrypted); ?>'],
@@ -59,4 +58,10 @@ if ( $result === FALSE ) {
 
 while ( $row = mysql_fetch_row($result) ) {
    print_r($row);
+   $decrypted = $_SESSION['id'].':'.$row[0];
+   $encrypted = bin2hex(AesCtr::encrypt($decrypted, $CFG->encrypt_password, 256));
+?>
+<a href="images/baker.php?id=<?php echo($encrypted); ?>.png" target="_blank">
+<img src="images/baker.php?id=<?php echo($encrypted); ?>.png" width="90"></a>
+<?php
 }

@@ -1,3 +1,4 @@
 RewriteEngine on
-RewriteBase /badges/images/
+
 RewriteRule ^(.*)\.png$ baker.php [NC]
+
