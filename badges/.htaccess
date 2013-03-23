@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule ^(.*)\.png$ baker.php [NC]
+

@@ -144,7 +144,9 @@ while ( $row = mysql_fetch_row($result) ) {
     echo(' (<a href="map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
     echo('</h3>');
     echo("\n<p>\n");
-    echo(htmlencode($row[3]));
+    // Not escaped - be careful
+    // echo(htmlencode($row[3]));
+    echo($row[3]);
     $openenrollment = true;
     if ( ! $started ) {
         echo("<br/><b>Course Starts:</b> ".htmlencode(substr($row[5],0,10)));
