@@ -9,7 +9,7 @@ require_once "badge-lib.php";
 $row = getBadgeInfo();
 
 $date = substr($row[1],0,10);
-$recepient = 'sha256$' . hash('sha256', $row[0] . $ASSERT_SALT);
+$recepient = 'sha256$' . hash('sha256', $row[0] . $CFG->assert_salt);
 $code = $row[2];
 $title = $row[3];
 
@@ -17,7 +17,7 @@ header('Content-Type: application/json');
 ?>
 {
   "recipient": "<?php echo($recepient); ?>",
-  "salt": "<?php echo($ASSERT_SALT); ?>",
+  "salt": "<?php echo($CFG->assert_salt); ?>",
   "issued_on": "<?php echo($date); ?>",
   "badge": {
     "version": "1.0.0",
