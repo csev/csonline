@@ -27,6 +27,7 @@
 -->
 <?php if ( isset( $_SESSION["id"]) ) { ?>
       <li <?php active("profile.php"); ?>><a href="profile.php">Profile</a></li>
+      <li <?php active("badges.php"); ?>><a href="badges.php">Badges</a></li>
 <? } ?>
       <li <?php active("about.php"); ?> class="hidden-phone"><a href="about.php">About</a></li>
     </ul>
