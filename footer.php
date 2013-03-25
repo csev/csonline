@@ -1,19 +1,24 @@
-<div style="height: 400px" class="hidden-phone"></div>
+<div style="height: 200px" class="hidden-phone"></div>
 <div style="height: 50px" class="visible-phone"></div>
 <hr>
 <div style="text-align:center;">
 <small>
+</a>
 <span class="hidden-phone">
-I need to be very clear that this is <b>not</b> an official activity of the 
-University of Michigan
+This is not an official activity of the University of Michigan
 or School of Information in any way.  
-There will be no badges nor certificates - just learning for learning sake 
+There will be no certificates and no credit - just learning for learning sake 
 and learning about learning.  This is my research into how we learn and you are 
 welcome to participate.</span>
 The contents of this web site (other than the end-user produced content) are 
 Copyright Creative Commons
-Attribution by <a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
+Attribution by 
+<a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
 </small>
+<br/>
+<a href="http://openbadges.org" target="_blank">
+<img src="OpenBadges_Insignia_WeIssue.png">
+</a>
 </div>
 <div style="height: 50px"></div>
 <?php if ( $CFG->OFFLINE === false ) { ?>

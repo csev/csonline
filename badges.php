@@ -23,7 +23,9 @@ if ( ! isset($_SESSION['id']) ) {
 <body style="padding: 0px 10px 0px 10px" onload="initialize()">
 <div class="container">
 <?php require_once("nav.php"); ?>
-<h2>You have earned the following badges.</h2>
+<h2>You have earned the following badges (Beta).
+</a>
+</h2>
           <div class="row-fluid">
             <ul class="thumbnails">
 <?php
@@ -84,12 +86,14 @@ function(errors, successes) { });">Add to Mozilla Backpack</a>
               </li>
             </ul>
           </div>
-<p>You earn your first badge by simply joning Dr. Chuck Online and setting up your profile.
+<br/>
+<p>You earn your first badge by simply joining Dr. Chuck Online and setting up your profile.
 It is a good way to experiment with how badges work if you have never used a badge before.
-You can also clink on ia badge image and ave it to your computer and display it on your 
+You can also clink on a badge image and save it to your computer and display it on your 
 web site or maually upload it to your
 <a href="http://beta.openbadges.org" target="_blank">Mozilla Badge Backpack</a>.
 </p>
+<?php require_once("footer.php"); ?>
 </body>
 </html>
 
