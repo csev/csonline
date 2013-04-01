@@ -13,7 +13,7 @@ require_once("start.php");
 <div class="hidden-phone hidden-tablet" style="width: 560; float: right; margin:10px;">
 <iframe width="450" height="253" src="https://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
 </div>
-<? } ?>
+<?php } ?>
 <p>
 If you are a teacher and interested in reusing my materials, this is my plan:
 <ul>

@@ -13,7 +13,7 @@ require_once("start.php");
 <div class="hidden-phone hidden-tablet" style="width: 560; float: right; margin:10px;">
 <iframe width="450" height="253" src="https://www.youtube.com/embed/hRNFBhEykcY" frameborder="0" allowfullscreen></iframe>
 </div>
-<? } ?>
+<?php } ?>
 <p>
 The purpose of me building my own MOOC infrastructure is too explore some of the areas of teaching and learning 
 that I feel are missing from the mainstream MOOC platforms and efforts.  I think that these platforms will eventually address

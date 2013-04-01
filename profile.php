@@ -104,7 +104,7 @@ if ( ! $CFG->OFFLINE ) {
 var map;
 
 function initialize() {
-  var myLatlng = new google.maps.LatLng(<? echo($defaultLat.", ".$defaultLng); ?>);
+  var myLatlng = new google.maps.LatLng(<?php echo($defaultLat.", ".$defaultLng); ?>);
 
   var myOptions = {
      zoom: 2,
