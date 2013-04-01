@@ -337,11 +337,10 @@ if ( $CFG->badge_display !== false ) {
 ?>
   <hr class="hidden-phone"/>
     <label class="control-label" for="backpack">
-If you have a public Mozilla Open Badges Backpack, enter it here. Do not enter the entire URL 
-like this:
-<a href="https://backpack.openbadges.org/share/4f76699ddb399d162a00b89a452074b3/" target="_blank">
-https://backpack.openbadges.org/share/4f76699ddb399d162a00b89a452074b3/</a> - only enter the 
-identifier without slashes (i.e <b>4f76699ddb399d162a00b89a452074b3</b> in the above example.</label>
+If you have a public Mozilla Open Badges Backpack
+(<a href="https://backpack.openbadges.org/share/4f76699ddb399d162a00b89a452074b3/" target="_blank">Sample</a>), enter it here.
+Do not enter the entire URL - only enter the 
+identifier without slashes (i.e like <b>4f76699ddb399d162a01b89a452074b3</b>).</label>
     <input type="text" id="backpack" name="backpack" 
          <?php echo(' value="'.htmlencode($backpack).'" '); ?>
       >
