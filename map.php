@@ -128,7 +128,7 @@ $(document).ready( function () {
                 content = content + ' (' + row[6] + ')';
             }
             if ( row[7].length > 0 ) {
-                content = content + ' <a href="<?php echo($CFG->badge_display); ?>' + row[7] + '" target="_blank">My Badges</a>';
+                content = content + ' <a href="<?php echo($CFG->badge_display); ?>/' + row[7] + '" target="_blank">My Badges</a>';
             }
             if ( adddot ) icon = icon + '-dot';
             icon = icon + '.png';
