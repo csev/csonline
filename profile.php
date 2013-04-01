@@ -14,6 +14,7 @@ $avatar = isset($_POST['avatar']) ? $_POST['avatar']+0 : false;
 $map = isset($_POST['map']) ? $_POST['map']+0 : false;
 $lat = isset($_POST['lat']) ? $_POST['lat']+0.0 : 0.0;
 $lng = isset($_POST['lng']) ? $_POST['lng']+0.0 : 0.0;
+$backpack = isset($_POST['backpack']) ? $_POST['backpack'] : false;
 
 // If they just cleared the twitter field - don't use the twitter URL
 if ( ( $twitter == false || strlen($twitter) < 0 ) && $avatar == 1 ) $avatar = false;
@@ -36,6 +37,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $X_subscribe = $subscribe;
     $X_twitter = mysql_real_escape_string($twitter);
     $X_avatar = mysql_real_escape_string($avatar);
+    $X_backpack = mysql_real_escape_string($backpack);
     $X_lat = $lat;
     $X_lng = $lng;
     $sql = "UPDATE Users SET subscribe='$X_subscribe', twitter='$X_twitter', ";
@@ -44,7 +46,8 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $sql .= $oer == 0 ? " oer=NULL, " : " oer='$oer', ";
     $sql .= $map == 0 ? " map=NULL, " : " map='$map', ";
     $sql .= $X_lat == 0.0 ? " lat=NULL, " : " lat='$X_lat', ";
-    $sql .= $X_lng == 0.0 ? " lng=NULL  " : " lng='$X_lng'  ";
+    $sql .= $X_lng == 0.0 ? " lng=NULL, " : " lng='$X_lng',  ";
+    $sql .= $backpack === false ? " backpack=NULL, " : " backpack='$X_backpack' ";
     $sql .= " WHERE id='".$_SESSION['id']."'";
     $result = mysql_query($sql);
     if ( $result === false ) {
@@ -62,7 +65,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     }
     return;
 } else if ( isset($_SESSION['id']) ) { 
-    $sql = "SELECT subscribe, twitter, avatar, lat, lng, education, oer, map FROM Users ".
+    $sql = "SELECT subscribe, twitter, avatar, lat, lng, education, oer, map, backpack FROM Users ".
         "WHERE id='".$_SESSION['id']."'";
     $result = mysql_query($sql);
     if ( $result === FALSE ) {
@@ -81,6 +84,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $education = $row[5];
     $oer = $row[6];
     $map = $row[7];
+    $backpack = $row[8];
     // See if we are checking a twitter
     $twitter = isset($_GET['twittercheck']) ? $_GET['twittercheck'] : $twitter;
 }
@@ -258,8 +262,8 @@ echo(" (".$_SESSION["email"].")</h4>\n");
   </div>
 <hr class="hidden-phone"/>
   <div class="control-group">
-    <label class="control-label" for="twitter">Twitter Name (i.e. drchuck) with no @ (Optional)</label>
-    <div class="controls">
+<label class="control-label" for="twitter">Twitter Name (i.e. drchuck) with no @ (Optional)</label>
+<div class="controls">
       <input type="text" id="twitter" name="twitter" onchange="twittercheck(); return false;"
          <?php echo(' value="'.htmlencode($twitter).'" '); ?>
       >
@@ -329,7 +333,19 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
     echo('You seem to have no online profile photo that we can find, you may want 
         to create one at <a href="http://www.gravatar.com" target="_blank">www.gravatar.com</a>.');
 }
+if ( $CFG->badgedisplay !== false ) {
 ?>
+  <hr class="hidden-phone"/>
+    <label class="control-label" for="backpack">
+If you have a public Mozilla Open Badges Backpack, enter it here. Do not enter the entire URL 
+like this:
+<a href="https://backpack.openbadges.org/share/4f76699ddb399d162a00b89a452074b3/" target="_blank">
+https://backpack.openbadges.org/share/4f76699ddb399d162a00b89a452074b3/</a> - only enter the 
+identifier without slashes (i.e <b>4f76699ddb399d162a00b89a452074b3</b> in the above example.</label>
+    <input type="text" id="backpack" name="backpack" 
+         <?php echo(' value="'.htmlencode($backpack).'" '); ?>
+      >
+<?php } ?>
   <hr class="hidden-phone"/>
 What is your current or highest education level?<br/>
 <select name="education">
@@ -354,7 +370,7 @@ How would you like to be shown in maps of student achievements.<br/>
   <option <?php option(1,$map); ?>>Don't show me at all</option>
   <option <?php option(2,$map); ?>>Show only my location with no identifying information</option>
   <option <?php option(3,$map); ?>>Show my first name (<?php echo($_SESSION["first"]); ?>)</option>
-  <option <?php option(4,$map); ?>>Show my first name and Twitter information</option>
+  <option <?php option(4,$map); ?>>Show my first name, Twitter information, and badges</option>
 </select>
 <p>
   Move the pointer on the map below until it is at the correct location.

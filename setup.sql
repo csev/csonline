@@ -1,7 +1,9 @@
 
-# create database csonline default character set utf8;
-# grant all on csonline.* to csonline@'localhost' identified by 'moocsRus';
-# grant all on csonline.* to csonline@'127.0.0.1' identified by 'moocsRus';
+CREATE DATABASE csonline DEFAULT CHARACTER SET utf8;
+GRANT ALL ON csonline.* TO csonline@'localhost' IDENTIFIED BY 'moocsRus';
+GRANT ALL ON csonline.* TO csonline@'127.0.0.1' IDENTIFIED BY 'moocsRus';
+
+USE CSONLINE;
 
 CREATE TABLE Users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY, 
@@ -23,7 +25,7 @@ CREATE TABLE Users (
   blog VARCHAR(1024), 
   avatar VARCHAR(1024), 
   avatarlink VARCHAR(1024), 
-  comment VARCHAR(2048), 
+  json VARCHAR(2048), 
   created_at DATETIME NOT NULL,
   modified_at DATETIME NOT NULL,
   login_at DATETIME NOT NULL,
@@ -63,12 +65,13 @@ CREATE TABLE Enrollments (
   role INT,
   grade DOUBLE,
   token VARCHAR(256),
-  cert_at DATETIME NOT NULL,
+  cert_at DATETIME NULL DEFAULT NULL,
   fame INT,
   first SMALLINT,
   last SMALLINT,
   avatar SMALLINT,
   location SMALLINT,
+  json VARCHAR(2048), 
   created_at DATETIME NOT NULL,
   modified_at DATETIME NOT NULL,
   launch_at DATETIME NOT NULL
@@ -82,6 +85,7 @@ CREATE TABLE Delivery (
   message_id INT,
   success SMALLINT,
   note VARCHAR(999),
+  json VARCHAR(2048), 
   send_at DATETIME NOT NULL
 );
 
@@ -91,8 +95,8 @@ CREATE TABLE Domains (
   domain VARCHAR(1024) NOT NULL
 );
 
-// Sample course - for now insert by hand
-INSERT into Courses (
+-- Sample course - for now insert by hand
+INSERT INTO Courses (
   code, title, 
   description, 
   start_at, close_at, duration, bypass, threshold,
@@ -102,6 +106,6 @@ VALUES
   ('IMS001', 'Introductory IMS LTI',
   'This is a course on IMS Learning Tools Interoperability and it is indeed awesome.',
   '2012-01-01 00:00:00', NULL, 10, NULL, 1.0,
-  'http://www.www.dr-chuck.com/sakai-api-test/tool.php',
+  'http://www.dr-chuck.com/sakai-api-test/tool.php',
   '12345', 'secret');
 

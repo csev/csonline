@@ -1,6 +1,8 @@
 <?php
 require_once("config.php");
-$db = mysql_connect($CFG->dbhost, $CFG->dbuser, $CFG->dbpass)
+$mysqlhost = $CFG->dbhost;
+if ( strlen($CFG->dbport) > 0 ) $mysqlhost .= ':' . $CFG->dbport;
+$db = mysql_connect($mysqlhost, $CFG->dbuser, $CFG->dbpass)
      or die('Database connection unavailable');
 mysql_select_db($CFG->database) 
      or die('Database connection unavailable');

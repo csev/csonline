@@ -121,7 +121,6 @@ if ( $result === FALSE ) {
 
 while ( $row = mysql_fetch_row($result) ) {
     $focus = $row[17];
-    if ( ! isset($_SESSION["id"]) && $focus < 1 ) continue;
     $start_at = strtotime($row[5]);
 
     // Because of our weird time zone, we need to pad start 

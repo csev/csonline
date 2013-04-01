@@ -127,6 +127,9 @@ $(document).ready( function () {
             if ( row[6].length > 0 ) {
                 content = content + ' (' + row[6] + ')';
             }
+            if ( row[7].length > 0 ) {
+                content = content + ' <a href="https://backpack.openbadges.org/share/' + row[7] + '" target="_blank">My Badges</a>';
+            }
             if ( adddot ) icon = icon + '-dot';
             icon = icon + '.png';
             var marker = new google.maps.Marker({

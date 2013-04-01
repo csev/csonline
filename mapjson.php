@@ -37,7 +37,7 @@ $retval['total'] = $countrow[0];
 
 $sql = "SELECT Enrollments.grade, 
     Users.first, Users.twitter, Users.lat, Users.lng, Users.map, Users.id,
-    Enrollments.cert_at
+    Enrollments.cert_at, Users.backpack
     FROM Enrollments JOIN Users
     ON Enrollments.user_id = Users.id
     WHERE 
@@ -72,9 +72,11 @@ while ( $row = mysql_fetch_row($result) ) {
     $map = $row[5];
     $first = $map >= 3 || isAdmin() ? $row[1] : '';
     $twitter = $map >= 4  || isAdmin() ? $row[2] : '';
+    $backpack = $map >= 4  || isAdmin() ? $row[8] : '';
     $note = '';
     if ( isAdmin() && strlen($row[0]) > 0 ) $note = "Grade: ".$row[0];
-    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,htmlencode($first),htmlencode($twitter),htmlencode($note), htmlencode($cert_date));
+    $marker = Array($row[3]+0.0,$row[4]+0.0,$level,htmlencode($first),htmlencode($twitter),
+				htmlencode($note), htmlencode($cert_date), htmlencode($backpack));
     if ( (isset($_SESSION["id"]) && $_SESSION["id"] == $row[6]) ||
          (isset($_GET['user_id']) && $_GET['user_id'] == $row[6] ) ) {
        $origin_lat = $row[3]+0.0; 
