@@ -18,7 +18,7 @@ header('Content-Type: application/json');
 ?>
 {
   "recipient": "<?php echo($recepient); ?>",
-  "salt": "<?php echo($CFG->assert_salt); ?>",
+  "salt": "<?php echo($CFG->badge_assert_salt); ?>",
   "issued_on": "<?php echo($date); ?>",
   "badge": {
     "version": "1.0.0",
