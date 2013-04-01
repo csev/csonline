@@ -47,7 +47,7 @@ if ( isset($_SESSION['id']) && $subscribe !== false && $twitter !== false ) {
     $sql .= $map == 0 ? " map=NULL, " : " map='$map', ";
     $sql .= $X_lat == 0.0 ? " lat=NULL, " : " lat='$X_lat', ";
     $sql .= $X_lng == 0.0 ? " lng=NULL, " : " lng='$X_lng',  ";
-    $sql .= $backpack === false ? " backpack=NULL, " : " backpack='$X_backpack' ";
+    $sql .= $backpack === false ? " backpack=NULL " : " backpack='$X_backpack' ";
     $sql .= " WHERE id='".$_SESSION['id']."'";
     $result = mysql_query($sql);
     if ( $result === false ) {
