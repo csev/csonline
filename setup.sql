@@ -1,4 +1,6 @@
 
+-- Don't use these passwords please 
+
 CREATE DATABASE csonline DEFAULT CHARACTER SET utf8;
 GRANT ALL ON csonline.* TO csonline@'localhost' IDENTIFIED BY 'moocsRus';
 GRANT ALL ON csonline.* TO csonline@'127.0.0.1' IDENTIFIED BY 'moocsRus';
