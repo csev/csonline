@@ -22,5 +22,4 @@ Expected duration:
 </body>
 <html>
 <?php
-   exit("");
-
+    exit("");

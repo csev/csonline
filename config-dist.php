@@ -4,6 +4,10 @@ unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 
+// Set to true to redirect to the upgrading.php script
+// Also edit the upgrading.php script with a message
+$CFG->upgrading = false;
+
 // No trailing slash on these urls
 $CFG->wwwroot = 'http://localhost:8888/csonline';
 $CFG->staticroot = 'http://localhost:8888/csonline';
@@ -68,6 +72,9 @@ date_default_timezone_set('Etc/GMT-12');
 function start_time() {
     return time() + 24 * 60 * 60;
 }
+
+// This won't return as it has an exit() inside of it...
+if ( $CFG->upgrading === true ) require_once("upgrading.php");
 
 require_once("lib.php");
 
