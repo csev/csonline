@@ -40,7 +40,7 @@
     <span class="pull-right">
     <a class="btn btn-primary <?php in_danger(); ?>" href="login.php">Login</a>
     </span>
-<? } ?>
+<?php } ?>
   </div>
 </div>
 <?php

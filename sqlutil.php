@@ -1,4 +1,4 @@
-<?
+<?php
 
 function retrieve_one_row($sql, $showerror=true) 
 {
