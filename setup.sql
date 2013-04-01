@@ -19,6 +19,7 @@ CREATE TABLE Users (
   lat VARCHAR(128), 
   lng VARCHAR(128),
   homepage VARCHAR(1024), 
+  backpack VARCHAR(1024), 
   blog VARCHAR(1024), 
   avatar VARCHAR(1024), 
   avatarlink VARCHAR(1024), 
@@ -101,6 +102,6 @@ VALUES
   ('IMS001', 'Introductory IMS LTI',
   'This is a course on IMS Learning Tools Interoperability and it is indeed awesome.',
   '2012-01-01 00:00:00', NULL, 10, NULL, 1.0,
-  'http://www.imsglobal.org/developers/LTI/test/v1p1/tool.php',
+  'http://www.www.dr-chuck.com/sakai-api-test/tool.php',
   '12345', 'secret');
 
