@@ -21,6 +21,7 @@ $CFG->default_avatar_link = "https://twitter.com/drchuck";
 // Set to false if you don't want Mozilla Badge Backpacks in the profile and map
 $CFG->badge_display = false; // "https://backpack.openbadges.org/share";
 // Badge generation settings - once you start issuing badges - don't change these 
+$CFG->badge_organization = 'Dr. Chuck Online';
 $CFG->badge_encrypt_password = false; // "somethinglongwithhex387438758974987";
 $CFG->badge_assert_salt = false; // "mediumlengthhexstring";
 

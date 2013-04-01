@@ -24,12 +24,12 @@ header('Content-Type: application/json');
     "version": "1.0.0",
     "name": "<?php echo($title); ?>",
     "image": "<?php echo($CFG->wwwroot.'/badges/images/'.$code.'.png'); ?>",
-    "description": "Completed <?php echo($code.' - '.$title.' at '.$CFG->organization); ?>",
+    "description": "Completed <?php echo($code.' - '.$title.' at '.$CFG->badge_organization); ?>",
     "criteria": "<?php echo($CFG->wwwroot);?>",
     "issuer": {
       "origin": "<?php echo($CFG->wwwroot);?>",
-      "name": "<?php echo($CFG->organization);?>",
-      "org": "<?php echo($CFG->organization);?>"
+      "name": "<?php echo($CFG->badge_organization);?>",
+      "org": "<?php echo($CFG->badge_organization);?>"
     }
   }
 }
