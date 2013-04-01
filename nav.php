@@ -27,8 +27,10 @@
 -->
 <?php if ( isset( $_SESSION["id"]) ) { ?>
       <li <?php active("profile.php"); ?>><a href="profile.php">Profile</a></li>
+<?php if ( $CFG->badge_encrypt_password !== false ) { ?>
       <li <?php active("badges.php"); ?>><a href="badges.php">Badges</a></li>
-<? } ?>
+<?php } ?>
+<?php } ?>
       <li <?php active("about.php"); ?> class="hidden-phone"><a href="about.php">About</a></li>
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>

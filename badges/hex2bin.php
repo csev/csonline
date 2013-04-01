@@ -1,4 +1,5 @@
 <?php
+if ( ! function_exists('hex2bin')) {
 function hex2bin($hexString)
 {
     $hexLenght = strlen($hexString);
@@ -13,3 +14,4 @@ function hex2bin($hexString)
     return $binString;
 }
 
+}

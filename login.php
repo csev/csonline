@@ -174,7 +174,7 @@ if ( $CFG->DEVELOPER ) {
 }
 ?>
 <p>
-We here at Dr. Chuck Online use Google Accounts as our sole login.  
+We here at <?php echo($CFG->site_title); ?> use Google Accounts as our sole login.  
 We do this because we want real people participating
 in the class with real identities.  
 We do not want to spend a lot of time verifying identity 
@@ -183,21 +183,21 @@ so we let Google to that hard work.  :)
 <form action="?login" method="post">
     <input class="btn btn-warning" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
     <button class="btn btn-primary">Login with Google</button>
+    <?php if ( $CFG->cookiesecret !== false ) { ?>
     <input type="checkbox" name="keeplogin"> Keep me logged in
+    <?php } ?>
 </form>
 <p>
 So you must have a Google account and we will require your
 name and email address to login.  We do not need and do not receive your password - only Google
 will ask you for your password.  When you press login below, you will be directed to the Google
-authentication system where you will be given the option to share your information with Dr. Chuck Online.
+authentication system where you will be given the option to share your information with <?php echo($CFG->site_title); ?>.
 </p>
 <p>
 We will never share your data and will only send you E-Mail related to course 
 communication and we will try to limit that to 1-3 times per week.  
 Every mail we send will have a mail deactivation link so you can opt out 
-of any mail from our system.  If you think this site abuses your identity or E-Mail information
-let me know - this is just one profession named Chuck - it is not 
-a big company. It even sounds weird to say "we".
+of any mail from our system.  
 </p>
 <p>
 If you are still worried about this software and its interaction with Google, you 

@@ -15,7 +15,7 @@ function getBadgeInfo() {
         $encrypted = basename($pieces[count($pieces)-1],'.png');
     }
     
-    $decrypted = AesCtr::decrypt(hex2bin($encrypted), $CFG->encrypt_password, 256);
+    $decrypted = AesCtr::decrypt(hex2bin($encrypted), $CFG->badge_encrypt_password, 256);
     $pieces = explode(':',$decrypted);
     if ( count($pieces) != 2 ) die("incorrect id");
     if ( !is_numeric($pieces[0]) ) die("incorrect id");

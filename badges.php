@@ -22,7 +22,11 @@ if ( ! isset($_SESSION['id']) ) {
 </head>
 <body style="padding: 0px 10px 0px 10px" onload="initialize()">
 <div class="container">
-<?php require_once("nav.php"); ?>
+<?php require_once("nav.php");
+if ( $CFG->badge_encrypt_password === false ) {
+    echo("<p>Badges are not fully configured for this instance - contact the administrator of this system.</p>");
+    return;
+} ?>
 <h2>You have earned the following badges (Beta).
 </a>
 </h2>
@@ -47,7 +51,7 @@ if ( $result === FALSE ) {
 
 while ( $row = mysql_fetch_row($result) ) {
    $decrypted = $_SESSION['id'].':'.$row[0];
-   $encrypted = bin2hex(AesCtr::encrypt($decrypted, $CFG->encrypt_password, 256));
+   $encrypted = bin2hex(AesCtr::encrypt($decrypted, $CFG->badge_encrypt_password, 256));
 ?>
               <li class="span4">
                 <div class="thumbnail">
@@ -67,7 +71,7 @@ function(errors, successes) { });">Add to Mozilla Backpack</a>
 <?php
 }
 $decrypted = $_SESSION['id'].':0';
-$encrypted = bin2hex(AesCtr::encrypt($decrypted, $CFG->encrypt_password, 256));
+$encrypted = bin2hex(AesCtr::encrypt($decrypted, $CFG->badge_encrypt_password, 256));
 ?>
               <li class="span4">
                 <div class="thumbnail">
@@ -75,7 +79,7 @@ $encrypted = bin2hex(AesCtr::encrypt($decrypted, $CFG->encrypt_password, 256));
 <img align="right" src="badges/<?php echo($encrypted); ?>.png" width="90"></a>
                   <div class="caption">
                     <h3>Admitted Student</h3>
-                    <p>You earn this badge when you join Dr. Chuck Online and set up your profile.</p>
+                    <p>You earn this badge when you join <?php echo($CFG->site_title); ?> and set up your profile.</p>
 <p>
 <a href="#" class="btn btn-primary" onclick="OpenBadges.issue(
 ['https://online.dr-chuck.com/badges/assert.php?id=<?php echo($encrypted); ?>'],
@@ -87,7 +91,7 @@ function(errors, successes) { });">Add to Mozilla Backpack</a>
             </ul>
           </div>
 <br/>
-<p>You earn your first badge by simply joining Dr. Chuck Online and setting up your profile.
+<p>You earn your first badge by simply joining <?php echo($CFG->site_title); ?> and setting up your profile.
 It is a good way to experiment with how badges work if you have never used a badge before.
 You can also clink on a badge image and save it to your computer and display it on your 
 web site or maually upload it to your

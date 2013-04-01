@@ -9,7 +9,7 @@ require_once "badge-lib.php";
 $row = getBadgeInfo();
 
 $date = substr($row[1],0,10);
-$recepient = 'sha256$' . hash('sha256', $row[0] . $CFG->assert_salt);
+$recepient = 'sha256$' . hash('sha256', $row[0] . $CFG->badge_assert_salt);
 $code = $row[2];
 $title = $row[3];
 error_log('Assertion:'.$row[0].' '.$row[2]);

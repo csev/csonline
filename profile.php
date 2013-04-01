@@ -333,7 +333,7 @@ if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
     echo('You seem to have no online profile photo that we can find, you may want 
         to create one at <a href="http://www.gravatar.com" target="_blank">www.gravatar.com</a>.');
 }
-if ( $CFG->badgedisplay !== false ) {
+if ( $CFG->badge_display !== false ) {
 ?>
   <hr class="hidden-phone"/>
     <label class="control-label" for="backpack">
