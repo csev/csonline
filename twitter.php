@@ -238,7 +238,7 @@ echo(" (".$_SESSION["email"].")</h4>\n");
   </div>
   <div class="control-group">
     <div class="controls">
-        We may need to send you email from time to time - things happen.
+        During the Beta - we may need to send you email from time to time - things happen.
         And we might find that Moodle or Piazza sends E-Mail too.  As the code progresses
         we will increasingly make the E-Mail behave.  We will do our best to do your wishes
         here.
@@ -264,11 +264,75 @@ echo(" (".$_SESSION["email"].")</h4>\n");
   <div class="control-group">
 <label class="control-label" for="twitter">Twitter Name (i.e. drchuck) with no @ (Optional)</label>
 <div class="controls">
-      <input type="text" id="twitter" name="twitter" 
+      <input type="text" id="twitter" name="twitter" onchange="twittercheck(); return false;"
          <?php echo(' value="'.htmlencode($twitter).'" '); ?>
       >
-</div>
+      <button type="button" id="check" style="vertical-align: top;" class="btn btn-primary" onclick="twittercheck(); return false;">Check</button>
+      <span id="spinner" style="display:none; vertical-align: top">
+      <img alt="Ajax spinner" height="20" width="20" src="spinner.gif"/>
+      <span class="hidden-phone">Retrieving new Twitter profile picture</span>
+      </span>
+    </div>
+  </div>
+<hr class="hidden-phone"/>
+<p>
+Choose a profile picture.  We support Twitter profile pictures if you give us your Twitter handle.
+We use your e-mail address to find a profile photo on 
+<a href="http://www.gravatar.com" target="_blank">Gravatar</a> or other services.   Moodle will use
+your Gravatar image based on your e-mail address.  You can also edit your profile in Moodle
+as well.
+</p>
 <?php
+$avatarpos = 0;
+$twitterurl = get_twitter_url($twitter);
+$gravatarurl = get_gravatar_url();
+$avatarurl = get_avatar_url();
+if ( $gravatarurl !== false && strpos($avatarurl,"gravatar.com") > 0 ) $avatarurl = false;
+if ( $twitterurl !== false && strpos($avatarurl,"twitter.com") > 0 ) $avatarurl = false;
+
+if ( $twitterurl != false && $twitterurl == $avatar ) $avatarpos = 1;
+if ( $gravatarurl != false && $gravatarurl == $avatar ) $avatarpos = 2;
+if ( $avatarurl != false && $avatarurl == $avatar ) $avatarpos = 3;
+
+?>
+        <label class="radio">
+            Do not use a profile picture
+             <?php radio('avatar',0,$avatarpos) ?> >
+        </label>
+<?php
+
+$urls = Array();
+if ( $twitterurl !== false ) {
+    echo('<label class="radio">');
+    radio('avatar',1,$avatarpos);echo('  style="height: 60px">');
+    $urls[1] = $twitterurl;
+    echo('Use my Twitter profile picture ');
+    echo('<img src="'.htmlencode($twitterurl).'" height="60" width="60" alt="Twitter profile picture"/></label>'."\n");
+}
+
+if ( $gravatarurl !== false ) {
+    echo('<label class="radio">');
+    radio('avatar',2,$avatarpos);echo('  style="height: 60px">');
+    $urls[2] = $gravatarurl;
+    echo('Use my Gravatar profile picture ');
+    echo('<img src="'.htmlencode($gravatarurl).'" height="60" width="60" alt="Gravatar profile picture"/></label>'."\n");
+}
+
+if ( $avatarurl !== false ) {
+    echo('<label class="radio">');
+    radio('avatar',3,$avatarpos);echo('  style="height: 60px">');
+    $urls[3] = $avatarurl;
+    echo('Use this profile picture ');
+    echo('<img src="'.htmlencode($avatarurl).'" height="60" width="60" alt="Avatar picture"/></label>'."\n");
+}
+
+// Store the most recent list of presented URLs in session
+$_SESSION["urls"] = $urls;
+
+if ( $twitterurl === false && $gravatarurl === false && $avatarurl === false) {
+    echo('You seem to have no online profile photo that we can find, you may want 
+        to create one at <a href="http://www.gravatar.com" target="_blank">www.gravatar.com</a>.');
+}
 if ( $CFG->badge_display !== false ) {
 ?>
   <hr class="hidden-phone"/>
