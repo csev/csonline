@@ -132,8 +132,13 @@ while ( $row = mysql_fetch_row($result) ) {
     if ( strlen($row[6]) > 10 && substr($row[6],0,10) != '0000-00-00') $close_at = strtotime($row[6]);
     $enrolled = $row[12] > 0 && $row[13] > 0;
 
+    // Only show old, closed classes to students enrolled in those classes
+    if ( ! $enrolled && $close_at !== false && time() > $close_at ) {
+        continue;
+    }
+
     $launch = false;
-    if ( $enrolled && $started ) {
+    if ( $onrolled && $started ) {
         $launch = 'lms.php?id='.urlencode($row[0]);
     }
     echo('<h3>');

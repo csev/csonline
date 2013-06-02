@@ -173,6 +173,7 @@ if ( $CFG->DEVELOPER ) {
         "\n</div>\n";
 }
 ?>
+<div style="margin: 30px">
 <p>
 We here at <?php echo($CFG->site_title); ?> use Google Accounts as our sole login.  
 We do this because we want real people participating
@@ -205,6 +206,7 @@ or someone else can take a look at the source code to this online registration s
 <a href="https://github.com/csev/csonline" target="_blank">on Github</a> to see what 
 we are doing.
 </p>
+</div>
 <?php
 require_once("footer.php");
 ?>
