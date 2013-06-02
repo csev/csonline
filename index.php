@@ -138,7 +138,7 @@ while ( $row = mysql_fetch_row($result) ) {
     }
 
     $launch = false;
-    if ( $onrolled && $started ) {
+    if ( $enrolled && $started ) {
         $launch = 'lms.php?id='.urlencode($row[0]);
     }
     echo('<h3>');
