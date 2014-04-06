@@ -12,7 +12,7 @@ In progress:
 Database upgrade
 <p>
 Work started:
-Thu Jan 17 13:33:16 EST 2013
+Fri Jul  5 18:13:47 EDT 2013
 </p>
 <p>
 Expected duration:

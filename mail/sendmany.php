@@ -75,6 +75,6 @@ while ( $row = mysql_fetch_row($result) ) {
         die($sql." ".mysql_error());
     }
 
-    sleep($CFG->maildelay);
+    if ( $CFG->maildelay > 0 ) sleep($CFG->maildelay);
 }
 

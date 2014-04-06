@@ -70,13 +70,13 @@ if ( isset($_SESSION['id']) ) {
         FROM Courses LEFT OUTER JOIN Enrollments 
         ON Courses.id = course_id 
         AND Enrollments.user_id = '.$_SESSION['id'].'
-        ORDER BY focus DESC';
+        ORDER BY focus DESC, Courses.id DESC';
 } else {
     $sql = 'SELECT Courses.id, code, title, description, 
         image, start_at, close_at, duration,
-        NULL, NULL, NULL, NULL, 
+        NULL, endpoint, consumer_key, NULL, 
         NULL, NULL, NULL, NULL, NULL, focus
-        FROM Courses ORDER BY focus DESC';
+        FROM Courses ORDER BY focus DESC, Courses.id DESC';
 }
 ?>
 <!DOCTYPE html>
@@ -121,6 +121,9 @@ if ( $result === FALSE ) {
 
 while ( $row = mysql_fetch_row($result) ) {
     $focus = $row[17];
+    $endpoint = $row[9];
+    $consumer_key = $row[10];
+    $refer = strlen($endpoint) > 0 && strlen($consumer_key) < 1;
     $start_at = strtotime($row[5]);
 
     // Because of our weird time zone, we need to pad start 
@@ -138,14 +141,16 @@ while ( $row = mysql_fetch_row($result) ) {
     }
 
     $launch = false;
-    if ( $enrolled && $started ) {
+    if ( $refer ) {
+        $launch = $endpoint;
+    } else if ( $enrolled && $started ) {
         $launch = 'lms.php?id='.urlencode($row[0]);
     }
     echo('<h3>');
     if ( $launch ) echo('<a href="'.$launch.'" target="_blank">');
     echo($row[1].' - '.$row[2]);
     if ( $launch ) echo('</a>');
-    echo(' (<a href="map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
+    if ( ! $refer ) echo(' (<a href="map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
     echo('</h3>');
     echo("\n<p>\n");
     // Not escaped - be careful
@@ -160,7 +165,7 @@ while ( $row = mysql_fetch_row($result) ) {
         echo("<br/><b>Registration Closes:</b> ".htmlencode(substr($row[6],0,10))." ");
         $openenrollment = false;
     }
-    if ( $openenrollment ) {
+    if ( $openenrollment && ! $refer) {
         echo("<br/><b>This course is Open Enrollment.</b> ");
     }
     if ( $row[14] > 0.0 ) {
@@ -187,6 +192,8 @@ while ( $row = mysql_fetch_row($result) ) {
         if ( $started ) echo(' pull-right');
         echo('" onclick="return confirm_unenroll();">Un-Enroll</button>
             </form>');
+    } else if ( $refer ) {
+        // Do nothing
     } else if ( $close_at === false || time() <= $close_at ) {
         if ( isset($_SESSION['id']) ) {
             echo('<form method="post" action="index.php">

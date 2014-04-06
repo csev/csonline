@@ -9,7 +9,7 @@
    if ( $CFG->DEVELOPER ) {
         echo('<div class="navbar navbar-inverse">'."\n");
    } else {
-        echo('<div class="navbar">'."\n");
+        echo('<div class="navbar" style="bgcolor: orange">'."\n");
    }
 
     function in_danger() {

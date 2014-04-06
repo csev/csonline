@@ -21,29 +21,24 @@ the issues near and dear to my heart but not quickly enough for me.
 </p>
 <p>
 Don't get me wrong.  I <em>love</em> Coursera and love teaching
-on Coursera and love seeing how others teach and learn with Coursera.   I am really looking forward to teaching my 
-<a href="https://www.coursera.org/course/insidetheinternet">Internet History, Technology, and Security</a> course on 
-Coursera starting March 1, 2013.  
+on Coursera and love seeing how others teach and learn with Coursera.   I really enjoy teaching my 
+<a href="https://www.coursera.org/course/insidetheinternet" target="_blank">Internet History, Technology, and Security</a> 
+and
+<a href="https://www.coursera.org/course/pythonlearn" target="_blank">Programming for Everybody</a> 
+courses on 
+Coursera.  
 I also am taking pedagogy and technical inspiration from the excellent Coursera 
 <a href="https://www.coursera.org/course/interactivepython" target="_blank">Interactive Programming in Python</a> 
 course taught by Joe Warren, Scott Rixner, John Greiner, and Stephen Wong of Rice University. I would suggest that after 
-students complete my course, if they are interested in more programming, that they would take the Rice course.
+students complete my Python course, if they are interested in more programming, that they would take the Rice course.
 The technology I use here will never be as slick as Coursera because I am one person
 putting this all together with no financial support or an army of grad students - I am lashing open source stuff 
 together to make my own MOOC.  
 </p>
 <p>
-I would also love to use the open source <a href="http://class.stanford.edu">Stanford Class2Go</a> but it is not quite ready for
-use outside of Stanford.  My technical approach is very much influenced by Stanford's "don't build it if you don't have to" approach - 
-but I am going to take it even further than they have taken it.  I am going to 
-<a href="http://www.youtube.com/watch?v=F7IZZXQ89Oc" target="_blank">turn it up to 11</a> - at least in my use of 
-standards and open content.  
-</p>
-<p>
 My goal once I gain experience with this approach and my prototype pieces work successfully is to make it so that this 
 class can be a MOOC in any MOOC or LMS platform including 
 Coursera, 
-Class2Go, 
 CourseSites, 
 Sakai, 
 Moodle, 
@@ -110,7 +105,7 @@ and I am very thankful for that.
 </p>
 <p>
 Charles Severance - 
-Tue Jan 15 20:09:55 EST 2013
+Mon Oct 21 09:45:03 EDT 2013
 </p>
 <?php require_once("footer.php"); ?>
 </div>
