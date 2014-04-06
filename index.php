@@ -201,6 +201,10 @@ while ( $row = mysql_fetch_row($result) ) {
                 <input type="hidden" name="action" value="enroll">');
             echo('<button type="submit" class="btn btn-primary">Join Class</button>');
             echo('</form>');
+        } else { ?>
+<p>
+<input class="btn btn-success" type="button" onclick="location.href='login.php'; return false;" value="Join Class"/>
+</p> <?php
         }
     } else {
         echo("<p><b>Enrollment is closed for this class.</b></p>\n");
@@ -218,10 +222,6 @@ just <em>before</em> the international date line.
 It means that published deadlines 
 (i.e. must complete an assignment by midnight on 01-February-2013) work in any 
 time zone and most time zones have a bit of extra time.
-</p>
-<?php } else { ?>
-<p>
-<input class="btn btn-success" type="button" onclick="location.href='login.php'; return false;" value="Join Class"/>
 </p>
 <?php } ?>
 <?php require_once("footer.php"); ?>
