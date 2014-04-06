@@ -12,7 +12,7 @@ tool.php code in the Moodle LTI provider - these patches actually are in the lat
 Moodle LTI provider 
 
 4. You will need to edit the text in various files like ```open.php``` and ```footer.php```.
-I have genericized most strings where I can - but some large blobs od narrative
+I have genericized most strings where I can - but some large blobs of narrative
 are just sitting in these files.
 
 You also need to check this out as a top-level folder:
