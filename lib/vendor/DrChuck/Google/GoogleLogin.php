@@ -14,21 +14,21 @@ use \DrChuck\Google\JWT;
  * http://www.nmecs.com/articles/google-single-sign-on-without-sdk
  */
 
-// Another simple library: https://github.com/PenguinProtocols/Basic-OpenID-Connect-Google
-
 class GoogleLogin {
 
     public $client_id = false;
     public $client_secret = false;
+    public $openid_realm = false;
     public $redirect = false;
     public $access_token = false;
     public $last_response = false;
     public $authentication_object = false;
 
-    public function __construct($client_id, $client_secret, $redirect) {
+    public function __construct($client_id, $client_secret, $redirect, $openid_realm=false) {
         $this->client_id = $client_id;
         $this->client_secret = $client_secret;
         $this->redirect = $redirect;
+        $this->openid_realm = $openid_realm;
     }
 
     /**
@@ -41,8 +41,11 @@ class GoogleLogin {
             . "&state=" . $state
             . "&response_type=code"
             . "&scope=profile" 
-            . "&openid.realm=" . $this->redirect
             . "&include_granted_scopes=true";
+
+        if ( $this->openid_realm ) {
+            $loginUrl .= "&openid.realm=" . $this->openid_realm;
+        }
         return $loginUrl;
     }
 
@@ -59,8 +62,11 @@ class GoogleLogin {
 
         $token_url = "https://www.googleapis.com/oauth2/v3/token";
         $post = "code={$google_code}&client_id={$this->client_id}&client_secret={$this->client_secret}"
-            . "&redirect_uri={$this->redirect}&grant_type=authorization_code"
-            . "&openid.realm={$this->redirect}";
+            . "&redirect_uri={$this->redirect}&grant_type=authorization_code";
+
+        if ( $this->openid_realm ) {
+            $post .= "&openid.realm=" . $this->openid_realm;
+        }
 
         $response = $this->curl_post($token_url, $post);
 
@@ -118,7 +124,7 @@ class GoogleLogin {
         $user = json_decode($response);
         if ( ! $user ) return FALSE;
 
-        // Get the old openid_id if it exists
+        // Get the old openid_id if we asked for and received it
         $user->openid_id = false;
         if ( $this->authentication_object && isset($this->authentication_object->id_token) ) {
             $id_token = $this->authentication_object->id_token;
@@ -127,20 +133,20 @@ class GoogleLogin {
                 $user->openid_id = $info->openid_id;
             }
         }
-    
         return $user;
     }
 
     /**
       * Utility code in order not to have external dependencies
+      * and to have some logging.
       */
     function curl_post($url, $post) {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_POST, TRUE);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
-        // curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-        // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $json_response = curl_exec($curl);
         $this->last_response = $json_response;
@@ -150,6 +156,7 @@ class GoogleLogin {
 
     /**
       * Utility code in order not to have external dependencies
+      * and to have some logging.
       */
     function curl_get($url) {
         $curl = curl_init();
