@@ -115,23 +115,16 @@ class GoogleLogin {
             }
         */
 
-echo($response);
         $user = json_decode($response);
         if ( ! $user ) return FALSE;
 
-        // Get 
-
-echo("Authentication object\n");
-var_dump($this->authentication_object);
+        // Get the old openid_id if it exists
+        $user->openid_id = false;
         if ( $this->authentication_object && isset($this->authentication_object->id_token) ) {
             $id_token = $this->authentication_object->id_token;
-echo("ID Token\n".$id_token."\n");
             $info = JWT::decode($id_token, $this->client_secret, false);
-echo("Decoded info\n");
-var_dump($info);
             if ( $info && isset($info->sub) && isset($info->openid_id) ) {
                 $user->openid_id = $info->openid_id;
-echo("OPEN ID: ".$user->openid_id."\n");
             }
         }
     
