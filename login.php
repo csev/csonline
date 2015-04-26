@@ -1,9 +1,11 @@
 <?php
+
 session_start();
-# Logging in with Google accounts requires setting special identity, so this example shows how to do it.
-require 'lightopenid/openid.php';
+
 require_once "config.php";
 require_once "cookie.php";
+require_once('lib/vendor/DrChuck/Google/GoogleLogin.php');
+require_once('lib/vendor/DrChuck/Google/JWT.php');
 
 $errormsg = false;
 $success = false;
@@ -13,6 +15,12 @@ $identity = false;
 $firstName = false;
 $lastName = false;
 $userEmail = false;
+$userAvatar = false;
+$userHomePage = false;
+
+// Google Login Object
+$glog = new \DrChuck\Google\GoogleLogin($CFG->google_client_id,$CFG->google_client_secret,
+      $CFG->wwwroot.'/log.php',$CFG->wwwroot);
 
 if ( $CFG->OFFLINE ) {
     $identity = 'http://notgoogle.com/1234567';
@@ -22,46 +30,43 @@ if ( $CFG->OFFLINE ) {
     $doLogin = true;
     $_SESSION["keeplogin"] = "on";
 } else {
-    try {
-        // $openid = new LightOpenID('online.dr-chuck.com');
-        $openid = new LightOpenID($CFG->wwwroot);
-        if(!$openid->mode) {
-            if(isset($_GET['login'])) {
-                if ( isset($_POST["keeplogin"]) && $_POST["keeplogin"] == "on") {
-                    $_SESSION["keeplogin"] = "on";
-                } else {
-                    $_SESSION["keeplogin"] = "off";
-                }
-                $openid->identity = 'https://www.google.com/accounts/o8/id';
-                $openid->required = array('contact/email', 'namePerson/first', 'namePerson/last');
-                $openid->optional = array('namePerson/friendly');
-                header('Location: ' . $openid->authUrl());
-                return;
+
+    if ( isset($_GET['code']) ) {
+        if ( isset($_SESSION['GOOGLE_STATE']) && isset($_GET['state']) ) {
+            if ( $_SESSION['GOOGLE_STATE'] != $_GET['state'] ) {
+                $errormsg = "Missing important session data - could not log you in.  Sorry.";
+                error_log("Google Login state mismatch");
+                unset($_SESSION['GOOGLE_STATE']);
             }
         } else {
-            if($openid->mode == 'cancel') {
-                $errormsg = "You have canceled authentication. That's OK but we cannot log you in.  Sorry.";
-                error_log('Google-Cancel');
-            } else if ( ! $openid->validate() ) {
-                $errormsg = 'You were not logged in by Google.  It may be due to a technical problem.';
-                error_log('Google-Fail');
-            } else {
-                $identity = $openid->identity;
-                $userAttributes = $openid->getAttributes();
-                // echo("\n<pre>\n");print_r($userAttributes);echo("\n</pre>\n");
-                $firstName = isset($userAttributes['namePerson/first']) ? $userAttributes['namePerson/first'] : false;
-                $lastName = isset($userAttributes['namePerson/last']) ? $userAttributes['namePerson/last'] : false;
-                $userEmail = isset($userAttributes['contact/email']) ? $userAttributes['contact/email'] : false;
-                $doLogin = true;
-            }
+            $errormsg = "Missing important session data info- could not log you in.  Sorry.";
+            error_log("Error missing state");
+            unset($_SESSION['GOOGLE_STATE']);
         }
-    } catch(ErrorException $e) {
-        $errormsg = $e->getMessage();
+
+        $google_code = $_GET['code'];
+        $authObj = $glog->getAccessToken($google_code);
+        $user = $glog->getUserInfo();
+        // echo("<pre>\nUser\n");print_r($user);echo("</pre>\n");
+        $identity = isset($user->openid_id) ? $user->openid_id : 
+            ( isset($user->id) ? $user->id : false );
+        $firstName = isset($user->given_name) ? $user->given_name : false;
+        $lastName = isset($user->family_name) ? $user->family_name : false;
+        $userEmail = isset($user->email) ? $user->email : false;
+        $userAvatar = isset($user->picture) ? $user->picture : false;
+        $userHomePage = isset($user->link) ? $user->link : false;
+        // echo("i=$identity f=$firstName l=$lastName e=$userEmail a=$userAvatar h=$userHomePage\n");
+        $doLogin = true;
     }
 }
 
 if ( $doLogin ) {
-    if ( $firstName === false || $lastName === false || $userEmail === false ) {
+    if ( $identity === false ) {
+        error_log('Google-Missing identity');
+        $_SESSION["error"] = "Something went wrong with the Google log in.";
+        header('Location: index.php');
+        return;
+    } else if ( $firstName === false || $lastName === false || $userEmail === false ) {
         error_log('Google-Missing:'.$identity.','.$firstName.','.$lastName.','.$userEmail);
         $_SESSION["error"] = "You do not have a first name, last name, and email in Google or you did not share it with us.";
         header('Location: index.php');
@@ -72,7 +77,9 @@ if ( $doLogin ) {
         $X_firstName = mysql_real_escape_string($firstName);
         $X_lastName = mysql_real_escape_string($lastName);
         $X_userEmail = mysql_real_escape_string($userEmail);
-        $sql = "SELECT id, email, first, last, avatar, twitter FROM Users WHERE identity='$X_identity'";
+        $X_userHomePage = mysql_real_escape_string($userHomePage);
+        $sql = "SELECT id, email, first, last, avatar, twitter,homepage
+             FROM Users WHERE identity='$X_identity'";
         $result = mysql_query($sql);
         if ( $result === FALSE ) {
             error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.mysql_error().','.$sql);
@@ -84,19 +91,23 @@ if ( $doLogin ) {
         $theid = false;
         $avatar = false;
         $twitter = false;
+        $homepage = false;
         $didinsert = false;
         if ( $row !== FALSE ) { // Lets update!
             $theid = $row[0];
             $avatar = $row[4];
             $twitter = $row[5];
-            if ( $row[1] != $userEmail || $row[2] != $firstName || $row[3] != $lastName ) {
+            $homepage = $row[6];
+            if ( $row[1] != $userEmail || $row[2] != $firstName 
+                || $row[3] != $lastName || $row[6] != $userHomePage ) {
                 $sql = "UPDATE Users SET email='$X_userEmail', first='$X_firstName', ".
                         "last='$X_lastName', emailsha=SHA1('$X_userEmail'), ".
+                        "homepage='$X_userHomePage', ".
                         "modified_at=NOW(), login_at=NOW() WHERE id='$theid'";
             } else { 
                 $sql = "UPDATE Users SET login_at=NOW() WHERE id='$theid'";
             }
-             $result = mysql_query($sql);
+            $result = mysql_query($sql);
             if ( $result === FALSE ) {
                 error_log('Fail-SQL:'.$identity.','.$firstName.','.$lastName.','.$userEmail.','.mysql_error().','.$sql);
                 $_SESSION["error"] = "Internal database error, sorry";
@@ -146,6 +157,10 @@ if ( $doLogin ) {
         return;
     }
 }
+
+// We need a login URL
+$_SESSION['GOOGLE_STATE'] = md5(uniqid(rand(), TRUE));
+$loginUrl = $glog->getLoginUrl($_SESSION['GOOGLE_STATE']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -177,13 +192,13 @@ if ( $CFG->DEVELOPER ) {
 <p>
 We here at <?php echo($CFG->site_title); ?> use Google Accounts as our sole login.  
 We do this because we want real people participating
-in the class with real identities.  
+in the site with real identities.  
 We do not want to spend a lot of time verifying identity 
 so we let Google to that hard work.  :)
 </p>
 <form action="?login" method="post">
     <input class="btn btn-warning" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
-    <button class="btn btn-primary">Login with Google</button>
+    <input class="btn btn-primary" type="button" onclick="location.href='<?= $loginUrl ?>'; return false;" value="Login with Google" />
     <?php if ( $CFG->cookiesecret !== false ) { ?>
     <input type="checkbox" name="keeplogin"> Keep me logged in
     <?php } ?>
@@ -211,3 +226,4 @@ we are doing.
 require_once("footer.php");
 ?>
 </body>
+

@@ -40,7 +40,7 @@ class GoogleLogin {
             . "&redirect_uri=" . $this->redirect
             . "&state=" . $state
             . "&response_type=code"
-            . "&scope=profile" 
+            . "&scope=email%20profile" 
             . "&include_granted_scopes=true";
 
         if ( $this->openid_realm ) {
