@@ -20,7 +20,7 @@ $userHomePage = false;
 
 // Google Login Object
 $glog = new \DrChuck\Google\GoogleLogin($CFG->google_client_id,$CFG->google_client_secret,
-      $CFG->wwwroot.'/log.php',$CFG->wwwroot);
+      $CFG->wwwroot.'/login.php',$CFG->wwwroot);
 
 if ( $CFG->OFFLINE ) {
     $identity = 'http://notgoogle.com/1234567';
@@ -196,7 +196,7 @@ in the site with real identities.
 We do not want to spend a lot of time verifying identity 
 so we let Google to that hard work.  :)
 </p>
-<form action="?login" method="post">
+<form method="post">
     <input class="btn btn-warning" type="button" onclick="location.href='index.php'; return false;" value="Cancel"/>
     <input class="btn btn-primary" type="button" onclick="location.href='<?= $loginUrl ?>'; return false;" value="Login with Google" />
     <?php if ( $CFG->cookiesecret !== false ) { ?>
