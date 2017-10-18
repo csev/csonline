@@ -28,10 +28,6 @@ and
 <a href="https://www.coursera.org/specializations/web-applications" target="_blank">Web 
 Applications for Everybody</a>
 Coursera.  
-The technology I use will never be as slick as Coursera because I am one person
-putting this all together with no financial support or an army of grad 
-students - I am lashing open source stuff 
-together to make my own MOOC.  
 </p>
 <p>
 Charles Severance - 

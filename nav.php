@@ -32,6 +32,7 @@
 <?php } ?>
 <?php } ?>
       <li <?php active("about.php"); ?>><a href="about.php">About</a></li>
+      <li><a href="http://www.dr-chuck.com/office" target="_blank">Office Hours</a></li>
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
     <span style="vertical-align: middle" class="pull-right">

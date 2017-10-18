@@ -119,7 +119,8 @@ if ( $result === FALSE ) {
     return;
 }
 
-while ( $row = mysql_fetch_row($result) ) {
+// Disable...
+while ( false && $row = mysql_fetch_row($result) ) {
     $focus = $row[17];
     $endpoint = $row[9];
     $consumer_key = $row[10];
@@ -224,6 +225,24 @@ It means that published deadlines
 time zone and most time zones have a bit of extra time.
 </p>
 <?php } ?>
+<h2>Coursera Specializations</h2>
+<h3><a href="https://www.coursera.org/specializations/python" target="_blank">Python for Everybody</a></h3>
+<p>
+This is a Coursera specialization for my Python 3.0 book.
+</p>
+<h3><a href="https://www.coursera.org/specializations/web-applications/" target="_blank">Web Applications for Everybody</a></h3>
+<p>
+This is a Coursera specialization covering PHP, SQL, and JavaScript to build interactive, 
+database-backed web applications.
+</p>
+<h2>Coursera Courses</h2>
+<h3><a href="https://www.coursera.org/course/insidetheinternet" target="_blank">IHTS - Internet History, Technology, and Security (Coursera)</a></h3>
+<p>
+This course is taught by Dr. Chuck on Coursera and covers the impact of technology and networks on our lives, culture, and society continues to increase. The very fact that you can take this course from anywhere in the world requires a technological infrastructure that was designed, engineered, and built over the past sixty years. To function in an information-centric world, we need to understand the workings of network technology. This course will open up the Internet and show you how it was created, who created it and how it works. Along the way we will meet many of the innovators who developed the Internet and Web technologies that we use today. </p>
+</p>
+<h2>Open Educational Resource Web Sites</h2>
+<h3><a href="https://www.py4e.com/" target="_blank">PY4E - Python for Everybody</a></h3>
+<h3><a href="https://www.wa4e.com/" target="_blank">WA4E - Web Applications for Everybody</a></h3>
 <?php require_once("footer.php"); ?>
 </div>
 </body>
