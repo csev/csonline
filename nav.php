@@ -31,14 +31,14 @@
       <li <?php active("badges.php"); ?>><a href="badges.php">Badges</a></li>
 <?php } ?>
 <?php } ?>
-      <li <?php active("about.php"); ?> class="hidden-phone"><a href="about.php">About</a></li>
+      <li <?php active("about.php"); ?>><a href="about.php">About</a></li>
     </ul>
 <?php if ( isset( $_SESSION["id"]) ) { ?>
     <span style="vertical-align: middle" class="pull-right">
     <a class="btn btn-primary hidden-phone <?php in_danger(); ?>" href="logout.php">Logout</a></span>
 <?php } else { ?>
     <span class="pull-right">
-    <a class="btn btn-primary <?php in_danger(); ?>" href="login.php">Login</a>
+    <!-- <a class="btn btn-primary <?php in_danger(); ?>" href="login.php">Login</a> -->
     </span>
 <?php } ?>
   </div>
