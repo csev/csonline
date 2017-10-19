@@ -5,7 +5,7 @@
 <small>
 </a>
 <span class="hidden-phone">
-This is not an official activity of the University of Michigan
+Dr. Chuck Online is not an official activity of the University of Michigan
 or School of Information in any way.  
 There will be no certificates and no credit - just learning for learning sake 
 and learning about learning.  This is my research into how we learn and you are 

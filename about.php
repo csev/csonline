@@ -15,7 +15,10 @@ require_once("start.php");
 </div>
 <?php } ?>
 <p>
-The purpose of me building my own MOOC infrastructure is too explore some of the areas of teaching and learning 
+This is the web site of the "University of Dr. Chuck".  I teach a number of free/online/open courses based on
+free and open materials and this site is the course catalog for my free courses.
+<p>
+The purpose of me building and deploying my own MOOC infrastructure is too explore some of the areas of teaching and learning 
 that I feel are missing from the mainstream MOOC platforms and efforts.  I think that these platforms will eventually address
 the issues near and dear to my heart but not quickly enough for me.
 </p>
