@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^(.*) https://www.py4e.com/data_space/$1 [R=302,NC]
+

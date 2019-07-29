@@ -1,88 +1,31 @@
-<?php
-require_once("start.php");
-require_once("sqlutil.php");
-require_once("db.php");
-
-$courserow = false;
-$enrollmentrow = false;
-if ( isset($_SESSION['id']) && isset($_POST['id']) ) {
-    $id = mysql_real_escape_string($_POST['id']);
-    $sql = "SELECT id FROM Courses WHERE id='$id'";
-    $courserow = retrieve_one_row($sql);
-    if ( is_string($courserow) ) {
-        $_SESSION['error'] = "Unable to retrieve course";
-        header('Location: index.php');
-        return;
-    }
-    $sql = "SELECT id FROM Enrollments WHERE course_id='$id' 
-        AND user_id=".$_SESSION['id'];
-    $enrollmentrow = retrieve_one_row($sql,false);
-}
-
-
-if ( $courserow !== false && isset($_POST['action']) && $_POST['action'] == "enroll" ) {
-    if ( $enrollmentrow == false ) {
-        $sql = "INSERT INTO Enrollments 
-            (course_id, user_id, role, created_at, modified_at) VALUES
-            ('$id', '".$_SESSION['id']."', 1, NOW(), NOW())";
-        $result = run_mysql_query($sql);
-        if ( $result == false || mysql_affected_rows() < 1 ) {
-            $_SESSION['error'] = "Unable to create enrollment";
-            header('Location: index.php');
-            return;
-        }
-        $_SESSION['success'] = "Erollment created";
-    } else {
-        $sql = "UPDATE Enrollments SET role=1, modified_at=NOW() 
-            WHERE course_id='$id' AND USER_ID=".$_SESSION['id'];
-        $result = run_mysql_query($sql);
-        if ( $result == false || mysql_affected_rows() < 1 ) {
-            $_SESSION['error'] = "Unable to change enrollment";
-            header('Location: index.php');
-            return;
-        }
-        $_SESSION['success'] = "Erollment updated";
-    }
-    header('Location: index.php');
-    return;
-}
-
-if ( $courserow !== false && $enrollmentrow !== false 
-    && isset($_POST['action']) && $_POST['action'] == "unenroll" ) {
-    $sql = "UPDATE Enrollments SET role=0, modified_at=NOW() 
-        WHERE course_id='$id' AND USER_ID=".$_SESSION['id'];
-    $result = run_mysql_query($sql);
-    if ( $result == false || mysql_affected_rows() < 1 ) {
-        $_SESSION['error'] = "Unable to change enrollment";
-        header('Location: index.php');
-        return;
-    }
-    $_SESSION['success'] = "Erollment updated";
-    header('Location: index.php');
-    return;
-}
-
-if ( isset($_SESSION['id']) ) {
-    $sql = 'SELECT Courses.id, code, title, description, 
-        image, start_at, close_at, duration,
-        bypass, endpoint, consumer_key, consumer_secret, 
-        Enrollments.id, role, grade, fame, cert_at, focus
-        FROM Courses LEFT OUTER JOIN Enrollments 
-        ON Courses.id = course_id 
-        AND Enrollments.user_id = '.$_SESSION['id'].'
-        ORDER BY focus DESC, Courses.id DESC';
-} else {
-    $sql = 'SELECT Courses.id, code, title, description, 
-        image, start_at, close_at, duration,
-        NULL, endpoint, consumer_key, NULL, 
-        NULL, NULL, NULL, NULL, NULL, focus
-        FROM Courses ORDER BY focus DESC, Courses.id DESC';
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
-<?php require_once("head.php"); ?>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta name="google-translate-customization" content="502d2c1a267d1206-8efe060c714e194c-g94a06c6c571083ae-11">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Chuck Online</title>
+    <!-- Le styles -->
+    <link href="https://online.dr-chuck.com/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="https://online.dr-chuck.com/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="https://online.dr-chuck.com/bootstrap/css/docs.css" rel="stylesheet">
+    <link href="https://online.dr-chuck.com/bootstrap/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://online.dr-chuck.com/static/javascript/jquery.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons 
+    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+    -->
+
 
 <script type="text/javascript">
 function confirm_unenroll() {
@@ -94,137 +37,34 @@ function confirm_unenroll() {
 </head>
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
-<?php require_once("nav.php"); ?>
+<div id="google_translate_element" style="float: right; vertical-align:middle;"></div>
+<h1>
+<span>
+<a href="https://twitter.com/drchuck" target="_blank"><img src="https://en.gravatar.com/avatar/2d0a2f518066c5fd09d757a289b54307?s=80" height="40" width="40" alt="Logo image"></a>
+<span class="hidden-phone">Dr. Chuck Online</span>
+<span class="visible-phone"><small>Dr.C.O</small></span>
+<span class="hidden-phone hidden-tablet" style="color: grey;font-size: 14px; vertical-align: middle">MOOCs, Open Standards, Open Source and OERs</span></span></h1>
+<div class="navbar" style="bgcolor: orange">
+  <div class="navbar-inner">
+    <ul class="nav nav-pills">
+      <li  class="active" ><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
+<!--
+      <li ><a href="courses.php">Courses</a></li>
+-->
+      <li ><a href="about.php">About</a></li>
+      <li><a href="http://www.dr-chuck.com/office" target="_blank">Office Hours</a></li>
+      <li><a href="http://www.dr-chuck.com/" target="_blank">Dr. Chuck</a></li>
+    </ul>
+    <span class="pull-right">
+    <!-- <a class="btn btn-primary " href="login.php">Login</a> -->
+    </span>
+  </div>
+</div>
 <img src="MOOCMap-8.jpg" 
 alt="logo" cite="Image from Caitlin Holman"
 align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
 <p>
-<?php
-    if ( isset($_SESSION['id']) ) {
-?>
-This is the list of the courses in this system. 
-Some of the courses are open enrollment 
-which means you can enroll and launch these courses at any time
-and others only allow enrollment during a particular period.   
-Make sure to enable popups
-from these domains as some of the functionality opens in a popup window.  Grades / progress 
-take about 15 minutes to be sent from Moodle back to this page.
-<?php } ?>
 </p>
-<?php
-$result = mysql_query($sql);
-if ( $result === FALSE ) {
-    echo('Fail-SQL:'.mysql_error().','.$sql);
-    echo("Unable to retrieve courses...");
-    return;
-}
-
-// Disable...
-while ( false && $row = mysql_fetch_row($result) ) {
-    $focus = $row[17];
-    $endpoint = $row[9];
-    $consumer_key = $row[10];
-    $refer = strlen($endpoint) > 0 && strlen($consumer_key) < 1;
-    $start_at = strtotime($row[5]);
-
-    // Because of our weird time zone, we need to pad start 
-    // times by 24 hours so they make sense in local time zones 
-    // around the world
-    $started = start_time() >= $start_at;
-
-    $close_at = false;
-    if ( strlen($row[6]) > 10 && substr($row[6],0,10) != '0000-00-00') $close_at = strtotime($row[6]);
-    $enrolled = $row[12] > 0 && $row[13] > 0;
-
-    // Only show old, closed classes to students enrolled in those classes
-    if ( ! $enrolled && $close_at !== false && time() > $close_at ) {
-        continue;
-    }
-
-    $launch = false;
-    if ( $refer ) {
-        $launch = $endpoint;
-    } else if ( $enrolled && $started ) {
-        $launch = 'lms.php?id='.urlencode($row[0]);
-    }
-    echo('<h3>');
-    if ( $launch ) echo('<a href="'.$launch.'" target="_blank">');
-    echo($row[1].' - '.$row[2]);
-    if ( $launch ) echo('</a>');
-    if ( ! $refer ) echo(' (<a href="map.php?course_id='.urlencode($row[0]).'">Map</a>) ');
-    echo('</h3>');
-    echo("\n<p>\n");
-    // Not escaped - be careful
-    // echo(htmlencode($row[3]));
-    echo($row[3]);
-    $openenrollment = true;
-    if ( ! $started ) {
-        echo("<br/><b>Course Starts:</b> ".htmlencode(substr($row[5],0,10)));
-        $openenrollment = false;
-    }
-    if ( $close_at !== false ) {
-        echo("<br/><b>Registration Closes:</b> ".htmlencode(substr($row[6],0,10))." ");
-        $openenrollment = false;
-    }
-    if ( $openenrollment && ! $refer) {
-        echo("<br/><b>This course is Open Enrollment.</b> ");
-    }
-    if ( $row[14] > 0.0 ) {
-        echo("<br/><b>Current Grade:</b> ".htmlencode($row[14])." ");
-        echo('<div class="progress progress-success" style="width:60%">
-            <div class="bar" style="width: '.intval(100*$row[14]).'%"></div>
-            </div>');
-
-    }
-    echo("</p>\n");
-
-    // You are or have enrolled and your role is > 0
-    if ( $enrolled ) {
-        echo('<form method="post" action="index.php">'."\n");
-        if ( $started ) {
-            echo('<button type="button" class="btn btn-primary" 
-                onclick="window.open('."'".$launch."', '_blank'); return false;".'">Launch</button>'."\n");
-            echo("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-            echo('<a href="'.$launch.'&debug=11" target="_blank" style="color:white">Launch with LTI Debug</a>');
-        }
-        echo('<input type="hidden" name="id" value="'.htmlencode($row[0]).'">
-            <input type="hidden" name="action" value="unenroll">
-            <button type="submit" class="btn btn-warning btn-small');
-        if ( $started ) echo(' pull-right');
-        echo('" onclick="return confirm_unenroll();">Un-Enroll</button>
-            </form>');
-    } else if ( $refer ) {
-        // Do nothing
-    } else if ( $close_at === false || time() <= $close_at ) {
-        if ( isset($_SESSION['id']) ) {
-            echo('<form method="post" action="index.php">
-                <input type="hidden" name="id" value="'.htmlencode($row[0]).'">
-                <input type="hidden" name="action" value="enroll">');
-            echo('<button type="submit" class="btn btn-primary">Join Class</button>');
-            echo('</form>');
-        } else { ?>
-<p>
-<input class="btn btn-success" type="button" onclick="location.href='login.php'; return false;" value="Join Class"/>
-</p> <?php
-        }
-    } else {
-        echo("<p><b>Enrollment is closed for this class.</b></p>\n");
-    }
-    echo("<hr/>\n");
-}
-if ( isset($_SESSION['id']) ) {
-?>
-<p>
-This server is configured to be in the 
-<a href="http://en.wikipedia.org/wiki/UTC-12:00" target="_blank">UTC-12</a> 
-time zone when working with dates to deal with students from around the world.  
-This time zone is in the middle of the Pacific ocean 
-just <em>before</em> the international date line.
-It means that published deadlines 
-(i.e. must complete an assignment by midnight on 01-February-2013) work in any 
-time zone and most time zones have a bit of extra time.
-</p>
-<?php } ?>
 <h2>Coursera Specializations</h2>
 <h3><a href="https://www.coursera.org/specializations/python" target="_blank">Python for Everybody</a></h3>
 <p>
@@ -243,6 +83,54 @@ This course is taught by Dr. Chuck on Coursera and covers the impact of technolo
 <h2>Open Educational Resource Web Sites</h2>
 <h3><a href="https://www.py4e.com/" target="_blank">PY4E - Python for Everybody</a></h3>
 <h3><a href="https://www.wa4e.com/" target="_blank">WA4E - Web Applications for Everybody</a></h3>
-<?php require_once("footer.php"); ?>
+<div style="height: 200px" class="hidden-phone"></div>
+<div style="height: 50px" class="visible-phone"></div>
+<hr>
+<div style="text-align:center;">
+<small>
+</a>
+<span class="hidden-phone">
+Dr. Chuck Online is not an official activity of the University of Michigan
+or School of Information in any way.  
+There will be no certificates and no credit - just learning for learning sake 
+and learning about learning.  This is my research into how we learn and you are 
+welcome to participate.</span>
+The contents of this web site (other than the end-user produced content) are 
+Copyright Creative Commons
+Attribution by 
+<a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
+</small>
+<br/>
+<a href="http://openbadges.org" target="_blank">
+<img src="OpenBadges_Insignia_WeIssue.png">
+</a>
+</div>
+<div style="height: 50px"></div>
+<!--
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+		gaTrack: true, gaId: 'UA-423997-15'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-423997-15']);
+  _gaq.push(['_setDomainName', 'dr-chuck.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- begin olark code --><script data-cfasync="false" type='text/javascript'>/*{literal}<![CDATA[*/
+window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+/* custom configuration goes here (www.olark.com/documentation) */
+olark.identify('1302-2115536-10-2739');/*]]>{/literal}*/</script><noscript><a href="https://www.olark.com/site/1302-2115536-10-2739/contact" title="Chat with Dr. Chuck" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript><!-- end olark code -->
 </div>
 </body>
