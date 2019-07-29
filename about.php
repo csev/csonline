@@ -95,10 +95,6 @@ Attribution by
 <a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
 </small>
 <br/>
-<a href="http://openbadges.org" target="_blank">
-<img src="OpenBadges_Insignia_WeIssue.png">
-</a>
-</div>
 <div style="height: 50px"></div>
 <!--
 <script type="text/javascript">
