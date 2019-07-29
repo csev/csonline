@@ -29,7 +29,6 @@
 </head>
 <body style="padding: 0px 10px 0px 10px">
 <div class="container">
-<div id="google_translate_element" style="float: right; vertical-align:middle;"></div>
 <h1>
 <span>
 <a href="https://twitter.com/drchuck" target="_blank"><img src="https://en.gravatar.com/avatar/2d0a2f518066c5fd09d757a289b54307?s=80" height="40" width="40" alt="Logo image"></a>
@@ -40,16 +39,10 @@
   <div class="navbar-inner">
     <ul class="nav nav-pills">
       <li ><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
-<!--
-      <li ><a href="courses.php">Courses</a></li>
--->
       <li  class="active" ><a href="about.php">About</a></li>
       <li><a href="http://www.dr-chuck.com/office" target="_blank">Office Hours</a></li>
       <li><a href="http://www.dr-chuck.com/" target="_blank">Dr. Chuck</a></li>
     </ul>
-    <span class="pull-right">
-    <!-- <a class="btn btn-primary " href="login.php">Login</a> -->
-    </span>
   </div>
 </div>
 <div class="hidden-phone hidden-tablet" style="width: 560; float: right; margin:10px;">
@@ -75,49 +68,8 @@ Coursera.
 </p>
 <p>
 Charles Severance - 
-Wed Oct 18 18:56:33 EDT 2017
+Mon Jul 29 09:30:50 EDT 2019
 </p>
-<div style="height: 200px" class="hidden-phone"></div>
-<div style="height: 50px" class="visible-phone"></div>
-<hr>
-<div style="text-align:center;">
-<small>
-</a>
-<span class="hidden-phone">
-Dr. Chuck Online is not an official activity of the University of Michigan
-or School of Information in any way.  
-There will be no certificates and no credit - just learning for learning sake 
-and learning about learning.  This is my research into how we learn and you are 
-welcome to participate.</span>
-The contents of this web site (other than the end-user produced content) are 
-Copyright Creative Commons
-Attribution by 
-<a href="http://www.dr-chuck.com/" target="_blank">Charles R. Severance</a>.
-</small>
-<br/>
-<div style="height: 50px"></div>
-<!--
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
-		gaTrack: true, gaId: 'UA-423997-15'}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
--->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-423997-15']);
-  _gaq.push(['_setDomainName', 'dr-chuck.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </div>
 </body>
 
