@@ -50,22 +50,23 @@
 </div>
 <p>
 This is the web site of the "University of Dr. Chuck".  I teach a number of free/online/open courses based on
-free and open materials and this site is the course catalog for my free courses.
+free and open materials and this site is the course catalog for my free courses.  Some of these courses
+are available on mainstream MOOC platforms and other courses are provides using my own open source MOOC platform
+called <a href="https://www.tsugi.org/" target="_blank">Tsugi</a>
 <p>
 The purpose of me building and deploying my own MOOC infrastructure is to explore some of the areas of teaching and learning 
 that I feel are missing from the mainstream MOOC platforms and efforts.  I think that these platforms will eventually address
 the issues near and dear to my heart but not quickly enough for me.
 </p>
 <p>
-Don't get me wrong.  I <em>love</em> Coursera and love teaching
-on Coursera and love seeing how others teach and learn with Coursera.   I really enjoy teaching my 
-<a href="https://www.coursera.org/course/insidetheinternet" target="_blank">Internet History, Technology, and Security</a>,
-<a href="https://www.coursera.org/specializations/python" target="_blank">Python for Everybody</a>,
-and
-<a href="https://www.coursera.org/specializations/web-applications" target="_blank">Web 
-Applications for Everybody</a>
-Coursera.  
+I also like to use my own platforms to show feasibility of my ideas in hopes that mainstream MOOC platforms 
+like Coursera and edX can learn from my experiments.
 </p>
+<p>
+Some of these courses are official offerings of the 
+<a href="https://online.umich.edu" target="_blank">University of Michigan</a>
+(i.e. though Coursera or edX) but some of these
+offerings are just from me - the "University of Dr. Chuck".
 <p>
 Charles Severance - 
 Mon Jul 29 09:30:50 EDT 2019

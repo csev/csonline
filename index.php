@@ -62,12 +62,20 @@ This is a Coursera specialization covering PHP, SQL, and JavaScript to build int
 database-backed web applications.
 </p>
 <h2>Coursera Courses</h2>
+<h3><a href="https://www.coursera.org/learn/python-ar" target="_blank">البرمجة للجميع - بدء استخدام بايثون</a></h3>
 <h3><a href="https://www.coursera.org/course/insidetheinternet" target="_blank">IHTS - Internet History, Technology, and Security (Coursera)</a></h3>
 <p>
 This course is taught by Dr. Chuck on Coursera and covers the impact of technology and networks on our lives, culture, and society continues to increase. The very fact that you can take this course from anywhere in the world requires a technological infrastructure that was designed, engineered, and built over the past sixty years. To function in an information-centric world, we need to understand the workings of network technology. This course will open up the Internet and show you how it was created, who created it and how it works. Along the way we will meet many of the innovators who developed the Internet and Web technologies that we use today. </p>
 </p>
+<h2>edX Courses</h2>
+<h3><a href="https://courses.edx.org/courses/course-v1:MichiganX+py4e101x+1T2019/course/" target="_blank">Programming for Everybody (Getting Started with Python)</a></h3>
+<h3><a href="https://courses.edx.org/courses/course-v1:MichiganX+py4e102x+1T2019/course/" target="_blank">Python Data Structures</a></h3>
+<h3><a href="https://courses.edx.org/courses/course-v1:MichiganX+py4e101x.es+2T2019a/course/" target="_blank">Programación para todos (empezando con Python)</a></h3>
+</p>
 <h2>Open Educational Resource Web Sites</h2>
 <h3><a href="https://www.py4e.com/" target="_blank">PY4E - Python for Everybody</a></h3>
+<h3><a href="https://es.py4e.com/" target="_blank">PY4E-ES - Python para todos</a></h3>
 <h3><a href="https://www.wa4e.com/" target="_blank">WA4E - Web Applications for Everybody</a></h3>
+<h3><a href="https://www.dj4e.com/" target="_blank">DJ4E - Django for Everybody</a></h3>
 </div>
 </body>
