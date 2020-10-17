@@ -87,8 +87,11 @@ A series of four courses covering PostgreSQL.  Coming soon to Coursera
 </ul>
 </p>
 <p>
-The materials in these courses is available under a Creative Commons Licens to allow for teachers 
+The materials in these courses are available under a Creative Commons License to allow for teachers 
 to make use of these materials in their own courses.
 </p>
+<p>
+The University of Michigan has a wide range of additional open online courses available at 
+<a href="https://online.umich.edu" target="_blank">https://online.umich.edu</a>.
 </div>
 </body>
