@@ -51,31 +51,44 @@ alt="logo" cite="Image from Caitlin Holman"
 align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
 <p>
 </p>
-<h2>Coursera Specializations</h2>
-<h3><a href="https://www.coursera.org/specializations/python" target="_blank">Python for Everybody</a></h3>
+<h2>My Online Courses</h2>
+<ul>
+<li><p>
+<a href="https://online.umich.edu/courses/internet-history-technology-and-security/" target="_blank">IHTS - Internet History, Technology, and Security</a>
+- A course designed to make us all better citizens of the Internet.  Avaialable on Coursera.
+</p></li>
+<li><p>
+<a href="https://online.umich.edu/series/python-for-everybody/" target="_blank">Python for Everybody</a> - The world's most successful online Python course.  Available on Coursera, edX, FutureLearn, and
+<a href="https://www.py4e.com/" target="_blank">free on the web</a>.
+</p></li>
+<ul>
+<li><p>
+<a href="https://www.edx.org/es/course/programacion-para-todos-empezando-con-python" target="_blank">Programación para todos (empezando con Python)</a> - Python for Everybody translated into Spanish.  Available on edX and
+<a href="https://es.py4e.com/" target="_blank">free on the web</a>.
+</p></li>
+<li><p>
+<a href="https://www.coursera.org/learn/python-ar" target="_blank">البرمجة للجميع - بدء استخدام بايثون</a>
+Python for Everybody (one course) translated to Arabic.
+</p></li>
+</ul>
+<li><p>
+<a href="https://online.umich.edu/series/django/" target="_blank">Django for Everybody</a> - Covers Django, HTML, CSS, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera, edX, FutureLearn, and
+<a href="https://www.dj4e.com/" target="_blank">free on the web</a>.
+</p></li>
+<li><p>
+<a href="https://online.umich.edu/series/web-applications-for-everybody/" target="_blank">Web Applications for Everybody</a> - Covers HTML, CSS, PHP, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera.
+<a href="https://www.wa4e.com/" target="_blank">free on the web</a>.
+</p></li>
+<li><p>
+<a href="https://www.pg4e.com" target="_blank">PostgreSQL for Everybody</a> 
+A series of four courses covering PostgreSQL.  Coming soon to Coursera
+<a href="https://www.pg4e.com/" target="_blank">free on the web</a>.
+</p></li>
+</ul>
+</p>
 <p>
-This is a Coursera specialization for my Python 3.0 book.
+The materials in these courses is available under a Creative Commons Licens to allow for teachers 
+to make use of these materials in their own courses.
 </p>
-<h3><a href="https://www.coursera.org/specializations/web-applications/" target="_blank">Web Applications for Everybody</a></h3>
-<p>
-This is a Coursera specialization covering PHP, SQL, and JavaScript to build interactive, 
-database-backed web applications.
-</p>
-<h2>Coursera Courses</h2>
-<h3><a href="https://www.coursera.org/learn/python-ar" target="_blank">البرمجة للجميع - بدء استخدام بايثون</a></h3>
-<h3><a href="https://www.coursera.org/course/insidetheinternet" target="_blank">IHTS - Internet History, Technology, and Security (Coursera)</a></h3>
-<p>
-This course is taught by Dr. Chuck on Coursera and covers the impact of technology and networks on our lives, culture, and society continues to increase. The very fact that you can take this course from anywhere in the world requires a technological infrastructure that was designed, engineered, and built over the past sixty years. To function in an information-centric world, we need to understand the workings of network technology. This course will open up the Internet and show you how it was created, who created it and how it works. Along the way we will meet many of the innovators who developed the Internet and Web technologies that we use today. </p>
-</p>
-<h2>edX Courses</h2>
-<h3><a href="https://courses.edx.org/courses/course-v1:MichiganX+py4e101x+1T2019/course/" target="_blank">Programming for Everybody (Getting Started with Python)</a></h3>
-<h3><a href="https://courses.edx.org/courses/course-v1:MichiganX+py4e102x+1T2019/course/" target="_blank">Python Data Structures</a></h3>
-<h3><a href="https://courses.edx.org/courses/course-v1:MichiganX+py4e101x.es+2T2019a/course/" target="_blank">Programación para todos (empezando con Python)</a></h3>
-</p>
-<h2>Open Educational Resource Web Sites</h2>
-<h3><a href="https://www.py4e.com/" target="_blank">PY4E - Python for Everybody</a></h3>
-<h3><a href="https://es.py4e.com/" target="_blank">PY4E-ES - Python para todos</a></h3>
-<h3><a href="https://www.wa4e.com/" target="_blank">WA4E - Web Applications for Everybody</a></h3>
-<h3><a href="https://www.dj4e.com/" target="_blank">DJ4E - Django for Everybody</a></h3>
 </div>
 </body>
