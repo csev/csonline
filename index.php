@@ -58,7 +58,7 @@ align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%;
 - A course designed to make us all better citizens of the Internet.  Avaialable on Coursera.
 </p></li>
 <li><p>
-<a href="https://online.umich.edu/series/python-for-everybody/" target="_blank">Python for Everybody</a> - The world's most successful online Python course.  Available on Coursera, edX, FutureLearn, and
+<a href="https://online.umich.edu/series/python-for-everybody/" target="_blank">Python for Everybody</a> - The world's most successful online Python course.  Available on Coursera, edX, FutureLearn and
 <a href="https://www.py4e.com/" target="_blank">free on the web</a>.
 </p></li>
 <ul>
@@ -66,32 +66,40 @@ align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%;
 <a href="https://www.edx.org/es/course/programacion-para-todos-empezando-con-python" target="_blank">Programación para todos (empezando con Python)</a> - Python for Everybody translated into Spanish.  Available on edX and
 <a href="https://es.py4e.com/" target="_blank">free on the web</a>.
 </p></li>
+<!--
 <li><p>
 <a href="https://www.coursera.org/learn/python-ar" target="_blank">البرمجة للجميع - بدء استخدام بايثون</a>
 Python for Everybody (one course) translated to Arabic.
 </p></li>
+-->
 </ul>
 <li><p>
 <a href="https://online.umich.edu/series/django/" target="_blank">Django for Everybody</a> - Covers Django, HTML, CSS, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera, edX, FutureLearn, and
 <a href="https://www.dj4e.com/" target="_blank">free on the web</a>.
 </p></li>
 <li><p>
-<a href="https://online.umich.edu/series/web-applications-for-everybody/" target="_blank">Web Applications for Everybody</a> - Covers HTML, CSS, PHP, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera.
+<a href="https://online.umich.edu/series/web-applications-for-everybody/" target="_blank">Web Applications for Everybody</a> - Covers HTML, CSS, PHP, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera
 <a href="https://www.wa4e.com/" target="_blank">free on the web</a>.
 </p></li>
 <li><p>
 <a href="https://www.pg4e.com" target="_blank">PostgreSQL for Everybody</a> 
-A series of four courses covering PostgreSQL.  Coming soon to Coursera
+A series of four courses covering PostgreSQL.  Available on Coursera
+and
 <a href="https://www.pg4e.com/" target="_blank">free on the web</a>.
 </p></li>
+<li><p>Under Development:
+<a href="https://www.cc4e.com" target="_blank">C Programming for Everybody</a> 
+A course looking at the C language and its profound effect on modern computing and Computer Science.
+</p></li>
 </ul>
+</p>
+<p>
+The University of Michigan has a wide range of additional open online courses available at 
+<a href="https://online.umich.edu" target="_blank">https://online.umich.edu</a>.
 </p>
 <p>
 The materials in these courses are available under a Creative Commons License to allow for teachers 
 to make use of these materials in their own courses.
 </p>
-<p>
-The University of Michigan has a wide range of additional open online courses available at 
-<a href="https://online.umich.edu" target="_blank">https://online.umich.edu</a>.
 </div>
 </body>
