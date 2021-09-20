@@ -51,7 +51,11 @@ alt="logo" cite="Image from Caitlin Holman"
 align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
 <p>
 </p>
-<h2>My Online Courses</h2>
+<h2>Dr. Chuck' Programming Curriculum</h2>
+<p>
+This is a series of courses designed to take students from knowing nothing about programming to the point where they have the 
+confidence to consider a career as a software developer, designer, or ttake further education.
+</p>
 <ul>
 <li><p>
 <a href="https://online.umich.edu/courses/internet-history-technology-and-security/" target="_blank">Internet History, Technology, and Security</a> (IHTS)
