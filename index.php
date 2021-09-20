@@ -54,41 +54,32 @@ align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%;
 <h2>My Online Courses</h2>
 <ul>
 <li><p>
-<a href="https://online.umich.edu/courses/internet-history-technology-and-security/" target="_blank">IHTS - Internet History, Technology, and Security</a>
+<a href="https://online.umich.edu/courses/internet-history-technology-and-security/" target="_blank">Internet History, Technology, and Security</a> (IHTS)
 - A course designed to make us all better citizens of the Internet.  Avaialable on Coursera.
 </p></li>
 <li><p>
-<a href="https://online.umich.edu/series/python-for-everybody/" target="_blank">Python for Everybody</a> - The world's most successful online Python course.  Available on Coursera, edX, FutureLearn and
-<a href="https://www.py4e.com/" target="_blank">free on the web</a>.
-</p></li>
-<ul>
-<li><p>
-<a href="https://www.edx.org/es/course/programacion-para-todos-empezando-con-python" target="_blank">Programación para todos (empezando con Python)</a> - Python for Everybody translated into Spanish.  Available on edX and
-<a href="https://es.py4e.com/" target="_blank">free on the web</a>.
-</p></li>
-<!--
-<li><p>
-<a href="https://www.coursera.org/learn/python-ar" target="_blank">البرمجة للجميع - بدء استخدام بايثون</a>
-Python for Everybody (one course) translated to Arabic.
-</p></li>
--->
-</ul>
-<li><p>
-<a href="https://online.umich.edu/series/django/" target="_blank">Django for Everybody</a> - Covers Django, HTML, CSS, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera, edX, FutureLearn, and
-<a href="https://www.dj4e.com/" target="_blank">free on the web</a>.
+<a href="https://www.py4e.com/" target="_blank">Python for Everybody (PY4E)</a>- The world's most successful online Python course.  Available on Coursera, 
+edX, FutureLearn, FreeCodeCamp, and
+<a href="https://online.umich.edu/series/python-for-everybody/" target="_blank">free to University of Michigan Students</a>.
 </p></li>
 <li><p>
-<a href="https://online.umich.edu/series/web-applications-for-everybody/" target="_blank">Web Applications for Everybody</a> - Covers HTML, CSS, PHP, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera
-<a href="https://www.wa4e.com/" target="_blank">free on the web</a>.
+<a href="https://www.dj4e.com/" target="_blank">Django for Everybody (DJ4E)</a> - Covers Django, HTML, CSS, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera, edX, FutureLearn, and
+<a href="https://online.umich.edu/series/django/" target="_blank">free to University of Michigan Students</a>.
 </p></li>
 <li><p>
-<a href="https://www.pg4e.com" target="_blank">PostgreSQL for Everybody</a> 
+<a href="https://www.wa4e.com/" target="_blank">Web Applications for Everybody (WA4E)</a> - Covers HTML, CSS, PHP, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera
+and 
+<a href="https://online.umich.edu/series/web-applications-for-everybody/" target="_blank">
+free to University of Michigan Students</a>.
+</p></li>
+<li><p>
+<a href="https://www.pg4e.com" target="_blank">PostgreSQL for Everybody (PG4E)</a> 
 A series of four courses covering PostgreSQL.  Available on Coursera
 and
-<a href="https://www.pg4e.com/" target="_blank">free on the web</a>.
+<a href="https://online.umich.edu/series/postgresql-for-everybody/" target="_blank">free to University of Michigan Students</a>.
 </p></li>
 <li><p>Under Development:
-<a href="https://www.cc4e.com" target="_blank">C Programming for Everybody</a> 
+<a href="https://www.cc4e.com" target="_blank">C Programming for Everybody (CC4E)</a> 
 A course looking at the C language and its profound effect on modern computing and Computer Science.
 </p></li>
 </ul>
@@ -100,6 +91,11 @@ The University of Michigan has a wide range of additional open online courses av
 <p>
 The materials in these courses are available under a Creative Commons License to allow for teachers 
 to make use of these materials in their own courses.
+Some of these
+courses are made available as part of a packaged curriculum to small Liberal Arts universities for direct adoption through
+<a href="https://www.thelcmc.org/programs/computer-science" target="_blank">
+Lower Cost Models for Independent Colledges Consortium (LCMC)</a> and
+<a href="https://rize.education/" target="_blank">Rize Education</a>.
 </p>
 </div>
 </body>
