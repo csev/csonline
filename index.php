@@ -54,7 +54,7 @@ align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%;
 <h2>Dr. Chuck' Programming Curriculum</h2>
 <p>
 This is a series of courses designed to take students from knowing nothing about programming to the point where they have the 
-confidence to consider a career as a software developer, designer, or ttake further education.
+confidence to consider a career as a software developer, designer, or take further education.
 </p>
 <ul>
 <li><p>
