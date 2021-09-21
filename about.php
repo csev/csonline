@@ -51,7 +51,7 @@
 <p>
 This is the web site of the "University of Dr. Chuck".  I teach a number of free/online/open courses based on
 free and open materials and this site is the course catalog for my free courses.  Some of these courses
-are available on mainstream MOOC platforms and other courses are provides using my own open source MOOC platform
+are available on mainstream MOOC platforms and other courses are provided using my own open source MOOC platform
 called <a href="https://www.tsugi.org/" target="_blank">Tsugi</a>
 <p>
 The purpose of me building and deploying my own MOOC infrastructure is to explore some of the areas of teaching and learning 
