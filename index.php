@@ -46,9 +46,7 @@
     </ul>
   </div>
 </div>
-<img src="MOOCMap-8.jpg" 
-alt="logo" cite="Image from Caitlin Holman"
-align="right" class="img-rounded box-shadow hidden-phone" style="max-width: 30%; margin: 10px"/>
+<iframe width="400" height="225" style="float: right;" src="https://www.youtube.com/embed/UjeNA_JtXME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>
 </p>
 <h2>Dr. Chuck' Programming Curriculum</h2>
