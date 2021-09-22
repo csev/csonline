@@ -49,7 +49,7 @@
 <iframe width="400" height="225" style="float: right;" src="https://www.youtube.com/embed/UjeNA_JtXME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>
 </p>
-<h2>Dr. Chuck' Programming Curriculum</h2>
+<h2>Programming For Everybody</h2>
 <p>
 This is a series of courses designed to take students from knowing nothing about programming to the point where they have the 
 confidence to consider a career as a software developer, designer, or take further education.
