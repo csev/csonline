@@ -57,7 +57,7 @@ confidence to consider a career as a software developer, designer, or take furth
 <ul>
 <li><p>
 <a href="https://online.umich.edu/courses/internet-history-technology-and-security/" target="_blank">Internet History, Technology, and Security</a> (IHTS)
-- A course designed to make us all better citizens of the Internet.  Avaialable on Coursera.
+- A course designed to make us all better citizens of the Internet.  Available on Coursera.
 </p></li>
 <li><p>
 <a href="https://www.py4e.com/" target="_blank">Python for Everybody (PY4E)</a>- The world's most successful online Python course.  Available on Coursera, 
