@@ -81,7 +81,7 @@ and
 <a href="https://online.umich.edu/series/postgresql-for-everybody/" target="_blank">free to University of Michigan Students</a>.
 </p></li>
 <li><p>Under Development:
-<a href="https://www.cc4e.com" target="_blank">C Programming for Everybody (CC4E)</a> 
+<a href="https://www.cc4e.com" target="_blank">C Programming - A Historical Perspective (CC4E)</a> 
 A course looking at the C language and its profound effect on modern computing and Computer Science.
 </p></li>
 </ul>
