@@ -56,7 +56,7 @@ confidence to consider a career as a software developer, designer, or take furth
 </p>
 <ul>
 <li><p>
-<a href="https://online.umich.edu/courses/internet-history-technology-and-security/" target="_blank">Internet History, Technology, and Security</a> (IHTS)
+<a href="https://ihts.pr4e.com/" target="_blank">Internet History, Technology, and Security</a> (IHTS)
 - A course designed to make us all better citizens of the Internet.  Available on Coursera.
 </p></li>
 <li><p>
