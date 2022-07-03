@@ -4,7 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
     <meta name="google-translate-customization" content="502d2c1a267d1206-8efe060c714e194c-g94a06c6c571083ae-11">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Chuck Online</title>
+    <meta name="twitter:site" content="@drchuck" />
+    <meta name="twitter:title" content="Dr. Chuck Online - Free Courses in Technology and Programming" />
+    <meta name="twitter:description" content="Completely free online courses in Python, HTML, CSS, JavaScript, JQuery, Django, PostgreSQL, and C." />
+    <meta name="twitter:image" content="https://online.dr-chuck.com/Chuck_16x9_PY4E.jpg" />
+
+    <title>Dr. Chuck Online - Free Courses in Technology and Programming</title>
     <!-- Le styles -->
     <link href="https://online.dr-chuck.com/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="https://online.dr-chuck.com/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
@@ -17,14 +22,6 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <!-- Le fav and touch icons 
-    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
-    -->
 
 
 </head>
@@ -65,18 +62,19 @@ edX, FutureLearn, FreeCodeCamp, and
 <a href="https://online.umich.edu/series/python-for-everybody/" target="_blank">free to University of Michigan Students</a>.
 </p></li>
 <li><p>
-<a href="https://www.dj4e.com/" target="_blank">Django for Everybody (DJ4E)</a> - Covers Django, HTML, CSS, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera, edX, FutureLearn, and
+<a href="https://www.dj4e.com/" target="_blank">Django for Everybody (DJ4E)</a> - Covers
+Django, HTML, CSS, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera, edX, FutureLearn, FreeCodeCamp and
 <a href="https://online.umich.edu/series/django/" target="_blank">free to University of Michigan Students</a>.
 </p></li>
 <li><p>
-<a href="https://www.wa4e.com/" target="_blank">Web Applications for Everybody (WA4E)</a> - Covers HTML, CSS, PHP, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera
-and 
+<a href="https://www.wa4e.com/" target="_blank">Web Applications for Everybody (WA4E)</a> - Covers
+HTML, CSS, PHP, SQL, JavaScript, BootStrap, and JQuery.  Available on Coursera, FreeCodeCamp, and 
 <a href="https://online.umich.edu/series/web-applications-for-everybody/" target="_blank">
 free to University of Michigan Students</a>.
 </p></li>
 <li><p>
 <a href="https://www.pg4e.com" target="_blank">PostgreSQL for Everybody (PG4E)</a> 
-A series of four courses covering PostgreSQL.  Available on Coursera
+A series of four courses covering PostgreSQL.  Available on Coursera, edX,
 and
 <a href="https://online.umich.edu/series/postgresql-for-everybody/" target="_blank">free to University of Michigan Students</a>.
 </p></li>
