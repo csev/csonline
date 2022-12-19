@@ -82,6 +82,9 @@ and
 <a href="https://www.cc4e.com" target="_blank">C Programming - A Historical Perspective (CC4E)</a> 
 A course looking at the C language and its profound effect on modern computing and Computer Science.
 </p></li>
+<li><p>
+Future course topics include Computer Architecture and Java.
+</p></li>
 </ul>
 </p>
 <p>
