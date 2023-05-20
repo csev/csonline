@@ -97,7 +97,7 @@ to make use of these materials in their own courses.
 Some of these
 courses are made available as part of a packaged curriculum to small Liberal Arts universities for direct adoption through
 <a href="https://www.thelcmc.org/programs/computer-science" target="_blank">
-Lower Cost Models for Independent Colledges Consortium (LCMC)</a> and
+Lower Cost Models for Independent Colleges Consortium (LCMC)</a> and
 <a href="https://rize.education/" target="_blank">Rize Education</a>.
 </p>
 </div>
