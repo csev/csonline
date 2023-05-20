@@ -101,4 +101,18 @@ Lower Cost Models for Independent Colleges Consortium (LCMC)</a> and
 <a href="https://rize.education/" target="_blank">Rize Education</a>.
 </p>
 </div>
+<script>
+function doLocalSearchPHPCrawl() {
+     fetch('localsearchphp/crawl.php')
+        .then(response => response.json())
+        .then(result => {
+	  setTimeout(() => { doLocalSearchPHPCrawl(); }, 20000);
+        })
+    .catch(err => console.log(err))
+}
+
+setTimeout(() => { doLocalSearchPHPCrawl(); }, 10000);
+</script>
+
 </body>
+</html>
