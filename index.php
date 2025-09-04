@@ -87,7 +87,11 @@ Available on Coursera, FreeCodeCamp, and
 free to University of Michigan Students</a>.
 </p></li>
 <li><p>
-Future course topics include Computer Architecture, JavaScript and Java.
+<a href="https://www.ca4e.com" target="_blank">Computer Architecture for Everybody (CA4E)</a>
+- Under Construction
+</a>
+<li><p>
+Future course topics include JavaScript and Java.
 </p></li>
 </ul>
 </p>
