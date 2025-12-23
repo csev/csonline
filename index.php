@@ -96,7 +96,7 @@ skills for an entry level job or internship in a software development orginizati
 
 <div class="row-fluid">
   <div class="span4">
-    <a href="https://ihts.pr4e.com/" target="_blank" class="course-card-link">
+    <a href="https://ihts.pr4e.com/"  class="course-card-link">
       <div class="thumbnail course-card">
         <img src="static/img/courses/ihts-card.png" alt="Internet History, Technology, and Security">
         <div class="caption">
@@ -109,7 +109,7 @@ skills for an entry level job or internship in a software development orginizati
   </div>
   
   <div class="span4">
-    <a href="https://www.py4e.com/" target="_blank" class="course-card-link">
+    <a href="https://www.py4e.com/"  class="course-card-link">
       <div class="thumbnail course-card">
         <img src="static/img/courses/py4e-card.png" alt="Python for Everybody">
         <div class="caption">
@@ -122,7 +122,7 @@ skills for an entry level job or internship in a software development orginizati
   </div>
   
   <div class="span4">
-    <a href="https://www.dj4e.com/" target="_blank" class="course-card-link">
+    <a href="https://www.dj4e.com/"  class="course-card-link">
       <div class="thumbnail course-card">
         <img src="static/img/courses/dj4e-card.png" alt="Django for Everybody">
         <div class="caption">
@@ -137,7 +137,7 @@ skills for an entry level job or internship in a software development orginizati
 
 <div class="row-fluid">
   <div class="span4">
-    <a href="https://www.wa4e.com/" target="_blank" class="course-card-link">
+    <a href="https://www.wa4e.com/"  class="course-card-link">
       <div class="thumbnail course-card">
         <img src="static/img/courses/wa4e-card.png" alt="Web Applications for Everybody">
         <div class="caption">
@@ -150,7 +150,7 @@ skills for an entry level job or internship in a software development orginizati
   </div>
   
   <div class="span4">
-    <a href="https://www.pg4e.com" target="_blank" class="course-card-link">
+    <a href="https://www.pg4e.com"  class="course-card-link">
       <div class="thumbnail course-card">
         <img src="static/img/courses/pg4e-card.png" alt="PostgreSQL for Everybody">
         <div class="caption">
@@ -163,7 +163,7 @@ skills for an entry level job or internship in a software development orginizati
   </div>
   
   <div class="span4">
-    <a href="https://www.cc4e.com" target="_blank" class="course-card-link">
+    <a href="https://www.cc4e.com"  class="course-card-link">
       <div class="thumbnail course-card">
         <img src="static/img/courses/cc4e-card.png" alt="C Programming for Everybody">
         <div class="caption">
@@ -178,7 +178,7 @@ skills for an entry level job or internship in a software development orginizati
 
 <div class="row-fluid">
   <div class="span4">
-    <a href="https://www.ca4e.com" target="_blank" class="course-card-link">
+    <a href="https://www.ca4e.com"  class="course-card-link">
       <div class="thumbnail course-card">
         <img src="static/img/courses/ca4e-card.png" alt="Computer Architecture for Everybody">
         <div class="caption">
