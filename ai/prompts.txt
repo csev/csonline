@@ -1,0 +1,13 @@
+
+lets start fresh with a new course C programming for everybody. Make it fresh and different. 
+Note when I upload lessons.json (the content) that there is nod toward Python as rosetta stone
+with two languages and it ends with implementing Pytho objects in C.  This python-c-python
+is a small aspect of the course - by and large this is a C course for python programmers.
+In terms of graphic layout,  Ultra-wide horizontal catalog strip
+Extremely short vertical height
+All content confined to a narrow central horizontal band
+Empty space above and below
+No centered focal point
+I will crop to 1000x300 px after downloading
+feel free to place letterbox above and below
+
