@@ -93,7 +93,20 @@
 <h2>Programming For Everybody - Becoming a Master Programmer</h2>
 <p>
 This is a series of courses designed to take students from knowing nothing about programming to the point where they have the
-skills for an entry level job or internship in a software development orginization.
+skills for an entry level job or internship in a software development orginization.  These classes are designed to get a student
+prepared to be a master programmer as efficiently as possible.
+<ul>
+<li>
+<a href="https://www.youtube.com/watch?v=z3o6yEzcnLc" target="_blank">How to become a Master Programmer</a> (Podcast interview with
+<a href="https://davidbombal.com/" target="_blank">David Bombal</a>)
+</li>
+<li>
+<a href="https://www.youtube.com/live/CifCr36qMws?si=OkDxJZnxUfMbY85J&t=308" target="_blank">The Path to the Master Programmer</a> (Video)
+</li>
+</ul>
+</p>
+<p>
+Taken together, these courses provide a zero cost (but not zero effort) path to becoming a skilled developer.
 </p>
 
 <div class="row-fluid">
