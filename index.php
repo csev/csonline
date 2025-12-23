@@ -81,8 +81,10 @@
     <ul class="nav nav-pills">
       <li  class="active" ><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
       <li ><a href="about.php">About</a></li>
-      <li><a href="http://www.dr-chuck.com/office" target="_blank">Office Hours</a></li>
-      <li><a href="http://www.dr-chuck.com/" target="_blank">Dr. Chuck</a></li>
+      <li><a href="https://podcast.dr-chuck.com/" target="_blank">Podcast</a></li>
+      <li><a href="https://youtube.dr-chuck.com/" target="_blank">YouTube</a></li>
+      <li><a href="https://www.dr-chuck.com/office" target="_blank">Office Hours</a></li>
+      <li><a href="https://www.dr-chuck.com/" target="_blank">Dr. Chuck</a></li>
     </ul>
   </div>
 </div>
