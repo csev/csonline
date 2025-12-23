@@ -157,7 +157,7 @@ skills for an entry level job or internship in a software development orginizati
         <img src="static/img/courses/pg4e-card.png" alt="PostgreSQL for Everybody">
         <div class="caption">
           <h3>PostgreSQL for Everybody (PG4E)</h3>
-          <p>A series of four courses covering PostgreSQL. Available on Coursera, edX, and free online for everyone.</p>
+          <p>A series of four courses covering PostgreSQL and the Deno NoSQL system. Available on Coursera, edX, and free online for everyone.</p>
           <p><span class="btn btn-primary">View Course</span></p>
         </div>
       </div>
