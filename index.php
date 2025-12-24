@@ -97,11 +97,15 @@ skills for an entry level job or internship in a software development orginizati
 prepared to be a master programmer as efficiently as possible.
 <ul>
 <li>
-<a href="https://www.youtube.com/watch?v=z3o6yEzcnLc" target="_blank">How to become a Master Programmer</a> (Podcast interview with
+<a href="https://www.youtube.com/watch?v=z3o6yEzcnLc" target="_blank">How to become a Master Programmer</a> (Interview with
 <a href="https://davidbombal.com/" target="_blank">David Bombal</a>)
 </li>
 <li>
 <a href="https://www.youtube.com/live/CifCr36qMws?si=OkDxJZnxUfMbY85J&t=308" target="_blank">The Path to the Master Programmer</a> (Video)
+</li>
+<li>
+<a href="https://www.youtube.com/watch?v=gwwtae_flKk" target="_blank">Programming in tghe Age of AI</a> (Interview with
+<a href="https://davidbombal.com/" target="_blank">David Bombal</a>)
 </li>
 </ul>
 </p>
