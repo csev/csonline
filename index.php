@@ -202,7 +202,7 @@ Taken together, these courses provide a zero cost (but not zero effort) path to 
         <img src="static/img/courses/ca4e-card.png" alt="Computer Architecture for Everybody">
         <div class="caption">
           <h3>Computer Architecture for Everybody (CA4E)</h3>
-          <p>Rolling out Early 2026. This course covers digital electronics, how electronics can be used for computation, what machine language is, and what assembly language is, and how compiled languages like C work.</p>
+          <p>This course covers digital electronics, how electronics can be used for computation, what machine language is, and what assembly language is, and how compiled languages like C work.</p>
           <p><span class="btn btn-primary">View Course</span></p>
         </div>
       </div>
