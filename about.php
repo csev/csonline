@@ -51,32 +51,45 @@
 <iframe width="400" height="225" style="float: right;" src="https://www.youtube.com/embed/UjeNA_JtXME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <p>
-This is the web site of the "University of Dr. Chuck".  I teach a number of free/online/open courses based on
-free and open materials and this site is the course catalog for my free courses.  Some of these courses
-are available on mainstream educational technology  platforms and other courses are provided using my own open source platform
-called <a href="https://www.tsugi.org/" target="_blank">Tsugi</a>
-<p>
-The purpose of me building and deploying my own EdTech infrastructure is to explore some of the areas of teaching and learning 
-that I feel are missing from the mainstream platforms and efforts.  I think that these platforms will eventually address
-the issues near and dear to my heart but not quickly enough for me.
+Welcome to the University of Dr. Chuck! This site is the course catalog for my free, open, and online courses.
+All of the materials here are openly licensed and designed to be useful whether you are a student, teacher,
+or lifelong learner.
 </p>
+
 <p>
-I also like to use my own platforms to show feasibility of my ideas in hopes that mainstream platforms 
-like Canvas, Coursera and edX can learn from my experiments.
+Some of these courses are also available on large learning platforms, while others are offered here using my
+own open-source teaching platform called
+<a href="https://www.tsugi.org/" target="_blank">Tsugi</a>.
 </p>
+
 <p>
-I use these materials to teach many of my on campus courses as a University of Michigan
-School of Informaiotn faculty member.   These courss in my platform at not 
-University of Michigan offerings and do not confer any University of Michigan
-credit.
+One reason I build and run my own EdTech infrastructure is so I can explore ideas about teaching and learning
+that are hard to try on mainstream platforms. I’m especially interested in hands-on learning, open assessment,
+and tools that support large-scale, low-cost education. I hope that by building working examples, larger
+platforms like Canvas, Coursera, and edX can learn from (and maybe borrow!) some of these ideas.
 </p>
+
 <p>
-If you would like to support Dr. Chuck's efforts with a small subscription or donation,
-please see my 
-<a href="https://patreon.dr-chuck.com/" target="_blank">Patreon</a> page.  You can also
-subscribe to my <a href="https://youtube.dr-chuck.com" target="_blank">YouTube channel</a>
-or just go to my chanel and use the "Thanks" feature on a video to leave me a tip.
+I also use these materials in my on-campus teaching as a faculty member at the University of Michigan School of
+Information. However, the courses offered on this site are <em>not</em> University of Michigan courses and do not
+carry University of Michigan credit.
 </p>
+
+<p>
+If you find these courses helpful and would like to support this work, I would truly appreciate it.
+Your support helps cover hosting costs, development time, and the creation of new courses and tools.
+You can support me through
+<a href="https://patreon.dr-chuck.com/" target="_blank">Patreon</a> or
+<a href="https://github.com/sponsors/csev" target="_blank">GitHub Sponsors</a>.
+</p>
+
+<p>
+You can also subscribe to my
+<a href="https://youtube.dr-chuck.com" target="_blank">YouTube channel</a>, where I post lectures and walkthroughs,
+and use the “Thanks” feature on a video if you’d like to leave a small tip. Every bit of support helps keep the
+University of Dr. Chuck running and growing.
+</p>
+
 </div>
 </body>
 
