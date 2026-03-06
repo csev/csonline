@@ -253,7 +253,7 @@ if ($context->valid) {
     
     // Moodle 2.2 and onwards
     if (isset($CFG->allowframembedding) and !$CFG->allowframembedding) {
-        echo '<html>
+        echo '<html lang="en">
         <head>
         </head>
         <body onload="window.open(\''. $urltogo .'\', \'_blank\');"></body>';

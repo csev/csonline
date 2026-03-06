@@ -1,0 +1,24 @@
+/* Custom overrides for Dr. Chuck Online */
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+    color: #777777;
+}
+
+a,
+a:link,
+a:visited {
+    color: #005580;
+    text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+    color: #004466;
+    text-decoration: underline;
+}
+
