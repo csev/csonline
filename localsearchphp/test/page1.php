@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
 <title>Page one title</title>
 </head>

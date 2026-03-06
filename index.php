@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
     <meta name="google-translate-customization" content="502d2c1a267d1206-8efe060c714e194c-g94a06c6c571083ae-11">
@@ -15,6 +15,7 @@
     <link href="https://online.dr-chuck.com/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="https://online.dr-chuck.com/bootstrap/css/docs.css" rel="stylesheet">
     <link href="https://online.dr-chuck.com/bootstrap/css/prettify.css" rel="stylesheet">
+    <link href="static/css/custom.css" rel="stylesheet">
 
     <script type="text/javascript" src="https://online.dr-chuck.com/static/javascript/jquery.min.js"></script>
 
@@ -79,7 +80,7 @@
 <div class="navbar" style="bgcolor: orange">
   <div class="navbar-inner">
     <ul class="nav nav-pills">
-      <li  class="active" ><a href="index.php"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
+      <li  class="active" ><a href="index.php" aria-label="Courses"><i class="icon-home visible-phone"></i><span class="hidden-phone">Courses</span></a></li>
       <li ><a href="about.php">About</a></li>
       <li><a href="https://podcast.dr-chuck.com/" target="_blank">Podcast</a></li>
       <li><a href="https://youtube.dr-chuck.com/" target="_blank">YouTube</a></li>
