@@ -97,7 +97,7 @@
 </nav>
 
 <p>
-Welcome to the University of Dr. Chuck! 
+Welcome to the School of Dr. Chuck! 
 I have designed a series of courses designed to take students from knowing nothing about programming to the point where they have the
 skills for an entry level job or internship in a software development orginization.  These classes are designed to get a student
 prepared to be a <a href="about.php">master programmer</a> as efficiently as possible.

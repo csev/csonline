@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:site" content="@drchuck" />
     <meta name="twitter:title" content="Dr. Chuck Online - About" />
-    <meta name="twitter:description" content="About Dr. Chuck Online — free, open courses and the University of Dr. Chuck." />
+    <meta name="twitter:description" content="About Dr. Chuck Online — free, open courses and the School of Dr. Chuck." />
     <meta name="twitter:image" content="https://online.dr-chuck.com/Chuck_16x9_PY4E.jpg" />
 
     <title>Dr. Chuck Online - About</title>
