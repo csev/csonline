@@ -42,8 +42,8 @@
       <li class="nav-item"><a class="nav-link" href="https://www.dr-chuck.com/">Dr. Chuck</a></li>
     </ul>
 </nav>
-<div class="d-none d-lg-block float-lg-end ms-3 mb-3" style="max-width: 400px;">
-<iframe width="400" height="225" class="w-100" src="https://www.youtube.com/embed/UjeNA_JtXME" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="d-none d-lg-block float-lg-end ms-3 mb-3" style="max-width: 550px;">
+<iframe width="450" height="253" src="https://www.youtube.com/embed/z3o6yEzcnLc?si=_1G15__0UJnDU4p3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <h2 class="h3">Programming For Everybody - Becoming a Master Programmer</h2>
 <p>
