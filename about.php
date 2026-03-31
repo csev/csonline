@@ -45,13 +45,7 @@
 <div class="d-none d-lg-block float-lg-end ms-3 mb-3" style="max-width: 400px;">
 <iframe width="400" height="225" class="w-100" src="https://www.youtube.com/embed/UjeNA_JtXME" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-<p>
-Welcome to the University of Dr. Chuck! This site is the catalog for my free, open, and online courses.
-All of the materials are openly licensed and meant to be useful whether you are a student, teacher,
-or lifelong learner. The <a href="index.php">Courses</a> page is the best place to browse what is available and open each course’s details.
-</p>
-
-<h2 class="h4 mt-4">Becoming a master programmer</h2>
+<h2 class="h3">Programming For Everybody - Becoming a Master Programmer</h2>
 <p>
 When I talk about a <em>master programmer</em>, I do not mean someone who has memorized every framework or buzzword.
 I mean someone who can think in systems: read unfamiliar code with patience, debug when things break, learn new tools without starting from zero,
@@ -91,13 +85,6 @@ Your support helps cover hosting costs, development time, and the creation of ne
 You can support me through
 <a href="https://patreon.dr-chuck.com/" target="_blank" rel="noopener noreferrer">Patreon</a> or
 <a href="https://github.com/sponsors/csev" target="_blank" rel="noopener noreferrer">GitHub Sponsors</a>.
-</p>
-
-<p>
-You can also subscribe to my
-<a href="https://youtube.dr-chuck.com" target="_blank" rel="noopener noreferrer">YouTube channel</a>, where I post lectures and walkthroughs,
-and use the “Thanks” feature on a video if you’d like to leave a small tip. Every bit of support helps keep the
-University of Dr. Chuck running and growing.
 </p>
 
 <div class="clearfix"></div>

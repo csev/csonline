@@ -83,7 +83,8 @@
 <a href="https://twitter.com/drchuck" target="_blank" rel="noopener noreferrer"><img src="https://en.gravatar.com/avatar/2d0a2f518066c5fd09d757a289b54307?s=80" height="40" width="40" alt="Charles Severance (Dr. Chuck) on Twitter"></a>
 <span class="d-none d-md-inline">Dr. Chuck Online</span>
 <span class="d-md-none"><small>Dr.C.O</small></span>
-<span class="d-none d-xl-inline text-secondary small align-middle ms-1">Open Standards, Open Source and Open Education</span></span></h1>
+<span class="d-none d-xl-inline text-secondary small align-middle ms-1">Open Standards, Open Source and Open Education
+</span></span></h1>
 <nav class="site-nav mb-3" aria-label="Main">
     <ul class="nav nav-pills flex-column flex-sm-row gap-sm-2 mb-0">
       <li class="nav-item"><a class="nav-link active" href="index.php" aria-current="page"><i class="bi bi-house-fill d-md-none me-1" aria-hidden="true"></i><span class="d-none d-md-inline">Courses</span><span class="d-md-none visually-hidden">Courses</span></a></li>
@@ -95,11 +96,11 @@
     </ul>
 </nav>
 
-<h2 class="h3">Programming For Everybody - Becoming a Master Programmer</h2>
 <p>
-This is a series of courses designed to take students from knowing nothing about programming to the point where they have the
+Welcome to the University of Dr. Chuck! 
+I have designed a series of courses designed to take students from knowing nothing about programming to the point where they have the
 skills for an entry level job or internship in a software development orginization.  These classes are designed to get a student
-prepared to be a master programmer as efficiently as possible.
+prepared to be a <a href="about.php">master programmer</a> as efficiently as possible.
 </p>
 
 <div class="row g-4 justify-content-center">
@@ -313,6 +314,10 @@ prepared to be a master programmer as efficiently as possible.
   </ul>
 </template>
 
+<p>
+All of the materials are openly licensed and meant to be useful whether you are a student, teacher,
+or lifelong learner.
+</p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
