@@ -36,6 +36,7 @@
     <ul class="nav nav-pills flex-column flex-sm-row gap-sm-2 mb-0">
       <li class="nav-item"><a class="nav-link" href="index.php"><i class="bi bi-house-fill d-md-none me-1" aria-hidden="true"></i><span class="d-none d-md-inline">Courses</span><span class="d-md-none visually-hidden">Courses</span></a></li>
       <li class="nav-item"><a class="nav-link active" href="about.php" aria-current="page">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://dr-chuck-master-programming-and-ai.kit.com/f4c9f36d0c" target="_blank" rel="noopener noreferrer">Newsletter</a></li>
       <li class="nav-item"><a class="nav-link" href="https://podcast.dr-chuck.com/" target="_blank" rel="noopener noreferrer">Podcast</a></li>
       <li class="nav-item"><a class="nav-link" href="https://youtube.dr-chuck.com/" target="_blank" rel="noopener noreferrer">YouTube</a></li>
       <li class="nav-item"><a class="nav-link" href="https://www.dr-chuck.com/office" target="_blank" rel="noopener noreferrer">Office Hours</a></li>
