@@ -208,6 +208,7 @@ prepared to be a <a href="about.php">master programmer</a> as efficiently as pos
     <li>Paid course sites</li>
     <ul>
       <li><a href="https://www.coursera.org/learn/internet-history" target="_blank">Coursera: Internet History, Technology, and Security</a></li>
+      <li><a href="https://www.udemy.com/course/internet-history/?couponCode=DRCHUCKONLINE" target="_blank">Udemy: Internet History</a></li>
     </ul>
     <li>Free course materials </li>
     <ul>
@@ -304,8 +305,8 @@ prepared to be a <a href="about.php">master programmer</a> as efficiently as pos
   <ul class="course-modal-links">
     <li>Paid course sites</li>
     <ul>
-      <li><a href="https://www.udemy.com/course/computer-hardware-history/?referralCode=E95943B808A6D0D60EDF" target="_blank" rel="noopener noreferrer">Udemy: Computer Hardware: History from Analog to Digital</a></li>
-      <li><a href="https://www.udemy.com/course/how-microprocessors-are-built-and-programmed/?referralCode=76AA3778A203F3AADF5D" target="_blank" rel="noopener noreferrer">Udemy: How Microprocessors are Built and Programmed</a></li>
+      <li><a href="https://www.udemy.com/course/computer-hardware-history/?couponCode=DRCHUCKONLINE" target="_blank" rel="noopener noreferrer">Udemy: Computer Hardware: History from Analog to Digital</a></li>
+      <li><a href="https://www.udemy.com/course/how-microprocessors-are-built-and-programmed/?couponCode=DRCHUCKONLINE" target="_blank" rel="noopener noreferrer">Udemy: How Microprocessors are Built and Programmed</a></li>
     </ul>
     <li>Free course materials</li>
     <ul>
