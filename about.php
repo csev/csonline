@@ -26,12 +26,11 @@
 </head>
 <body class="px-2">
 <div class="container py-2">
-<h1 class="h2 mb-3">
-<span>
+<h1 class="h2 mb-3 d-flex align-items-center flex-wrap gap-1">
 <a href="https://twitter.com/drchuck" target="_blank" rel="noopener noreferrer"><img src="https://en.gravatar.com/avatar/2d0a2f518066c5fd09d757a289b54307?s=80" height="40" width="40" alt="Charles Severance (Dr. Chuck) on Twitter"></a>
-<span class="d-none d-md-inline">Dr. Chuck Online</span>
+<span class="d-none d-md-inline">Dr. Chuck Online:</span>
 <span class="d-md-none"><small>Dr.C.O</small></span>
-<span class="d-none d-xl-inline text-secondary small align-middle ms-1">Courses for the Master Programmer</span></span></h1>
+<span class="d-none d-xl-inline text-secondary small ms-1">Courses for the Master Programmer</span></h1>
 <nav class="site-nav mb-3" aria-label="Main">
     <ul class="nav nav-pills flex-column flex-sm-row gap-sm-2 mb-0">
       <li class="nav-item"><a class="nav-link" href="index.php"><i class="bi bi-house-fill d-md-none me-1" aria-hidden="true"></i><span class="d-none d-md-inline">Courses</span><span class="d-md-none visually-hidden">Courses</span></a></li>
