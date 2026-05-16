@@ -207,7 +207,8 @@ prepared to be a <a href="about.php">master programmer</a> as efficiently as pos
     <li>Paid course sites</li>
     <ul>
       <li><a href="https://www.coursera.org/learn/internet-history" target="_blank">Coursera: Internet History, Technology, and Security</a></li>
-      <li><a href="https://www.udemy.com/course/internet-history/?couponCode=DRCHUCKONLINE" target="_blank">Udemy: Internet History</a></li>
+      <li><a href="https://www.udemy.com/course/internet-technology-and-security/?referralCode=4363C06529B390305394" target="_blank">Udemy: Internet History</a></li>
+      <li><a href="https://www.udemy.com/course/internet-technology-and-security/?referralCode=4363C06529B390305394" target="_blank">Udemy: Internet Technology and Security</a></li>
     </ul>
     <li>Free course materials </li>
     <ul>
