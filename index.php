@@ -249,6 +249,7 @@ prepared to be a <a href="about.php">master programmer</a> as efficiently as pos
       <li><a href="https://www.dj4e.com/">Dr. Chuck Online: www.dj4e.com</a></li>
       <li><a href="https://online.umich.edu/series/django/" target="_blank" rel="noopener noreferrer">Free certificates for University of Michigan students and staff</a></li>
       <li><a href="https://www.youtube.com/watch?v=o0XbHvKxw7Y" target="_blank" rel="noopener noreferrer">FreeCodeCamp: Django for Everybody</a></li>
+      <li><a href="https://lor.instructure.com/resources/29dbfb0021794369a35e660e2ff0f759?shared">Adoptable Course Content on Canvas Commons</a></li>
     </ul>
   </ul>
 </template>
