@@ -243,6 +243,7 @@ prepared to be a <a href="about.php">master programmer</a> as efficiently as pos
     <ul>
       <li><a href="https://www.coursera.org/specializations/django" target="_blank" rel="noopener noreferrer">Coursera: Django for Everybody Specialization</a></li>
       <li><a href="https://www.edx.org/xseries/michiganx-django-for-everybody" target="_blank" rel="noopener noreferrer">edX: Django for Everybody XSeries Program</a></li>
+      <li><a href="https://django.dr-chuck.com/?utm_source=csonline" target="_blank" rel="noopener noreferrer">Fall 2026 - Open Online SI357 (non-credit)</a></li>
     </ul>
     <li>Free course materials</li>
     <ul>
